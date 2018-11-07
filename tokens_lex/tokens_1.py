@@ -18,7 +18,7 @@ reservadas = {
 }
 
 #Lista de tokens
-tokens = ['NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE','EQUALS','LPAREN','RPAREN','DEQUALS','DIFFERENT','LESS','HIGHER','LESSEQ','HIGHEREQ','EXPONENT','DIVIDEINT','MODULE','ODIFFERENT'] + list(reservadas.values())
+tokens = ['NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE','EQUALS','LPAREN','RPAREN','DEQUALS','DIFFERENT','LESS','HIGHER','LESSEQ','HIGHEREQ','EXPONENT','DIVIDEINT','MODULE'] + list(reservadas.values())
 
 #Definicion de tokens de caracteres simples
 t_ignore = ' \t'
@@ -30,7 +30,7 @@ t_EQUALS = r'='
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_DEQUALS = r'=='
-t_DIFERENT = r'!='
+t_DIFFERENT = r'!=|<>'
 t_LESS = r'<'
 t_HIGHER = r'>'
 t_LESSEQ = r'<='
@@ -38,7 +38,6 @@ t_HIGHEREQ = r'>='
 t_EXPONENT = r'\*\*'
 t_DIVIDEINT = r'//'
 t_MODULE = r'%'
-t_ODIFFERENT = r'<>'
 
 #Para numeros
 def t_NUMBER(t):
@@ -68,7 +67,7 @@ cadena1 = "3 + 4 * 10 + -20 *2"
 cadena2 = "x = 3 * 4 + 5 * 6"
 cadena3 = "for = 3 * 4 + 5 * 6"
 cadena4 = "x == True"
-cadena5 = "x != 10"
+cadena5 = "x <> 10"
 cadena6 = "x and y"
 cadena7 = "x**10"
 cadena8 = "x//2"
@@ -78,8 +77,8 @@ cadena9 = "10%2"
 #lexer.input(cadena2)
 #lexer.input(cadena3)
 #lexer.input(cadena4)
-#lexer.input(cadena5)
-lexer.input(cadena6)
+lexer.input(cadena5)
+#lexer.input(cadena6)
 #lexer.input(cadena7)
 #lexer.input(cadena8)
 #lexer.input(cadena9)
