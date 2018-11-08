@@ -15,6 +15,20 @@ reservadas = {
    'False': 'FALSE',
    'in': 'IN',
    'is': 'IS',
+    'return':'RETURN',
+    'break':'BREAK',
+    'as':'AS',
+    'import':'IMPORT',
+    'def':'DEF',
+    'print':'PRINT',
+    'none':'NONE',
+    'list':'LIST',
+    'tuple':'TUPLE',
+    'dic':'DIC',
+    'from':'FROM',
+    'set':'SET',
+    'range':'RANGE',
+    'len':'LEN',
 }
 
 #Lista de tokens
