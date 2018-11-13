@@ -127,8 +127,39 @@ def p_expression_name(t):
         print("Undefined name '%s'" % t[1])
         t[0] = 0
 
+# IF
+def p_statement_if(t):
+    '''statement : IF LPAREN comparison RPAREN statement
+                    | IF LPAREN comparison RPAREN statement ELSE statement'''
+    if t[3]:
+        t[0] = t[5]
+    else:
+        if t[7] is not None:
+            t[0] = t[7]
+
 def p_error(t):
     print("Syntax error at '%s'" % t.value)
+
+# comparison
+def p_comparison_binop(t):
+    '''comparison : expression DEQUALS expression
+                          | expression DIFFERENT expression
+                          | expression HIGHER expression
+                          | expression LESS expression
+                          | expression HIGHEREQ  expression
+                          | expression LESSEQ expression'''
+    if t[2] == '==':
+        t[0] = t[1] == t[3]
+    elif t[2] == '!=':
+        t[0] = t[1] != t[3]
+    elif t[2] == '>':
+        t[0] = t[1] > t[3]
+    elif t[2] == '<':
+        t[0] = t[1] < t[3]
+    elif t[2] == '>=':
+        t[0] = t[1] >= t[3]
+    elif t[2] == '<=':
+        t[0] = t[1] <= t[3]
 
 import ply.yacc as yacc
 parser = yacc.yacc()
