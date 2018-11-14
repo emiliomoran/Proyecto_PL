@@ -191,7 +191,6 @@ parser = yacc.yacc()
    # print(tok)
     #Formato de la salida: LexRoken(type, value, lineno, lexpos)
 
-
 while True:
     try:
         s = input('>> ')   # Use raw_input on Python 2
@@ -199,4 +198,3 @@ while True:
         break
     resultado=parser.parse(s)
     print(resultado)
-

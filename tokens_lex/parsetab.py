@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'leftPLUSMINUSleftTIMESDIVIDErightUMINUSAND AS BREAK DEF DEQUALS DIC DIFFERENT DIVIDE DIVIDEINT ELIF ELSE EQUALS EXPONENT FALSE FOR FROM HIGHER HIGHEREQ IF IMPORT IN IS LEN LESS LESSEQ LIST LPAREN MINUS MODULE NAME NONE NOT NUMBER OR PLUS PRINT RANGE RETURN RPAREN SET THEN TIMES TRUE TUPLE WHILEstatement : NAME EQUALS expressionstatement : expressionexpression : expression PLUS expression\n                  | expression MINUS expression\n                  | expression TIMES expression\n                  | expression DIVIDE expressionexpression : MINUS expression %prec UMINUSexpression : LPAREN expression RPARENexpression : NUMBERexpression : NAMEstatement : IF LPAREN comparison RPAREN statement\n                    | IF LPAREN comparison RPAREN statement ELSE statementcomparison : expression DEQUALS expression\n                          | expression DIFFERENT expression\n                          | expression HIGHER expression\n                          | expression LESS expression\n                          | expression HIGHEREQ  expression\n                          | expression LESSEQ expression'
+_lr_signature = 'AND AS BREAK COMMA DEF DEQUALS DIC DIFFERENT DIVIDE DIVIDEINT ELIF ELSE EQUALS EXPONENT FALSE FOR FROM HIGHER HIGHEREQ IF IMPORT IN IS LCORCHETE LEN LESS LESSEQ LIST LPAREN MINUS MODULE NAME NONE NOT NUMBER OR PLUS PRINT RANGE RCORCHETE RETURN RPAREN SET THEN TIMES TRUE TUPLE WHILEassign : NAME EQUALS exprexpr : expr PLUS term\n\t\t\t| expr MINUS term\n\t\t\t| termterm : term TIMES factor\n\t\t\t| term DIVIDE factor\n\t\t\t| factorassign : NAME EQUALS listlist : LCORCHETE RCORCHETE\n\t\t\t| LCORCHETE element RCORCHETEelement : factorfactor : NUMBER'
     
-_lr_action_items = {'NAME':([0,5,6,8,9,10,11,12,13,25,26,27,28,29,30,31,39,],[2,15,15,15,15,15,15,15,15,2,15,15,15,15,15,15,2,]),'IF':([0,25,39,],[4,4,4,]),'MINUS':([0,2,3,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,33,34,35,36,37,38,39,],[6,-10,10,6,6,-9,6,6,6,6,6,6,10,-10,-7,10,-3,-4,-5,-6,10,-8,6,6,6,6,6,6,6,10,10,10,10,10,10,6,]),'LPAREN':([0,4,5,6,8,9,10,11,12,13,25,26,27,28,29,30,31,39,],[5,13,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,]),'NUMBER':([0,5,6,8,9,10,11,12,13,25,26,27,28,29,30,31,39,],[7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,]),'$end':([1,2,3,7,15,16,17,18,19,20,21,24,32,40,],[0,-10,-2,-9,-10,-7,-1,-3,-4,-5,-6,-8,-11,-12,]),'EQUALS':([2,],[8,]),'PLUS':([2,3,7,14,15,16,17,18,19,20,21,23,24,33,34,35,36,37,38,],[-10,9,-9,9,-10,-7,9,-3,-4,-5,-6,9,-8,9,9,9,9,9,9,]),'TIMES':([2,3,7,14,15,16,17,18,19,20,21,23,24,33,34,35,36,37,38,],[-10,11,-9,11,-10,-7,11,11,11,-5,-6,11,-8,11,11,11,11,11,11,]),'DIVIDE':([2,3,7,14,15,16,17,18,19,20,21,23,24,33,34,35,36,37,38,],[-10,12,-9,12,-10,-7,12,12,12,-5,-6,12,-8,12,12,12,12,12,12,]),'ELSE':([2,3,7,15,16,17,18,19,20,21,24,32,40,],[-10,-2,-9,-10,-7,-1,-3,-4,-5,-6,-8,39,-12,]),'RPAREN':([7,14,15,16,18,19,20,21,22,24,33,34,35,36,37,38,],[-9,24,-10,-7,-3,-4,-5,-6,25,-8,-13,-14,-15,-16,-17,-18,]),'DEQUALS':([7,15,16,18,19,20,21,23,24,],[-9,-10,-7,-3,-4,-5,-6,26,-8,]),'DIFFERENT':([7,15,16,18,19,20,21,23,24,],[-9,-10,-7,-3,-4,-5,-6,27,-8,]),'HIGHER':([7,15,16,18,19,20,21,23,24,],[-9,-10,-7,-3,-4,-5,-6,28,-8,]),'LESS':([7,15,16,18,19,20,21,23,24,],[-9,-10,-7,-3,-4,-5,-6,29,-8,]),'HIGHEREQ':([7,15,16,18,19,20,21,23,24,],[-9,-10,-7,-3,-4,-5,-6,30,-8,]),'LESSEQ':([7,15,16,18,19,20,21,23,24,],[-9,-10,-7,-3,-4,-5,-6,31,-8,]),}
+_lr_action_items = {'NAME':([0,],[2,]),'$end':([1,4,5,6,8,9,14,17,18,19,20,21,],[0,-1,-8,-4,-7,-12,-9,-2,-3,-5,-6,-10,]),'EQUALS':([2,],[3,]),'LCORCHETE':([3,],[7,]),'NUMBER':([3,7,10,11,12,13,],[9,9,9,9,9,9,]),'PLUS':([4,6,8,9,17,18,19,20,],[10,-4,-7,-12,-2,-3,-5,-6,]),'MINUS':([4,6,8,9,17,18,19,20,],[11,-4,-7,-12,-2,-3,-5,-6,]),'TIMES':([6,8,9,17,18,19,20,],[12,-7,-12,12,12,-5,-6,]),'DIVIDE':([6,8,9,17,18,19,20,],[13,-7,-12,13,13,-5,-6,]),'RCORCHETE':([7,9,15,16,],[14,-12,21,-11,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'statement':([0,25,39,],[1,32,40,]),'expression':([0,5,6,8,9,10,11,12,13,25,26,27,28,29,30,31,39,],[3,14,16,17,18,19,20,21,23,3,33,34,35,36,37,38,3,]),'comparison':([13,],[22,]),}
+_lr_goto_items = {'assign':([0,],[1,]),'expr':([3,],[4,]),'list':([3,],[5,]),'term':([3,10,11,],[6,17,18,]),'factor':([3,7,10,11,12,13,],[8,16,8,8,19,20,]),'element':([7,],[15,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,23 +26,17 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> statement","S'",1,None,None,None),
-  ('statement -> NAME EQUALS expression','statement',3,'p_statement_assign','tokens_1.py',92),
-  ('statement -> expression','statement',1,'p_statement_expr','tokens_1.py',96),
-  ('expression -> expression PLUS expression','expression',3,'p_expression_binop','tokens_1.py',100),
-  ('expression -> expression MINUS expression','expression',3,'p_expression_binop','tokens_1.py',101),
-  ('expression -> expression TIMES expression','expression',3,'p_expression_binop','tokens_1.py',102),
-  ('expression -> expression DIVIDE expression','expression',3,'p_expression_binop','tokens_1.py',103),
-  ('expression -> MINUS expression','expression',2,'p_expression_uminus','tokens_1.py',111),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression_group','tokens_1.py',115),
-  ('expression -> NUMBER','expression',1,'p_expression_number','tokens_1.py',119),
-  ('expression -> NAME','expression',1,'p_expression_name','tokens_1.py',123),
-  ('statement -> IF LPAREN comparison RPAREN statement','statement',5,'p_statement_if','tokens_1.py',132),
-  ('statement -> IF LPAREN comparison RPAREN statement ELSE statement','statement',7,'p_statement_if','tokens_1.py',133),
-  ('comparison -> expression DEQUALS expression','comparison',3,'p_comparison_binop','tokens_1.py',145),
-  ('comparison -> expression DIFFERENT expression','comparison',3,'p_comparison_binop','tokens_1.py',146),
-  ('comparison -> expression HIGHER expression','comparison',3,'p_comparison_binop','tokens_1.py',147),
-  ('comparison -> expression LESS expression','comparison',3,'p_comparison_binop','tokens_1.py',148),
-  ('comparison -> expression HIGHEREQ expression','comparison',3,'p_comparison_binop','tokens_1.py',149),
-  ('comparison -> expression LESSEQ expression','comparison',3,'p_comparison_binop','tokens_1.py',150),
+  ("S' -> assign","S'",1,None,None,None),
+  ('assign -> NAME EQUALS expr','assign',3,'p_assign','semantica.py',7),
+  ('expr -> expr PLUS term','expr',3,'p_expr','semantica.py',10),
+  ('expr -> expr MINUS term','expr',3,'p_expr','semantica.py',11),
+  ('expr -> term','expr',1,'p_expr','semantica.py',12),
+  ('term -> term TIMES factor','term',3,'p_term','semantica.py',15),
+  ('term -> term DIVIDE factor','term',3,'p_term','semantica.py',16),
+  ('term -> factor','term',1,'p_term','semantica.py',17),
+  ('assign -> NAME EQUALS list','assign',3,'p_lista','semantica.py',20),
+  ('list -> LCORCHETE RCORCHETE','list',2,'p_list','semantica.py',23),
+  ('list -> LCORCHETE element RCORCHETE','list',3,'p_list','semantica.py',24),
+  ('element -> factor','element',1,'p_element','semantica.py',27),
+  ('factor -> NUMBER','factor',1,'p_factor','semantica.py',30),
 ]
