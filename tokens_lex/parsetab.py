@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'AND AS BREAK COMMA DEF DEQUALS DIC DIFFERENT DIVIDE DIVIDEINT ELIF ELSE EQUALS EXPONENT FALSE FOR FROM HIGHER HIGHEREQ IF IMPORT IN IS LCORCHETE LEN LESS LESSEQ LIST LPAREN MINUS MODULE NAME NONE NOT NUMBER OR PLUS PRINT RANGE RCORCHETE RETURN RPAREN SET THEN TIMES TRUE TUPLE WHILEassign : NAME EQUALS exprexpr : expr PLUS term\n\t\t\t| expr MINUS term\n\t\t\t| termterm : term TIMES factor\n\t\t\t| term DIVIDE factor\n\t\t\t| factorassign : NAME EQUALS listlist : LCORCHETE RCORCHETE\n\t\t\t| LCORCHETE element RCORCHETEelement : factorfactor : NUMBER'
+_lr_signature = 'AND AS BREAK COMILLA COMILLAD COMMA DEF DEQUALS DIC DIFFERENT DIVIDE DIVIDEINT DPOINT ELIF ELSE EQUALS EXPONENT FALSE FOR FROM HIGHER HIGHEREQ IF IMPORT IN IS LCORCHETE LEN LESS LESSEQ LIST LPAREN MINUS MODULE NAME NONE NOT NUMBER OR PLUS PRINT RANGE RCORCHETE RETURN RPAREN SET THEN TIMES TRUE TUPLE WHILEassign : NAME EQUALS expr\n\t\t\t  | NAME EQUALS list\n\t\t\t  | NAME EQUALS cadexpr : expr PLUS term\n\t\t\t| expr MINUS term\n\t\t\t| termterm : term TIMES factor\n\t\t\t| term DIVIDE factor\n\t\t\t| factorlist : LCORCHETE RCORCHETE\n\t\t\t| LCORCHETE element RCORCHETE\n\t\t\t| LCORCHETE element elements RCORCHETEelement : factor\n\t\t\t   | NAME\n\t\t\t   | listelements : COMMA element\n\t\t\t\t| COMMA list\n\t\t\t\t| COMMA element elementsfactor : NUMBER\n\t\t\t  | MINUS NUMBERcad : COMILLA NAME COMILLA\n\t\t   | COMILLAD NAME COMILLAD\n\t\t   | cad LCORCHETE index RCORCHETEindex : factor\n\t\t\t | factor DPOINT factor\n\t\t\t | factor DPOINT factor DPOINT factor'
     
-_lr_action_items = {'NAME':([0,],[2,]),'$end':([1,4,5,6,8,9,14,17,18,19,20,21,],[0,-1,-8,-4,-7,-12,-9,-2,-3,-5,-6,-10,]),'EQUALS':([2,],[3,]),'LCORCHETE':([3,],[7,]),'NUMBER':([3,7,10,11,12,13,],[9,9,9,9,9,9,]),'PLUS':([4,6,8,9,17,18,19,20,],[10,-4,-7,-12,-2,-3,-5,-6,]),'MINUS':([4,6,8,9,17,18,19,20,],[11,-4,-7,-12,-2,-3,-5,-6,]),'TIMES':([6,8,9,17,18,19,20,],[12,-7,-12,12,12,-5,-6,]),'DIVIDE':([6,8,9,17,18,19,20,],[13,-7,-12,13,13,-5,-6,]),'RCORCHETE':([7,9,15,16,],[14,-12,21,-11,]),}
+_lr_action_items = {'NAME':([0,9,10,11,35,],[2,23,25,26,23,]),'$end':([1,4,5,6,7,12,13,19,20,27,28,31,32,33,36,37,38,40,],[0,-1,-2,-3,-6,-9,-19,-20,-10,-4,-5,-7,-8,-11,-21,-22,-23,-12,]),'EQUALS':([2,],[3,]),'LCORCHETE':([3,6,9,35,36,37,38,],[9,16,9,9,-21,-22,-23,]),'COMILLA':([3,25,],[10,36,]),'COMILLAD':([3,26,],[11,37,]),'NUMBER':([3,8,9,14,15,16,17,18,35,39,45,],[13,19,13,13,13,13,13,13,13,13,13,]),'MINUS':([3,4,7,9,12,13,14,15,16,17,18,19,27,28,31,32,35,39,45,],[8,15,-6,8,-9,-19,8,8,8,8,8,-20,-4,-5,-7,-8,8,8,8,]),'PLUS':([4,7,12,13,19,27,28,31,32,],[14,-6,-9,-19,-20,-4,-5,-7,-8,]),'TIMES':([7,12,13,19,27,28,31,32,],[17,-9,-19,-20,17,17,-7,-8,]),'DIVIDE':([7,12,13,19,27,28,31,32,],[18,-9,-19,-20,18,18,-7,-8,]),'RCORCHETE':([9,13,19,20,21,22,23,24,29,30,33,34,40,41,42,43,44,46,],[20,-19,-20,-10,33,-13,-14,-15,38,-24,-11,40,-12,-16,-15,-25,-18,-26,]),'COMMA':([13,19,20,21,22,23,24,33,40,41,42,],[-19,-20,-10,35,-13,-14,-15,-11,-12,35,-15,]),'DPOINT':([13,19,30,43,],[-19,-20,39,45,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'assign':([0,],[1,]),'expr':([3,],[4,]),'list':([3,],[5,]),'term':([3,10,11,],[6,17,18,]),'factor':([3,7,10,11,12,13,],[8,16,8,8,19,20,]),'element':([7,],[15,]),}
+_lr_goto_items = {'assign':([0,],[1,]),'expr':([3,],[4,]),'list':([3,9,35,],[5,24,42,]),'cad':([3,],[6,]),'term':([3,14,15,],[7,27,28,]),'factor':([3,9,14,15,16,17,18,35,39,45,],[12,22,12,12,30,31,32,22,43,46,]),'element':([9,35,],[21,41,]),'index':([16,],[29,]),'elements':([21,41,],[34,44,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -28,15 +28,29 @@ del _lr_goto_items
 _lr_productions = [
   ("S' -> assign","S'",1,None,None,None),
   ('assign -> NAME EQUALS expr','assign',3,'p_assign','semantica.py',7),
-  ('expr -> expr PLUS term','expr',3,'p_expr','semantica.py',10),
-  ('expr -> expr MINUS term','expr',3,'p_expr','semantica.py',11),
-  ('expr -> term','expr',1,'p_expr','semantica.py',12),
-  ('term -> term TIMES factor','term',3,'p_term','semantica.py',15),
-  ('term -> term DIVIDE factor','term',3,'p_term','semantica.py',16),
-  ('term -> factor','term',1,'p_term','semantica.py',17),
-  ('assign -> NAME EQUALS list','assign',3,'p_lista','semantica.py',20),
+  ('assign -> NAME EQUALS list','assign',3,'p_assign','semantica.py',8),
+  ('assign -> NAME EQUALS cad','assign',3,'p_assign','semantica.py',9),
+  ('expr -> expr PLUS term','expr',3,'p_expr','semantica.py',13),
+  ('expr -> expr MINUS term','expr',3,'p_expr','semantica.py',14),
+  ('expr -> term','expr',1,'p_expr','semantica.py',15),
+  ('term -> term TIMES factor','term',3,'p_term','semantica.py',18),
+  ('term -> term DIVIDE factor','term',3,'p_term','semantica.py',19),
+  ('term -> factor','term',1,'p_term','semantica.py',20),
   ('list -> LCORCHETE RCORCHETE','list',2,'p_list','semantica.py',23),
   ('list -> LCORCHETE element RCORCHETE','list',3,'p_list','semantica.py',24),
-  ('element -> factor','element',1,'p_element','semantica.py',27),
-  ('factor -> NUMBER','factor',1,'p_factor','semantica.py',30),
+  ('list -> LCORCHETE element elements RCORCHETE','list',4,'p_list','semantica.py',25),
+  ('element -> factor','element',1,'p_element','semantica.py',28),
+  ('element -> NAME','element',1,'p_element','semantica.py',29),
+  ('element -> list','element',1,'p_element','semantica.py',30),
+  ('elements -> COMMA element','elements',2,'p_elements','semantica.py',33),
+  ('elements -> COMMA list','elements',2,'p_elements','semantica.py',34),
+  ('elements -> COMMA element elements','elements',3,'p_elements','semantica.py',35),
+  ('factor -> NUMBER','factor',1,'p_factor','semantica.py',38),
+  ('factor -> MINUS NUMBER','factor',2,'p_factor','semantica.py',39),
+  ('cad -> COMILLA NAME COMILLA','cad',3,'p_cad','semantica.py',42),
+  ('cad -> COMILLAD NAME COMILLAD','cad',3,'p_cad','semantica.py',43),
+  ('cad -> cad LCORCHETE index RCORCHETE','cad',4,'p_cad','semantica.py',44),
+  ('index -> factor','index',1,'p_index','semantica.py',47),
+  ('index -> factor DPOINT factor','index',3,'p_index','semantica.py',48),
+  ('index -> factor DPOINT factor DPOINT factor','index',5,'p_index','semantica.py',49),
 ]

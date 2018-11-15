@@ -32,7 +32,7 @@ reservadas = {
 }
 
 #Lista de tokens
-tokens = ['NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE','EQUALS','LPAREN','RPAREN','DEQUALS','DIFFERENT','LESS','HIGHER','LESSEQ','HIGHEREQ','EXPONENT','DIVIDEINT','MODULE','LCORCHETE','RCORCHETE','COMMA'] + list(reservadas.values())
+tokens = ['NAME','NUMBER','PLUS','MINUS','TIMES','DIVIDE','EQUALS','LPAREN','RPAREN','DEQUALS','DIFFERENT','LESS','HIGHER','LESSEQ','HIGHEREQ','EXPONENT','DIVIDEINT','MODULE','LCORCHETE','RCORCHETE','COMMA','COMILLA','COMILLAD','DPOINT'] + list(reservadas.values())
 
 #Definicion de tokens de caracteres simples
 t_ignore = ' \t'
@@ -55,7 +55,9 @@ t_MODULE = r'%'
 t_LCORCHETE = r'\['
 t_RCORCHETE = r'\]'
 t_COMMA = r','
-
+t_COMILLA = r'\''
+t_COMILLAD = r'"'
+t_DPOINT = r':'
 
 #Para numeros
 def t_NUMBER(t):
