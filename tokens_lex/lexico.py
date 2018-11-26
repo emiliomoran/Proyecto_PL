@@ -2,33 +2,33 @@ import ply.lex as lex
 
 #Palabras reservadas
 reservadas = {
-   'if' : 'IF',
-   'then' : 'THEN',
-   'else' : 'ELSE',
-   'elif' : 'ELIF',
-   'while' : 'WHILE',
-   'for' : 'FOR',
-   'and' : 'AND',
-   'or' : 'OR',
-   'not' : 'NOT',
-   'True': 'TRUE',
-   'False': 'FALSE',
-   'in': 'IN',
-   'is': 'IS',
-    'return':'RETURN',
-    'break':'BREAK',
-    'as':'AS',
-    'import':'IMPORT',
-    'def':'DEF',
-    'print':'PRINT',
-    'none':'NONE',
-    'list':'LIST',
-    'tuple':'TUPLE',
-    'dic':'DIC',
-    'from':'FROM',
-    'set':'SET',
-    'range':'RANGE',
-    'len':'LEN',
+  'if' : 'IF',
+  'then' : 'THEN',
+  'else' : 'ELSE',
+  'elif' : 'ELIF',
+  'while' : 'WHILE',
+  'for' : 'FOR',
+  'and' : 'AND',
+  'or' : 'OR',
+  'not' : 'NOT',
+  'True': 'TRUE',
+  'False': 'FALSE',
+  'in': 'IN',
+  'is': 'IS',
+  'return':'RETURN',
+  'break':'BREAK',
+  'as':'AS',
+  'import':'IMPORT',
+  'def':'DEF',
+  'print':'PRINT',
+  'none':'NONE',
+  'list':'LIST',
+  'tuple':'TUPLE',
+  'dic':'DIC',
+  'from':'FROM',
+  'set':'SET',
+  'range':'RANGE',
+  'len':'LEN',
 }
 
 #Lista de tokens
@@ -59,13 +59,13 @@ t_COMILLA = r'\''
 t_COMILLAD = r'"'
 t_DPOINT = r':'
 
-#Para numeros
+#Definicion de tokens para numeros
 def t_NUMBER(t):
     r'\d+'
     t.value = int(t.value)
     return t
 
-#Para nombres de variables
+#Definicion de tokens para nombres de variables
 def t_NAME(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
     t.type = reservadas.get(t.value, 'NAME')
@@ -82,6 +82,7 @@ def t_error(t):
 
 lexer = lex.lex()
 
+##PRUEBA LEX##
 '''
 cadena = "[1,3]"
 lexer.input(cadena)

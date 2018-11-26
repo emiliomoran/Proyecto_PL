@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'AND AS BREAK COMILLA COMILLAD COMMA DEF DEQUALS DIC DIFFERENT DIVIDE DIVIDEINT DPOINT ELIF ELSE EQUALS EXPONENT FALSE FOR FROM HIGHER HIGHEREQ IF IMPORT IN IS LCORCHETE LEN LESS LESSEQ LIST LPAREN MINUS MODULE NAME NONE NOT NUMBER OR PLUS PRINT RANGE RCORCHETE RETURN RPAREN SET THEN TIMES TRUE TUPLE WHILEassign : NAME EQUALS expr\n\t\t\t  | NAME EQUALS list\n\t\t\t  | NAME EQUALS cadexpr : expr PLUS term\n\t\t\t| expr MINUS term\n\t\t\t| termterm : term TIMES factor\n\t\t\t| term DIVIDE factor\n\t\t\t| factorlist : LCORCHETE RCORCHETE\n\t\t\t| LCORCHETE element RCORCHETE\n\t\t\t| LCORCHETE element elements RCORCHETEelement : factor\n\t\t\t   | NAME\n\t\t\t   | listelements : COMMA element\n\t\t\t\t| COMMA list\n\t\t\t\t| COMMA element elementsfactor : NUMBER\n\t\t\t  | MINUS NUMBERcad : COMILLA NAME COMILLA\n\t\t   | COMILLAD NAME COMILLAD\n\t\t   | cad LCORCHETE index RCORCHETEindex : factor\n\t\t\t | factor DPOINT factor\n\t\t\t | factor DPOINT factor DPOINT factor'
+_lr_signature = 'AND AS BREAK COMILLA COMILLAD COMMA DEF DEQUALS DIC DIFFERENT DIVIDE DIVIDEINT DPOINT ELIF ELSE EQUALS EXPONENT FALSE FOR FROM HIGHER HIGHEREQ IF IMPORT IN IS LCORCHETE LEN LESS LESSEQ LIST LPAREN MINUS MODULE NAME NONE NOT NUMBER OR PLUS PRINT RANGE RCORCHETE RETURN RPAREN SET THEN TIMES TRUE TUPLE WHILEassign : NAME EQUALS expr\n\t\t\t  | NAME EQUALS list\n\t\t\t  | NAME EQUALS cad\n\t\t\t  | while\n\t\t\t  | forexpr : expr PLUS term\n\t\t\t| expr MINUS term\n\t\t\t| termterm : term TIMES factor\n\t\t\t| term DIVIDE factor\n\t\t\t| factorlist : LCORCHETE RCORCHETE\n\t\t\t| LCORCHETE element RCORCHETE\n\t\t\t| LCORCHETE element elements RCORCHETEelement : factor\n\t\t\t   | NAME\n\t\t\t   | listelements : COMMA element\n\t\t\t\t| COMMA list\n\t\t\t\t| COMMA element elementsfactor : NUMBER\n\t\t\t  | MINUS NUMBER\n\t\t\t  | NAMEcad : COMILLA NAME COMILLA\n\t\t   | COMILLAD NAME COMILLAD\n\t\t   | cad LCORCHETE index RCORCHETEindex : factor\n\t\t\t | factor DPOINT factor\n\t\t\t | factor DPOINT factor DPOINT factorwhile : WHILE LPAREN comparison RPAREN DPOINT\n\t\t\t | WHILE LPAREN comparison comparisons RPAREN DPOINTcomparisons : AND comparison\n\t\t\t\t   | AND comparison comparisons\n\t\t\t\t   | OR comparison\n\t\t\t\t   | OR comparison comparisonsbool : TRUE\n\t\t\t| FALSEcomparison : comp DEQUALS comp\n                  | comp DIFFERENT comp\n                  | comp HIGHER comp\n                  | comp LESS comp\n                  | comp HIGHEREQ  comp\n                  | comp LESSEQ comp\n                  | boolcomp : expr\n\t\t\t| elementfor : FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT\n\t\t   | FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT\n\t\t   | FOR NAME IN NAME DPOINTr_values : r_value COMMA r_value\n\t\t\t\t| r_value COMMA r_value COMMA r_valuer_value : factor'
     
-_lr_action_items = {'NAME':([0,9,10,11,35,],[2,23,25,26,23,]),'$end':([1,4,5,6,7,12,13,19,20,27,28,31,32,33,36,37,38,40,],[0,-1,-2,-3,-6,-9,-19,-20,-10,-4,-5,-7,-8,-11,-21,-22,-23,-12,]),'EQUALS':([2,],[3,]),'LCORCHETE':([3,6,9,35,36,37,38,],[9,16,9,9,-21,-22,-23,]),'COMILLA':([3,25,],[10,36,]),'COMILLAD':([3,26,],[11,37,]),'NUMBER':([3,8,9,14,15,16,17,18,35,39,45,],[13,19,13,13,13,13,13,13,13,13,13,]),'MINUS':([3,4,7,9,12,13,14,15,16,17,18,19,27,28,31,32,35,39,45,],[8,15,-6,8,-9,-19,8,8,8,8,8,-20,-4,-5,-7,-8,8,8,8,]),'PLUS':([4,7,12,13,19,27,28,31,32,],[14,-6,-9,-19,-20,-4,-5,-7,-8,]),'TIMES':([7,12,13,19,27,28,31,32,],[17,-9,-19,-20,17,17,-7,-8,]),'DIVIDE':([7,12,13,19,27,28,31,32,],[18,-9,-19,-20,18,18,-7,-8,]),'RCORCHETE':([9,13,19,20,21,22,23,24,29,30,33,34,40,41,42,43,44,46,],[20,-19,-20,-10,33,-13,-14,-15,38,-24,-11,40,-12,-16,-15,-25,-18,-26,]),'COMMA':([13,19,20,21,22,23,24,33,40,41,42,],[-19,-20,-10,35,-13,-14,-15,-11,-12,35,-15,]),'DPOINT':([13,19,30,43,],[-19,-20,39,45,]),}
+_lr_action_items = {'NAME':([0,6,7,8,16,17,18,31,32,33,34,35,36,45,46,47,48,49,50,51,52,63,77,79,92,94,99,],[2,9,10,29,29,41,42,53,10,10,10,10,10,29,29,29,29,29,29,29,29,29,10,10,10,10,10,]),'WHILE':([0,],[5,]),'FOR':([0,],[6,]),'$end':([1,3,4,10,11,12,13,14,19,20,37,38,55,56,59,60,61,64,65,66,76,78,80,83,95,97,],[0,-4,-5,-23,-1,-2,-3,-8,-11,-21,-22,-12,-6,-7,-9,-10,-13,-24,-25,-30,-49,-26,-14,-31,-47,-48,]),'EQUALS':([2,],[7,]),'LPAREN':([5,54,],[8,77,]),'LCORCHETE':([7,8,13,16,45,46,47,48,49,50,51,52,63,64,65,78,],[16,16,34,16,16,16,16,16,16,16,16,16,16,-24,-25,-26,]),'COMILLA':([7,41,],[17,64,]),'COMILLAD':([7,42,],[18,65,]),'NUMBER':([7,8,15,16,32,33,34,35,36,45,46,47,48,49,50,51,52,63,77,79,92,94,99,],[20,20,37,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,]),'MINUS':([7,8,10,11,14,16,19,20,24,28,29,32,33,34,35,36,37,45,46,47,48,49,50,51,52,55,56,59,60,63,77,79,92,94,99,],[15,15,-23,33,-8,15,-11,-21,33,-11,-23,15,15,15,15,15,-22,15,15,15,15,15,15,15,15,-6,-7,-9,-10,15,15,15,15,15,15,]),'TRUE':([8,45,46,],[26,26,26,]),'FALSE':([8,45,46,],[27,27,27,]),'IN':([9,],[31,]),'TIMES':([10,14,19,20,28,29,37,55,56,59,60,],[-23,35,-11,-21,-11,-23,-22,35,35,-9,-10,]),'DIVIDE':([10,14,19,20,28,29,37,55,56,59,60,],[-23,36,-11,-21,-11,-23,-22,36,36,-9,-10,]),'PLUS':([10,11,14,19,20,24,28,29,37,55,56,59,60,],[-23,32,-8,-11,-21,32,-11,-23,-22,-6,-7,-9,-10,]),'DEQUALS':([10,14,19,20,22,24,25,28,29,30,37,38,55,56,59,60,61,80,],[-23,-8,-11,-21,47,-45,-46,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,-14,]),'DIFFERENT':([10,14,19,20,22,24,25,28,29,30,37,38,55,56,59,60,61,80,],[-23,-8,-11,-21,48,-45,-46,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,-14,]),'HIGHER':([10,14,19,20,22,24,25,28,29,30,37,38,55,56,59,60,61,80,],[-23,-8,-11,-21,49,-45,-46,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,-14,]),'LESS':([10,14,19,20,22,24,25,28,29,30,37,38,55,56,59,60,61,80,],[-23,-8,-11,-21,50,-45,-46,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,-14,]),'HIGHEREQ':([10,14,19,20,22,24,25,28,29,30,37,38,55,56,59,60,61,80,],[-23,-8,-11,-21,51,-45,-46,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,-14,]),'LESSEQ':([10,14,19,20,22,24,25,28,29,30,37,38,55,56,59,60,61,80,],[-23,-8,-11,-21,52,-45,-46,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,-14,]),'RPAREN':([10,14,19,20,21,23,24,25,26,27,28,29,30,37,38,44,55,56,59,60,61,68,69,70,71,72,73,74,75,80,84,85,86,87,88,96,100,],[-23,-8,-11,-21,43,-44,-45,-46,-36,-37,-11,-16,-17,-22,-12,67,-6,-7,-9,-10,-13,-32,-34,-38,-39,-40,-41,-42,-43,-14,-33,-35,91,93,-52,-50,-51,]),'AND':([10,14,19,20,21,23,24,25,26,27,28,29,30,37,38,55,56,59,60,61,68,69,70,71,72,73,74,75,80,],[-23,-8,-11,-21,45,-44,-45,-46,-36,-37,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,45,45,-38,-39,-40,-41,-42,-43,-14,]),'OR':([10,14,19,20,21,23,24,25,26,27,28,29,30,37,38,55,56,59,60,61,68,69,70,71,72,73,74,75,80,],[-23,-8,-11,-21,46,-44,-45,-46,-36,-37,-11,-16,-17,-22,-12,-6,-7,-9,-10,-13,46,46,-38,-39,-40,-41,-42,-43,-14,]),'DPOINT':([10,20,37,43,53,58,67,89,91,93,],[-23,-21,-22,66,76,79,83,94,95,97,]),'RCORCHETE':([10,16,20,29,30,37,38,39,40,57,58,61,62,80,81,82,89,90,98,],[-23,38,-21,-16,-17,-22,-12,61,-15,78,-27,-13,80,-14,-18,-17,-28,-20,-29,]),'COMMA':([10,20,29,30,37,38,39,40,61,80,81,82,86,88,96,],[-23,-21,-16,-17,-22,-12,63,-15,-13,-14,63,-17,92,-52,99,]),'RANGE':([31,],[54,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'assign':([0,],[1,]),'expr':([3,],[4,]),'list':([3,9,35,],[5,24,42,]),'cad':([3,],[6,]),'term':([3,14,15,],[7,27,28,]),'factor':([3,9,14,15,16,17,18,35,39,45,],[12,22,12,12,30,31,32,22,43,46,]),'element':([9,35,],[21,41,]),'index':([16,],[29,]),'elements':([21,41,],[34,44,]),}
+_lr_goto_items = {'assign':([0,],[1,]),'while':([0,],[3,]),'for':([0,],[4,]),'expr':([7,8,45,46,47,48,49,50,51,52,],[11,24,24,24,24,24,24,24,24,24,]),'list':([7,8,16,45,46,47,48,49,50,51,52,63,],[12,30,30,30,30,30,30,30,30,30,30,82,]),'cad':([7,],[13,]),'term':([7,8,32,33,45,46,47,48,49,50,51,52,],[14,14,55,56,14,14,14,14,14,14,14,14,]),'factor':([7,8,16,32,33,34,35,36,45,46,47,48,49,50,51,52,63,77,79,92,94,99,],[19,28,40,19,19,58,59,60,28,28,28,28,28,28,28,28,40,88,89,88,98,88,]),'comparison':([8,45,46,],[21,68,69,]),'comp':([8,45,46,47,48,49,50,51,52,],[22,22,22,70,71,72,73,74,75,]),'bool':([8,45,46,],[23,23,23,]),'element':([8,16,45,46,47,48,49,50,51,52,63,],[25,39,25,25,25,25,25,25,25,25,81,]),'comparisons':([21,68,69,],[44,84,85,]),'index':([34,],[57,]),'elements':([39,81,],[62,90,]),'r_value':([77,92,99,],[86,96,100,]),'r_values':([77,],[87,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,30 +27,56 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> assign","S'",1,None,None,None),
-  ('assign -> NAME EQUALS expr','assign',3,'p_assign','semantica.py',7),
-  ('assign -> NAME EQUALS list','assign',3,'p_assign','semantica.py',8),
-  ('assign -> NAME EQUALS cad','assign',3,'p_assign','semantica.py',9),
-  ('expr -> expr PLUS term','expr',3,'p_expr','semantica.py',13),
-  ('expr -> expr MINUS term','expr',3,'p_expr','semantica.py',14),
-  ('expr -> term','expr',1,'p_expr','semantica.py',15),
-  ('term -> term TIMES factor','term',3,'p_term','semantica.py',18),
-  ('term -> term DIVIDE factor','term',3,'p_term','semantica.py',19),
-  ('term -> factor','term',1,'p_term','semantica.py',20),
-  ('list -> LCORCHETE RCORCHETE','list',2,'p_list','semantica.py',23),
-  ('list -> LCORCHETE element RCORCHETE','list',3,'p_list','semantica.py',24),
-  ('list -> LCORCHETE element elements RCORCHETE','list',4,'p_list','semantica.py',25),
-  ('element -> factor','element',1,'p_element','semantica.py',28),
-  ('element -> NAME','element',1,'p_element','semantica.py',29),
-  ('element -> list','element',1,'p_element','semantica.py',30),
-  ('elements -> COMMA element','elements',2,'p_elements','semantica.py',33),
-  ('elements -> COMMA list','elements',2,'p_elements','semantica.py',34),
-  ('elements -> COMMA element elements','elements',3,'p_elements','semantica.py',35),
-  ('factor -> NUMBER','factor',1,'p_factor','semantica.py',38),
-  ('factor -> MINUS NUMBER','factor',2,'p_factor','semantica.py',39),
-  ('cad -> COMILLA NAME COMILLA','cad',3,'p_cad','semantica.py',42),
-  ('cad -> COMILLAD NAME COMILLAD','cad',3,'p_cad','semantica.py',43),
-  ('cad -> cad LCORCHETE index RCORCHETE','cad',4,'p_cad','semantica.py',44),
-  ('index -> factor','index',1,'p_index','semantica.py',47),
-  ('index -> factor DPOINT factor','index',3,'p_index','semantica.py',48),
-  ('index -> factor DPOINT factor DPOINT factor','index',5,'p_index','semantica.py',49),
+  ('assign -> NAME EQUALS expr','assign',3,'p_assign','sintactico.py',7),
+  ('assign -> NAME EQUALS list','assign',3,'p_assign','sintactico.py',8),
+  ('assign -> NAME EQUALS cad','assign',3,'p_assign','sintactico.py',9),
+  ('assign -> while','assign',1,'p_assign','sintactico.py',10),
+  ('assign -> for','assign',1,'p_assign','sintactico.py',11),
+  ('expr -> expr PLUS term','expr',3,'p_expr','sintactico.py',14),
+  ('expr -> expr MINUS term','expr',3,'p_expr','sintactico.py',15),
+  ('expr -> term','expr',1,'p_expr','sintactico.py',16),
+  ('term -> term TIMES factor','term',3,'p_term','sintactico.py',19),
+  ('term -> term DIVIDE factor','term',3,'p_term','sintactico.py',20),
+  ('term -> factor','term',1,'p_term','sintactico.py',21),
+  ('list -> LCORCHETE RCORCHETE','list',2,'p_list','sintactico.py',24),
+  ('list -> LCORCHETE element RCORCHETE','list',3,'p_list','sintactico.py',25),
+  ('list -> LCORCHETE element elements RCORCHETE','list',4,'p_list','sintactico.py',26),
+  ('element -> factor','element',1,'p_element','sintactico.py',29),
+  ('element -> NAME','element',1,'p_element','sintactico.py',30),
+  ('element -> list','element',1,'p_element','sintactico.py',31),
+  ('elements -> COMMA element','elements',2,'p_elements','sintactico.py',34),
+  ('elements -> COMMA list','elements',2,'p_elements','sintactico.py',35),
+  ('elements -> COMMA element elements','elements',3,'p_elements','sintactico.py',36),
+  ('factor -> NUMBER','factor',1,'p_factor','sintactico.py',39),
+  ('factor -> MINUS NUMBER','factor',2,'p_factor','sintactico.py',40),
+  ('factor -> NAME','factor',1,'p_factor','sintactico.py',41),
+  ('cad -> COMILLA NAME COMILLA','cad',3,'p_cad','sintactico.py',44),
+  ('cad -> COMILLAD NAME COMILLAD','cad',3,'p_cad','sintactico.py',45),
+  ('cad -> cad LCORCHETE index RCORCHETE','cad',4,'p_cad','sintactico.py',46),
+  ('index -> factor','index',1,'p_index','sintactico.py',49),
+  ('index -> factor DPOINT factor','index',3,'p_index','sintactico.py',50),
+  ('index -> factor DPOINT factor DPOINT factor','index',5,'p_index','sintactico.py',51),
+  ('while -> WHILE LPAREN comparison RPAREN DPOINT','while',5,'p_while','sintactico.py',54),
+  ('while -> WHILE LPAREN comparison comparisons RPAREN DPOINT','while',6,'p_while','sintactico.py',55),
+  ('comparisons -> AND comparison','comparisons',2,'p_comparisons','sintactico.py',58),
+  ('comparisons -> AND comparison comparisons','comparisons',3,'p_comparisons','sintactico.py',59),
+  ('comparisons -> OR comparison','comparisons',2,'p_comparisons','sintactico.py',60),
+  ('comparisons -> OR comparison comparisons','comparisons',3,'p_comparisons','sintactico.py',61),
+  ('bool -> TRUE','bool',1,'p_bool','sintactico.py',64),
+  ('bool -> FALSE','bool',1,'p_bool','sintactico.py',65),
+  ('comparison -> comp DEQUALS comp','comparison',3,'p_comparison','sintactico.py',68),
+  ('comparison -> comp DIFFERENT comp','comparison',3,'p_comparison','sintactico.py',69),
+  ('comparison -> comp HIGHER comp','comparison',3,'p_comparison','sintactico.py',70),
+  ('comparison -> comp LESS comp','comparison',3,'p_comparison','sintactico.py',71),
+  ('comparison -> comp HIGHEREQ comp','comparison',3,'p_comparison','sintactico.py',72),
+  ('comparison -> comp LESSEQ comp','comparison',3,'p_comparison','sintactico.py',73),
+  ('comparison -> bool','comparison',1,'p_comparison','sintactico.py',74),
+  ('comp -> expr','comp',1,'p_comp','sintactico.py',77),
+  ('comp -> element','comp',1,'p_comp','sintactico.py',78),
+  ('for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT','for',8,'p_for','sintactico.py',81),
+  ('for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT','for',8,'p_for','sintactico.py',82),
+  ('for -> FOR NAME IN NAME DPOINT','for',5,'p_for','sintactico.py',83),
+  ('r_values -> r_value COMMA r_value','r_values',3,'p_r_values','sintactico.py',86),
+  ('r_values -> r_value COMMA r_value COMMA r_value','r_values',5,'p_r_values','sintactico.py',87),
+  ('r_value -> factor','r_value',1,'p_r_value','sintactico.py',90),
 ]

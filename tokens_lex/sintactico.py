@@ -6,8 +6,9 @@ tokens = lexico.tokens
 def p_assign(p):
 	'''assign : NAME EQUALS expr
 			  | NAME EQUALS list
-			  | NAME EQUALS cad'''
-
+			  | NAME EQUALS cad
+			  | while
+			  | for'''
 
 def p_expr(p):
 	'''expr : expr PLUS term
@@ -36,7 +37,8 @@ def p_elements(p):
 
 def p_factor(p):
 	'''factor : NUMBER
-			  | MINUS NUMBER'''
+			  | MINUS NUMBER
+			  | NAME'''
 
 def p_cad(p):
 	'''cad : COMILLA NAME COMILLA
@@ -48,6 +50,44 @@ def p_index(p):
 			 | factor DPOINT factor
 			 | factor DPOINT factor DPOINT factor'''
 
+def p_while(p):
+	'''while : WHILE LPAREN comparison RPAREN DPOINT
+			 | WHILE LPAREN comparison comparisons RPAREN DPOINT'''
+
+def p_comparisons(p):
+	'''comparisons : AND comparison
+				   | AND comparison comparisons
+				   | OR comparison
+				   | OR comparison comparisons'''
+
+def p_bool(p):
+	'''bool : TRUE
+			| FALSE'''
+
+def p_comparison(p):
+    '''comparison : comp DEQUALS comp
+                  | comp DIFFERENT comp
+                  | comp HIGHER comp
+                  | comp LESS comp
+                  | comp HIGHEREQ  comp
+                  | comp LESSEQ comp
+                  | bool'''
+
+def p_comp(p):
+	'''comp : expr
+			| element'''
+
+def p_for(p):
+	'''for : FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+		   | FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+		   | FOR NAME IN NAME DPOINT'''
+
+def p_r_values(p):
+	'''r_values : r_value COMMA r_value
+				| r_value COMMA r_value COMMA r_value'''
+
+def p_r_value(p):
+	'''r_value : factor'''
 
 yacc.yacc()
 
