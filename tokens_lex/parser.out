@@ -14,7 +14,6 @@ Unused terminals:
     IF
     IMPORT
     IS
-    LEN
     LIST
     MODULE
     NONE
@@ -80,6 +79,7 @@ Rule 49    for -> FOR NAME IN NAME DPOINT
 Rule 50    r_values -> r_value COMMA r_value
 Rule 51    r_values -> r_value COMMA r_value COMMA r_value
 Rule 52    r_value -> factor
+Rule 53    r_value -> LEN LPAREN NAME RPAREN
 
 Terminals, with rules where they appear
 
@@ -110,14 +110,14 @@ IMPORT               :
 IN                   : 47 48 49
 IS                   : 
 LCORCHETE            : 12 13 14 26
-LEN                  : 
+LEN                  : 53
 LESS                 : 41
 LESSEQ               : 43
 LIST                 : 
-LPAREN               : 30 31 47 48
+LPAREN               : 30 31 47 48 53
 MINUS                : 7 22
 MODULE               : 
-NAME                 : 1 2 3 16 23 24 25 47 48 49 49
+NAME                 : 1 2 3 16 23 24 25 47 48 49 49 53
 NONE                 : 
 NOT                  : 
 NUMBER               : 21 22
@@ -127,7 +127,7 @@ PRINT                :
 RANGE                : 47 48
 RCORCHETE            : 12 13 14 26
 RETURN               : 
-RPAREN               : 30 31 47 48
+RPAREN               : 30 31 47 48 53
 SET                  : 
 THEN                 : 
 TIMES                : 9
@@ -1431,12 +1431,14 @@ state 77
     (47) for -> FOR NAME IN RANGE LPAREN . r_value RPAREN DPOINT
     (48) for -> FOR NAME IN RANGE LPAREN . r_values RPAREN DPOINT
     (52) r_value -> . factor
+    (53) r_value -> . LEN LPAREN NAME RPAREN
     (50) r_values -> . r_value COMMA r_value
     (51) r_values -> . r_value COMMA r_value COMMA r_value
     (21) factor -> . NUMBER
     (22) factor -> . MINUS NUMBER
     (23) factor -> . NAME
 
+    LEN             shift and go to state 89
     NUMBER          shift and go to state 20
     MINUS           shift and go to state 15
     NAME            shift and go to state 10
@@ -1465,7 +1467,7 @@ state 79
     MINUS           shift and go to state 15
     NAME            shift and go to state 10
 
-    factor                         shift and go to state 89
+    factor                         shift and go to state 90
 
 state 80
 
@@ -1496,7 +1498,7 @@ state 81
     RCORCHETE       reduce using rule 18 (elements -> COMMA element .)
     COMMA           shift and go to state 63
 
-    elements                       shift and go to state 90
+    elements                       shift and go to state 91
 
 state 82
 
@@ -1537,15 +1539,15 @@ state 86
     (50) r_values -> r_value . COMMA r_value
     (51) r_values -> r_value . COMMA r_value COMMA r_value
 
-    RPAREN          shift and go to state 91
-    COMMA           shift and go to state 92
+    RPAREN          shift and go to state 92
+    COMMA           shift and go to state 93
 
 
 state 87
 
     (48) for -> FOR NAME IN RANGE LPAREN r_values . RPAREN DPOINT
 
-    RPAREN          shift and go to state 93
+    RPAREN          shift and go to state 94
 
 
 state 88
@@ -1558,51 +1560,67 @@ state 88
 
 state 89
 
+    (53) r_value -> LEN . LPAREN NAME RPAREN
+
+    LPAREN          shift and go to state 95
+
+
+state 90
+
     (28) index -> factor DPOINT factor .
     (29) index -> factor DPOINT factor . DPOINT factor
 
     RCORCHETE       reduce using rule 28 (index -> factor DPOINT factor .)
-    DPOINT          shift and go to state 94
+    DPOINT          shift and go to state 96
 
 
-state 90
+state 91
 
     (20) elements -> COMMA element elements .
 
     RCORCHETE       reduce using rule 20 (elements -> COMMA element elements .)
 
 
-state 91
-
-    (47) for -> FOR NAME IN RANGE LPAREN r_value RPAREN . DPOINT
-
-    DPOINT          shift and go to state 95
-
-
 state 92
 
-    (50) r_values -> r_value COMMA . r_value
-    (51) r_values -> r_value COMMA . r_value COMMA r_value
-    (52) r_value -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
-
-    r_value                        shift and go to state 96
-    factor                         shift and go to state 88
-
-state 93
-
-    (48) for -> FOR NAME IN RANGE LPAREN r_values RPAREN . DPOINT
+    (47) for -> FOR NAME IN RANGE LPAREN r_value RPAREN . DPOINT
 
     DPOINT          shift and go to state 97
 
 
+state 93
+
+    (50) r_values -> r_value COMMA . r_value
+    (51) r_values -> r_value COMMA . r_value COMMA r_value
+    (52) r_value -> . factor
+    (53) r_value -> . LEN LPAREN NAME RPAREN
+    (21) factor -> . NUMBER
+    (22) factor -> . MINUS NUMBER
+    (23) factor -> . NAME
+
+    LEN             shift and go to state 89
+    NUMBER          shift and go to state 20
+    MINUS           shift and go to state 15
+    NAME            shift and go to state 10
+
+    r_value                        shift and go to state 98
+    factor                         shift and go to state 88
+
 state 94
+
+    (48) for -> FOR NAME IN RANGE LPAREN r_values RPAREN . DPOINT
+
+    DPOINT          shift and go to state 99
+
+
+state 95
+
+    (53) r_value -> LEN LPAREN . NAME RPAREN
+
+    NAME            shift and go to state 100
+
+
+state 96
 
     (29) index -> factor DPOINT factor DPOINT . factor
     (21) factor -> . NUMBER
@@ -1613,54 +1631,71 @@ state 94
     MINUS           shift and go to state 15
     NAME            shift and go to state 10
 
-    factor                         shift and go to state 98
+    factor                         shift and go to state 101
 
-state 95
+state 97
 
     (47) for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .
 
     $end            reduce using rule 47 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .)
 
 
-state 96
+state 98
 
     (50) r_values -> r_value COMMA r_value .
     (51) r_values -> r_value COMMA r_value . COMMA r_value
 
     RPAREN          reduce using rule 50 (r_values -> r_value COMMA r_value .)
-    COMMA           shift and go to state 99
+    COMMA           shift and go to state 102
 
 
-state 97
+state 99
 
     (48) for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .
 
     $end            reduce using rule 48 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .)
 
 
-state 98
+state 100
+
+    (53) r_value -> LEN LPAREN NAME . RPAREN
+
+    RPAREN          shift and go to state 103
+
+
+state 101
 
     (29) index -> factor DPOINT factor DPOINT factor .
 
     RCORCHETE       reduce using rule 29 (index -> factor DPOINT factor DPOINT factor .)
 
 
-state 99
+state 102
 
     (51) r_values -> r_value COMMA r_value COMMA . r_value
     (52) r_value -> . factor
+    (53) r_value -> . LEN LPAREN NAME RPAREN
     (21) factor -> . NUMBER
     (22) factor -> . MINUS NUMBER
     (23) factor -> . NAME
 
+    LEN             shift and go to state 89
     NUMBER          shift and go to state 20
     MINUS           shift and go to state 15
     NAME            shift and go to state 10
 
-    r_value                        shift and go to state 100
+    r_value                        shift and go to state 104
     factor                         shift and go to state 88
 
-state 100
+state 103
+
+    (53) r_value -> LEN LPAREN NAME RPAREN .
+
+    RPAREN          reduce using rule 53 (r_value -> LEN LPAREN NAME RPAREN .)
+    COMMA           reduce using rule 53 (r_value -> LEN LPAREN NAME RPAREN .)
+
+
+state 104
 
     (51) r_values -> r_value COMMA r_value COMMA r_value .
 

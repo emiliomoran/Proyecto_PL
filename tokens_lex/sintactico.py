@@ -87,14 +87,9 @@ def p_r_values(p):
 				| r_value COMMA r_value COMMA r_value'''
 
 def p_r_value(p):
-	'''r_value : factor'''
+	'''r_value : factor
+			   | LEN LPAREN NAME RPAREN'''
 	
-def p_for(p):
-	'''elements: FOR NAME IN NAME
-	| FOR NAME IN RANGE LPAREN NUMBER RPAREN
-	| FOR NAME IN RANGE LPAREN LEN LPAREN NAME RPAREN RPAREN
-	'''
-
 yacc.yacc()
 
 while 1:
