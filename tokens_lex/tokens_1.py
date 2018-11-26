@@ -164,37 +164,8 @@ def p_comparison_binop(t):
 import ply.yacc as yacc
 parser = yacc.yacc()
 
-#Pruebas
-#cadena1 = "3 + 4 * 10 + -20 *2"
-#cadena2 = "x = 3 * 4 + 5 * 6"
-#cadena3 = "for = 3 * 4 + 5 * 6"
-#cadena4 = "x == True"
-#cadena5 = "x <> 10"
-#cadena6 = "x and y"
-#cadena7 = "x**10"
-#cadena8 = "x//2"
-#cadena9 = "10%2"
-
-#lexer.input(cadena1)
-#lexer.input(cadena2)
-#lexer.input(cadena3)
-#lexer.input(cadena4)
-#lexer.input(cadena5)
-#lexer.input(cadena6)
-#lexer.input(cadena7)
-#lexer.input(cadena8)
-#lexer.input(cadena9)
-
 #while True:
  #   tok = lexer.token()
   #  if not tok: break
    # print(tok)
     #Formato de la salida: LexRoken(type, value, lineno, lexpos)
-
-while True:
-    try:
-        s = input('>> ')   # Use raw_input on Python 2
-    except EOFError:
-        break
-    resultado=parser.parse(s)
-    print(resultado)
