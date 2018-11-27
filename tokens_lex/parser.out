@@ -7,11 +7,8 @@ Unused terminals:
     DEF
     DIC
     DIVIDEINT
-    ELIF
-    ELSE
     EXPONENT
     FROM
-    IF
     IMPORT
     IS
     LIST
@@ -30,131 +27,145 @@ Rule 0     S' -> assign
 Rule 1     assign -> NAME EQUALS expr
 Rule 2     assign -> NAME EQUALS list
 Rule 3     assign -> NAME EQUALS cad
-Rule 4     assign -> while
-Rule 5     assign -> for
-Rule 6     expr -> expr PLUS term
-Rule 7     expr -> expr MINUS term
-Rule 8     expr -> term
-Rule 9     term -> term TIMES factor
-Rule 10    term -> term DIVIDE factor
-Rule 11    term -> factor
-Rule 12    list -> LCORCHETE RCORCHETE
-Rule 13    list -> LCORCHETE element RCORCHETE
-Rule 14    list -> LCORCHETE element elements RCORCHETE
-Rule 15    element -> factor
-Rule 16    element -> NAME
-Rule 17    element -> list
-Rule 18    elements -> COMMA element
-Rule 19    elements -> COMMA list
-Rule 20    elements -> COMMA element elements
-Rule 21    factor -> NUMBER
-Rule 22    factor -> MINUS NUMBER
-Rule 23    factor -> NAME
-Rule 24    cad -> COMILLA NAME COMILLA
-Rule 25    cad -> COMILLAD NAME COMILLAD
-Rule 26    cad -> cad LCORCHETE index RCORCHETE
-Rule 27    index -> factor
-Rule 28    index -> factor DPOINT factor
-Rule 29    index -> factor DPOINT factor DPOINT factor
-Rule 30    while -> WHILE LPAREN comparison RPAREN DPOINT
-Rule 31    while -> WHILE LPAREN comparison comparisons RPAREN DPOINT
-Rule 32    comparisons -> AND comparison
-Rule 33    comparisons -> AND comparison comparisons
-Rule 34    comparisons -> OR comparison
-Rule 35    comparisons -> OR comparison comparisons
-Rule 36    bool -> TRUE
-Rule 37    bool -> FALSE
-Rule 38    comparison -> comp DEQUALS comp
-Rule 39    comparison -> comp DIFFERENT comp
-Rule 40    comparison -> comp HIGHER comp
-Rule 41    comparison -> comp LESS comp
-Rule 42    comparison -> comp HIGHEREQ comp
-Rule 43    comparison -> comp LESSEQ comp
-Rule 44    comparison -> bool
-Rule 45    comp -> expr
-Rule 46    comp -> element
-Rule 47    for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
-Rule 48    for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
-Rule 49    for -> FOR NAME IN NAME DPOINT
-Rule 50    r_values -> r_value COMMA r_value
-Rule 51    r_values -> r_value COMMA r_value COMMA r_value
-Rule 52    r_value -> factor
-Rule 53    r_value -> LEN LPAREN NAME RPAREN
+Rule 4     assign -> for
+Rule 5     assign -> while
+Rule 6     assign -> if
+Rule 7     expr -> expr PLUS term
+Rule 8     expr -> expr MINUS term
+Rule 9     expr -> term
+Rule 10    term -> term TIMES factor
+Rule 11    term -> term DIVIDE factor
+Rule 12    term -> factor
+Rule 13    list -> LCORCHETE RCORCHETE
+Rule 14    list -> LCORCHETE element RCORCHETE
+Rule 15    list -> LCORCHETE element elements RCORCHETE
+Rule 16    element -> factor
+Rule 17    element -> NAME
+Rule 18    element -> list
+Rule 19    elements -> COMMA element
+Rule 20    elements -> COMMA list
+Rule 21    elements -> COMMA element elements
+Rule 22    factor -> NUMBER
+Rule 23    factor -> MINUS NUMBER
+Rule 24    factor -> NAME
+Rule 25    cad -> COMILLA NAME COMILLA
+Rule 26    cad -> COMILLAD NAME COMILLAD
+Rule 27    cad -> cad LCORCHETE index RCORCHETE
+Rule 28    index -> factor
+Rule 29    index -> factor DPOINT factor
+Rule 30    index -> factor DPOINT factor DPOINT factor
+Rule 31    while -> WHILE LPAREN comparison RPAREN DPOINT
+Rule 32    while -> WHILE LPAREN comparison comparisons RPAREN DPOINT
+Rule 33    comparisons -> AND comparison
+Rule 34    comparisons -> AND comparison comparisons
+Rule 35    comparisons -> OR comparison
+Rule 36    comparisons -> OR comparison comparisons
+Rule 37    bool -> TRUE
+Rule 38    bool -> FALSE
+Rule 39    comparison -> comp DEQUALS comp
+Rule 40    comparison -> comp DIFFERENT comp
+Rule 41    comparison -> comp HIGHER comp
+Rule 42    comparison -> comp LESS comp
+Rule 43    comparison -> comp HIGHEREQ comp
+Rule 44    comparison -> comp LESSEQ comp
+Rule 45    comparison -> bool
+Rule 46    comp -> expr
+Rule 47    comp -> element
+Rule 48    for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+Rule 49    for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+Rule 50    for -> FOR NAME IN NAME DPOINT
+Rule 51    r_values -> r_value COMMA r_value
+Rule 52    r_values -> r_value COMMA r_value COMMA r_value
+Rule 53    r_value -> factor
+Rule 54    r_value -> LEN LPAREN NAME RPAREN
+Rule 55    if -> IF LPAREN comparison RPAREN DPOINT assign
+Rule 56    if -> IF LPAREN comparison comparisons RPAREN DPOINT assign
+Rule 57    if -> IF comparison DPOINT assign
+Rule 58    if -> IF comparison comparisons DPOINT assign
+Rule 59    if -> IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+Rule 60    if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+Rule 61    if -> IF comparison DPOINT assign ELSE DPOINT assign
+Rule 62    if -> IF comparison comparisons DPOINT assign ELSE DPOINT assign
+Rule 63    if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+Rule 64    if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+Rule 65    if -> IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+Rule 66    if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
 
 Terminals, with rules where they appear
 
-AND                  : 32 33
+AND                  : 33 34
 AS                   : 
 BREAK                : 
-COMILLA              : 24 24
-COMILLAD             : 25 25
-COMMA                : 18 19 20 50 51 51
+COMILLA              : 25 25
+COMILLAD             : 26 26
+COMMA                : 19 20 21 51 52 52
 DEF                  : 
-DEQUALS              : 38
+DEQUALS              : 39
 DIC                  : 
-DIFFERENT            : 39
-DIVIDE               : 10
+DIFFERENT            : 40
+DIVIDE               : 11
 DIVIDEINT            : 
-DPOINT               : 28 29 29 30 31 47 48 49
-ELIF                 : 
-ELSE                 : 
+DPOINT               : 29 30 30 31 32 48 49 50 55 56 57 58 59 59 60 60 61 61 62 62 63 63 63 64 64 64 65 65 65 66 66 66
+ELIF                 : 63 64 65 66
+ELSE                 : 59 60 61 62 63 64 65 66
 EQUALS               : 1 2 3
 EXPONENT             : 
-FALSE                : 37
-FOR                  : 47 48 49
+FALSE                : 38
+FOR                  : 48 49 50
 FROM                 : 
-HIGHER               : 40
-HIGHEREQ             : 42
-IF                   : 
+HIGHER               : 41
+HIGHEREQ             : 43
+IF                   : 55 56 57 58 59 60 61 62 63 64 65 66
 IMPORT               : 
-IN                   : 47 48 49
+IN                   : 48 49 50
 IS                   : 
-LCORCHETE            : 12 13 14 26
-LEN                  : 53
-LESS                 : 41
-LESSEQ               : 43
+LCORCHETE            : 13 14 15 27
+LEN                  : 54
+LESS                 : 42
+LESSEQ               : 44
 LIST                 : 
-LPAREN               : 30 31 47 48 53
-MINUS                : 7 22
+LPAREN               : 31 32 48 49 54 55 56 59 60 63 63 64 64
+MINUS                : 8 23
 MODULE               : 
-NAME                 : 1 2 3 16 23 24 25 47 48 49 49 53
+NAME                 : 1 2 3 17 24 25 26 48 49 50 50 54
 NONE                 : 
 NOT                  : 
-NUMBER               : 21 22
-OR                   : 34 35
-PLUS                 : 6
+NUMBER               : 22 23
+OR                   : 35 36
+PLUS                 : 7
 PRINT                : 
-RANGE                : 47 48
-RCORCHETE            : 12 13 14 26
+RANGE                : 48 49
+RCORCHETE            : 13 14 15 27
 RETURN               : 
-RPAREN               : 30 31 47 48 53
+RPAREN               : 31 32 48 49 54 55 56 59 60 63 63 64 64
 SET                  : 
 THEN                 : 
-TIMES                : 9
-TRUE                 : 36
+TIMES                : 10
+TRUE                 : 37
 TUPLE                : 
-WHILE                : 30 31
+WHILE                : 31 32
 error                : 
 
 Nonterminals, with rules where they appear
 
-assign               : 0
-bool                 : 44
-cad                  : 3 26
-comp                 : 38 38 39 39 40 40 41 41 42 42 43 43
-comparison           : 30 31 32 33 34 35
-comparisons          : 31 33 35
-element              : 13 14 18 20 46
-elements             : 14 20
-expr                 : 1 6 7 45
-factor               : 9 10 11 15 27 28 28 29 29 29 52
-for                  : 5
-index                : 26
-list                 : 2 17 19
-r_value              : 47 50 50 51 51 51
-r_values             : 48
-term                 : 6 7 8 9 10
-while                : 4
+assign               : 55 56 57 58 59 59 60 60 61 61 62 62 63 63 63 64 64 64 65 65 65 66 66 66 0
+bool                 : 45
+cad                  : 3 27
+comp                 : 39 39 40 40 41 41 42 42 43 43 44 44
+comparison           : 31 32 33 34 35 36 55 56 57 58 59 60 61 62 63 63 64 64 65 65 66 66
+comparisons          : 32 34 36 56 58 60 62 64 64 66 66
+element              : 14 15 19 21 47
+elements             : 15 21
+expr                 : 1 7 8 46
+factor               : 10 11 12 16 28 29 29 30 30 30 53
+for                  : 4
+if                   : 6
+index                : 27
+list                 : 2 18 20
+r_value              : 48 51 51 52 52 52
+r_values             : 49
+term                 : 7 8 9 10 11
+while                : 5
 
 Parsing method: LALR
 
@@ -164,21 +175,36 @@ state 0
     (1) assign -> . NAME EQUALS expr
     (2) assign -> . NAME EQUALS list
     (3) assign -> . NAME EQUALS cad
-    (4) assign -> . while
-    (5) assign -> . for
-    (30) while -> . WHILE LPAREN comparison RPAREN DPOINT
-    (31) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
-    (47) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
-    (48) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
-    (49) for -> . FOR NAME IN NAME DPOINT
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
 
     NAME            shift and go to state 2
-    WHILE           shift and go to state 5
     FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
 
     assign                         shift and go to state 1
-    while                          shift and go to state 3
-    for                            shift and go to state 4
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
 
 state 1
 
@@ -192,1522 +218,2889 @@ state 2
     (2) assign -> NAME . EQUALS list
     (3) assign -> NAME . EQUALS cad
 
-    EQUALS          shift and go to state 7
+    EQUALS          shift and go to state 9
 
 
 state 3
 
-    (4) assign -> while .
+    (4) assign -> for .
 
-    $end            reduce using rule 4 (assign -> while .)
+    $end            reduce using rule 4 (assign -> for .)
+    ELSE            reduce using rule 4 (assign -> for .)
+    ELIF            reduce using rule 4 (assign -> for .)
 
 
 state 4
 
-    (5) assign -> for .
+    (5) assign -> while .
 
-    $end            reduce using rule 5 (assign -> for .)
+    $end            reduce using rule 5 (assign -> while .)
+    ELSE            reduce using rule 5 (assign -> while .)
+    ELIF            reduce using rule 5 (assign -> while .)
 
 
 state 5
 
-    (30) while -> WHILE . LPAREN comparison RPAREN DPOINT
-    (31) while -> WHILE . LPAREN comparison comparisons RPAREN DPOINT
+    (6) assign -> if .
 
-    LPAREN          shift and go to state 8
+    $end            reduce using rule 6 (assign -> if .)
+    ELSE            reduce using rule 6 (assign -> if .)
+    ELIF            reduce using rule 6 (assign -> if .)
 
 
 state 6
 
-    (47) for -> FOR . NAME IN RANGE LPAREN r_value RPAREN DPOINT
-    (48) for -> FOR . NAME IN RANGE LPAREN r_values RPAREN DPOINT
-    (49) for -> FOR . NAME IN NAME DPOINT
+    (48) for -> FOR . NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> FOR . NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> FOR . NAME IN NAME DPOINT
 
-    NAME            shift and go to state 9
+    NAME            shift and go to state 10
 
 
 state 7
 
-    (1) assign -> NAME EQUALS . expr
-    (2) assign -> NAME EQUALS . list
-    (3) assign -> NAME EQUALS . cad
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
-    (24) cad -> . COMILLA NAME COMILLA
-    (25) cad -> . COMILLAD NAME COMILLAD
-    (26) cad -> . cad LCORCHETE index RCORCHETE
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (31) while -> WHILE . LPAREN comparison RPAREN DPOINT
+    (32) while -> WHILE . LPAREN comparison comparisons RPAREN DPOINT
 
-    LCORCHETE       shift and go to state 16
-    COMILLA         shift and go to state 17
-    COMILLAD        shift and go to state 18
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    LPAREN          shift and go to state 11
 
-    expr                           shift and go to state 11
-    list                           shift and go to state 12
-    cad                            shift and go to state 13
-    term                           shift and go to state 14
-    factor                         shift and go to state 19
 
 state 8
 
-    (30) while -> WHILE LPAREN . comparison RPAREN DPOINT
-    (31) while -> WHILE LPAREN . comparison comparisons RPAREN DPOINT
-    (38) comparison -> . comp DEQUALS comp
-    (39) comparison -> . comp DIFFERENT comp
-    (40) comparison -> . comp HIGHER comp
-    (41) comparison -> . comp LESS comp
-    (42) comparison -> . comp HIGHEREQ comp
-    (43) comparison -> . comp LESSEQ comp
-    (44) comparison -> . bool
-    (45) comp -> . expr
-    (46) comp -> . element
-    (36) bool -> . TRUE
-    (37) bool -> . FALSE
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (55) if -> IF . LPAREN comparison RPAREN DPOINT assign
+    (56) if -> IF . LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> IF . comparison DPOINT assign
+    (58) if -> IF . comparison comparisons DPOINT assign
+    (59) if -> IF . LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> IF . LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> IF . comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> IF . comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> IF . LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> IF . LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> IF . comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> IF . comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    LPAREN          shift and go to state 12
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
-    comparison                     shift and go to state 21
-    comp                           shift and go to state 22
-    bool                           shift and go to state 23
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
+    comparison                     shift and go to state 13
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 9
 
-    (47) for -> FOR NAME . IN RANGE LPAREN r_value RPAREN DPOINT
-    (48) for -> FOR NAME . IN RANGE LPAREN r_values RPAREN DPOINT
-    (49) for -> FOR NAME . IN NAME DPOINT
+    (1) assign -> NAME EQUALS . expr
+    (2) assign -> NAME EQUALS . list
+    (3) assign -> NAME EQUALS . cad
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
+    (25) cad -> . COMILLA NAME COMILLA
+    (26) cad -> . COMILLAD NAME COMILLAD
+    (27) cad -> . cad LCORCHETE index RCORCHETE
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    IN              shift and go to state 31
+    LCORCHETE       shift and go to state 26
+    COMILLA         shift and go to state 31
+    COMILLAD        shift and go to state 32
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
+    expr                           shift and go to state 28
+    list                           shift and go to state 29
+    cad                            shift and go to state 30
+    term                           shift and go to state 20
+    factor                         shift and go to state 33
 
 state 10
 
-    (23) factor -> NAME .
+    (48) for -> FOR NAME . IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> FOR NAME . IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> FOR NAME . IN NAME DPOINT
 
-    TIMES           reduce using rule 23 (factor -> NAME .)
-    DIVIDE          reduce using rule 23 (factor -> NAME .)
-    PLUS            reduce using rule 23 (factor -> NAME .)
-    MINUS           reduce using rule 23 (factor -> NAME .)
-    $end            reduce using rule 23 (factor -> NAME .)
-    DEQUALS         reduce using rule 23 (factor -> NAME .)
-    DIFFERENT       reduce using rule 23 (factor -> NAME .)
-    HIGHER          reduce using rule 23 (factor -> NAME .)
-    LESS            reduce using rule 23 (factor -> NAME .)
-    HIGHEREQ        reduce using rule 23 (factor -> NAME .)
-    LESSEQ          reduce using rule 23 (factor -> NAME .)
-    RPAREN          reduce using rule 23 (factor -> NAME .)
-    AND             reduce using rule 23 (factor -> NAME .)
-    OR              reduce using rule 23 (factor -> NAME .)
-    DPOINT          reduce using rule 23 (factor -> NAME .)
-    RCORCHETE       reduce using rule 23 (factor -> NAME .)
-    COMMA           reduce using rule 23 (factor -> NAME .)
+    IN              shift and go to state 34
 
 
 state 11
 
-    (1) assign -> NAME EQUALS expr .
-    (6) expr -> expr . PLUS term
-    (7) expr -> expr . MINUS term
+    (31) while -> WHILE LPAREN . comparison RPAREN DPOINT
+    (32) while -> WHILE LPAREN . comparison comparisons RPAREN DPOINT
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    $end            reduce using rule 1 (assign -> NAME EQUALS expr .)
-    PLUS            shift and go to state 32
-    MINUS           shift and go to state 33
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comparison                     shift and go to state 35
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 12
 
-    (2) assign -> NAME EQUALS list .
+    (55) if -> IF LPAREN . comparison RPAREN DPOINT assign
+    (56) if -> IF LPAREN . comparison comparisons RPAREN DPOINT assign
+    (59) if -> IF LPAREN . comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> IF LPAREN . comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (63) if -> IF LPAREN . comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> IF LPAREN . comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    $end            reduce using rule 2 (assign -> NAME EQUALS list .)
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comparison                     shift and go to state 36
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 13
 
-    (3) assign -> NAME EQUALS cad .
-    (26) cad -> cad . LCORCHETE index RCORCHETE
+    (57) if -> IF comparison . DPOINT assign
+    (58) if -> IF comparison . comparisons DPOINT assign
+    (61) if -> IF comparison . DPOINT assign ELSE DPOINT assign
+    (62) if -> IF comparison . comparisons DPOINT assign ELSE DPOINT assign
+    (65) if -> IF comparison . DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> IF comparison . comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (33) comparisons -> . AND comparison
+    (34) comparisons -> . AND comparison comparisons
+    (35) comparisons -> . OR comparison
+    (36) comparisons -> . OR comparison comparisons
 
-    $end            reduce using rule 3 (assign -> NAME EQUALS cad .)
-    LCORCHETE       shift and go to state 34
+    DPOINT          shift and go to state 37
+    AND             shift and go to state 39
+    OR              shift and go to state 40
 
+    comparisons                    shift and go to state 38
 
 state 14
 
-    (8) expr -> term .
-    (9) term -> term . TIMES factor
-    (10) term -> term . DIVIDE factor
+    (39) comparison -> comp . DEQUALS comp
+    (40) comparison -> comp . DIFFERENT comp
+    (41) comparison -> comp . HIGHER comp
+    (42) comparison -> comp . LESS comp
+    (43) comparison -> comp . HIGHEREQ comp
+    (44) comparison -> comp . LESSEQ comp
 
-    PLUS            reduce using rule 8 (expr -> term .)
-    MINUS           reduce using rule 8 (expr -> term .)
-    $end            reduce using rule 8 (expr -> term .)
-    DEQUALS         reduce using rule 8 (expr -> term .)
-    DIFFERENT       reduce using rule 8 (expr -> term .)
-    HIGHER          reduce using rule 8 (expr -> term .)
-    LESS            reduce using rule 8 (expr -> term .)
-    HIGHEREQ        reduce using rule 8 (expr -> term .)
-    LESSEQ          reduce using rule 8 (expr -> term .)
-    RPAREN          reduce using rule 8 (expr -> term .)
-    AND             reduce using rule 8 (expr -> term .)
-    OR              reduce using rule 8 (expr -> term .)
-    TIMES           shift and go to state 35
-    DIVIDE          shift and go to state 36
+    DEQUALS         shift and go to state 41
+    DIFFERENT       shift and go to state 42
+    HIGHER          shift and go to state 43
+    LESS            shift and go to state 44
+    HIGHEREQ        shift and go to state 45
+    LESSEQ          shift and go to state 46
 
 
 state 15
 
-    (22) factor -> MINUS . NUMBER
+    (45) comparison -> bool .
 
-    NUMBER          shift and go to state 37
+    DPOINT          reduce using rule 45 (comparison -> bool .)
+    AND             reduce using rule 45 (comparison -> bool .)
+    OR              reduce using rule 45 (comparison -> bool .)
+    RPAREN          reduce using rule 45 (comparison -> bool .)
 
 
 state 16
 
-    (12) list -> LCORCHETE . RCORCHETE
-    (13) list -> LCORCHETE . element RCORCHETE
-    (14) list -> LCORCHETE . element elements RCORCHETE
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (46) comp -> expr .
+    (7) expr -> expr . PLUS term
+    (8) expr -> expr . MINUS term
 
-    RCORCHETE       shift and go to state 38
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    DEQUALS         reduce using rule 46 (comp -> expr .)
+    DIFFERENT       reduce using rule 46 (comp -> expr .)
+    HIGHER          reduce using rule 46 (comp -> expr .)
+    LESS            reduce using rule 46 (comp -> expr .)
+    HIGHEREQ        reduce using rule 46 (comp -> expr .)
+    LESSEQ          reduce using rule 46 (comp -> expr .)
+    DPOINT          reduce using rule 46 (comp -> expr .)
+    AND             reduce using rule 46 (comp -> expr .)
+    OR              reduce using rule 46 (comp -> expr .)
+    RPAREN          reduce using rule 46 (comp -> expr .)
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
 
-    element                        shift and go to state 39
-    factor                         shift and go to state 40
-    list                           shift and go to state 30
 
 state 17
 
-    (24) cad -> COMILLA . NAME COMILLA
+    (47) comp -> element .
 
-    NAME            shift and go to state 41
+    DEQUALS         reduce using rule 47 (comp -> element .)
+    DIFFERENT       reduce using rule 47 (comp -> element .)
+    HIGHER          reduce using rule 47 (comp -> element .)
+    LESS            reduce using rule 47 (comp -> element .)
+    HIGHEREQ        reduce using rule 47 (comp -> element .)
+    LESSEQ          reduce using rule 47 (comp -> element .)
+    DPOINT          reduce using rule 47 (comp -> element .)
+    AND             reduce using rule 47 (comp -> element .)
+    OR              reduce using rule 47 (comp -> element .)
+    RPAREN          reduce using rule 47 (comp -> element .)
 
 
 state 18
 
-    (25) cad -> COMILLAD . NAME COMILLAD
+    (37) bool -> TRUE .
 
-    NAME            shift and go to state 42
+    DPOINT          reduce using rule 37 (bool -> TRUE .)
+    AND             reduce using rule 37 (bool -> TRUE .)
+    OR              reduce using rule 37 (bool -> TRUE .)
+    RPAREN          reduce using rule 37 (bool -> TRUE .)
 
 
 state 19
 
-    (11) term -> factor .
+    (38) bool -> FALSE .
 
-    TIMES           reduce using rule 11 (term -> factor .)
-    DIVIDE          reduce using rule 11 (term -> factor .)
-    PLUS            reduce using rule 11 (term -> factor .)
-    MINUS           reduce using rule 11 (term -> factor .)
-    $end            reduce using rule 11 (term -> factor .)
-    DEQUALS         reduce using rule 11 (term -> factor .)
-    DIFFERENT       reduce using rule 11 (term -> factor .)
-    HIGHER          reduce using rule 11 (term -> factor .)
-    LESS            reduce using rule 11 (term -> factor .)
-    HIGHEREQ        reduce using rule 11 (term -> factor .)
-    LESSEQ          reduce using rule 11 (term -> factor .)
-    RPAREN          reduce using rule 11 (term -> factor .)
-    AND             reduce using rule 11 (term -> factor .)
-    OR              reduce using rule 11 (term -> factor .)
+    DPOINT          reduce using rule 38 (bool -> FALSE .)
+    AND             reduce using rule 38 (bool -> FALSE .)
+    OR              reduce using rule 38 (bool -> FALSE .)
+    RPAREN          reduce using rule 38 (bool -> FALSE .)
 
 
 state 20
 
-    (21) factor -> NUMBER .
+    (9) expr -> term .
+    (10) term -> term . TIMES factor
+    (11) term -> term . DIVIDE factor
 
-    TIMES           reduce using rule 21 (factor -> NUMBER .)
-    DIVIDE          reduce using rule 21 (factor -> NUMBER .)
-    PLUS            reduce using rule 21 (factor -> NUMBER .)
-    MINUS           reduce using rule 21 (factor -> NUMBER .)
-    $end            reduce using rule 21 (factor -> NUMBER .)
-    DEQUALS         reduce using rule 21 (factor -> NUMBER .)
-    DIFFERENT       reduce using rule 21 (factor -> NUMBER .)
-    HIGHER          reduce using rule 21 (factor -> NUMBER .)
-    LESS            reduce using rule 21 (factor -> NUMBER .)
-    HIGHEREQ        reduce using rule 21 (factor -> NUMBER .)
-    LESSEQ          reduce using rule 21 (factor -> NUMBER .)
-    RCORCHETE       reduce using rule 21 (factor -> NUMBER .)
-    COMMA           reduce using rule 21 (factor -> NUMBER .)
-    RPAREN          reduce using rule 21 (factor -> NUMBER .)
-    AND             reduce using rule 21 (factor -> NUMBER .)
-    OR              reduce using rule 21 (factor -> NUMBER .)
-    DPOINT          reduce using rule 21 (factor -> NUMBER .)
+    PLUS            reduce using rule 9 (expr -> term .)
+    MINUS           reduce using rule 9 (expr -> term .)
+    DEQUALS         reduce using rule 9 (expr -> term .)
+    DIFFERENT       reduce using rule 9 (expr -> term .)
+    HIGHER          reduce using rule 9 (expr -> term .)
+    LESS            reduce using rule 9 (expr -> term .)
+    HIGHEREQ        reduce using rule 9 (expr -> term .)
+    LESSEQ          reduce using rule 9 (expr -> term .)
+    $end            reduce using rule 9 (expr -> term .)
+    ELSE            reduce using rule 9 (expr -> term .)
+    ELIF            reduce using rule 9 (expr -> term .)
+    DPOINT          reduce using rule 9 (expr -> term .)
+    AND             reduce using rule 9 (expr -> term .)
+    OR              reduce using rule 9 (expr -> term .)
+    RPAREN          reduce using rule 9 (expr -> term .)
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
 
 
 state 21
 
-    (30) while -> WHILE LPAREN comparison . RPAREN DPOINT
-    (31) while -> WHILE LPAREN comparison . comparisons RPAREN DPOINT
-    (32) comparisons -> . AND comparison
-    (33) comparisons -> . AND comparison comparisons
-    (34) comparisons -> . OR comparison
-    (35) comparisons -> . OR comparison comparisons
+    (23) factor -> MINUS . NUMBER
 
-    RPAREN          shift and go to state 43
-    AND             shift and go to state 45
-    OR              shift and go to state 46
+    NUMBER          shift and go to state 51
 
-    comparisons                    shift and go to state 44
 
 state 22
 
-    (38) comparison -> comp . DEQUALS comp
-    (39) comparison -> comp . DIFFERENT comp
-    (40) comparison -> comp . HIGHER comp
-    (41) comparison -> comp . LESS comp
-    (42) comparison -> comp . HIGHEREQ comp
-    (43) comparison -> comp . LESSEQ comp
+    (16) element -> factor .
+    (12) term -> factor .
 
-    DEQUALS         shift and go to state 47
-    DIFFERENT       shift and go to state 48
-    HIGHER          shift and go to state 49
-    LESS            shift and go to state 50
-    HIGHEREQ        shift and go to state 51
-    LESSEQ          shift and go to state 52
+  ! reduce/reduce conflict for DEQUALS resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for DIFFERENT resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for HIGHER resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for LESS resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for HIGHEREQ resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for LESSEQ resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for DPOINT resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for AND resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for OR resolved using rule 12 (term -> factor .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 12 (term -> factor .)
+    TIMES           reduce using rule 12 (term -> factor .)
+    DIVIDE          reduce using rule 12 (term -> factor .)
+    PLUS            reduce using rule 12 (term -> factor .)
+    MINUS           reduce using rule 12 (term -> factor .)
+    DEQUALS         reduce using rule 12 (term -> factor .)
+    DIFFERENT       reduce using rule 12 (term -> factor .)
+    HIGHER          reduce using rule 12 (term -> factor .)
+    LESS            reduce using rule 12 (term -> factor .)
+    HIGHEREQ        reduce using rule 12 (term -> factor .)
+    LESSEQ          reduce using rule 12 (term -> factor .)
+    DPOINT          reduce using rule 12 (term -> factor .)
+    AND             reduce using rule 12 (term -> factor .)
+    OR              reduce using rule 12 (term -> factor .)
+    RPAREN          reduce using rule 12 (term -> factor .)
+
+  ! DEQUALS         [ reduce using rule 16 (element -> factor .) ]
+  ! DIFFERENT       [ reduce using rule 16 (element -> factor .) ]
+  ! HIGHER          [ reduce using rule 16 (element -> factor .) ]
+  ! LESS            [ reduce using rule 16 (element -> factor .) ]
+  ! HIGHEREQ        [ reduce using rule 16 (element -> factor .) ]
+  ! LESSEQ          [ reduce using rule 16 (element -> factor .) ]
+  ! DPOINT          [ reduce using rule 16 (element -> factor .) ]
+  ! AND             [ reduce using rule 16 (element -> factor .) ]
+  ! OR              [ reduce using rule 16 (element -> factor .) ]
+  ! RPAREN          [ reduce using rule 16 (element -> factor .) ]
 
 
 state 23
 
-    (44) comparison -> bool .
+    (17) element -> NAME .
+    (24) factor -> NAME .
 
-    RPAREN          reduce using rule 44 (comparison -> bool .)
-    AND             reduce using rule 44 (comparison -> bool .)
-    OR              reduce using rule 44 (comparison -> bool .)
+  ! reduce/reduce conflict for DEQUALS resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for DIFFERENT resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for HIGHER resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for LESS resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for HIGHEREQ resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for LESSEQ resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for RCORCHETE resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for COMMA resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for DPOINT resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for AND resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for OR resolved using rule 17 (element -> NAME .)
+  ! reduce/reduce conflict for RPAREN resolved using rule 17 (element -> NAME .)
+    DEQUALS         reduce using rule 17 (element -> NAME .)
+    DIFFERENT       reduce using rule 17 (element -> NAME .)
+    HIGHER          reduce using rule 17 (element -> NAME .)
+    LESS            reduce using rule 17 (element -> NAME .)
+    HIGHEREQ        reduce using rule 17 (element -> NAME .)
+    LESSEQ          reduce using rule 17 (element -> NAME .)
+    RCORCHETE       reduce using rule 17 (element -> NAME .)
+    COMMA           reduce using rule 17 (element -> NAME .)
+    DPOINT          reduce using rule 17 (element -> NAME .)
+    AND             reduce using rule 17 (element -> NAME .)
+    OR              reduce using rule 17 (element -> NAME .)
+    RPAREN          reduce using rule 17 (element -> NAME .)
+    TIMES           reduce using rule 24 (factor -> NAME .)
+    DIVIDE          reduce using rule 24 (factor -> NAME .)
+    PLUS            reduce using rule 24 (factor -> NAME .)
+    MINUS           reduce using rule 24 (factor -> NAME .)
+
+  ! DEQUALS         [ reduce using rule 24 (factor -> NAME .) ]
+  ! DIFFERENT       [ reduce using rule 24 (factor -> NAME .) ]
+  ! HIGHER          [ reduce using rule 24 (factor -> NAME .) ]
+  ! LESS            [ reduce using rule 24 (factor -> NAME .) ]
+  ! HIGHEREQ        [ reduce using rule 24 (factor -> NAME .) ]
+  ! LESSEQ          [ reduce using rule 24 (factor -> NAME .) ]
+  ! RCORCHETE       [ reduce using rule 24 (factor -> NAME .) ]
+  ! COMMA           [ reduce using rule 24 (factor -> NAME .) ]
+  ! DPOINT          [ reduce using rule 24 (factor -> NAME .) ]
+  ! AND             [ reduce using rule 24 (factor -> NAME .) ]
+  ! OR              [ reduce using rule 24 (factor -> NAME .) ]
+  ! RPAREN          [ reduce using rule 24 (factor -> NAME .) ]
 
 
 state 24
 
-    (45) comp -> expr .
-    (6) expr -> expr . PLUS term
-    (7) expr -> expr . MINUS term
+    (18) element -> list .
 
-    DEQUALS         reduce using rule 45 (comp -> expr .)
-    DIFFERENT       reduce using rule 45 (comp -> expr .)
-    HIGHER          reduce using rule 45 (comp -> expr .)
-    LESS            reduce using rule 45 (comp -> expr .)
-    HIGHEREQ        reduce using rule 45 (comp -> expr .)
-    LESSEQ          reduce using rule 45 (comp -> expr .)
-    RPAREN          reduce using rule 45 (comp -> expr .)
-    AND             reduce using rule 45 (comp -> expr .)
-    OR              reduce using rule 45 (comp -> expr .)
-    PLUS            shift and go to state 32
-    MINUS           shift and go to state 33
+    DEQUALS         reduce using rule 18 (element -> list .)
+    DIFFERENT       reduce using rule 18 (element -> list .)
+    HIGHER          reduce using rule 18 (element -> list .)
+    LESS            reduce using rule 18 (element -> list .)
+    HIGHEREQ        reduce using rule 18 (element -> list .)
+    LESSEQ          reduce using rule 18 (element -> list .)
+    RCORCHETE       reduce using rule 18 (element -> list .)
+    COMMA           reduce using rule 18 (element -> list .)
+    DPOINT          reduce using rule 18 (element -> list .)
+    AND             reduce using rule 18 (element -> list .)
+    OR              reduce using rule 18 (element -> list .)
+    RPAREN          reduce using rule 18 (element -> list .)
 
 
 state 25
 
-    (46) comp -> element .
+    (22) factor -> NUMBER .
 
-    DEQUALS         reduce using rule 46 (comp -> element .)
-    DIFFERENT       reduce using rule 46 (comp -> element .)
-    HIGHER          reduce using rule 46 (comp -> element .)
-    LESS            reduce using rule 46 (comp -> element .)
-    HIGHEREQ        reduce using rule 46 (comp -> element .)
-    LESSEQ          reduce using rule 46 (comp -> element .)
-    RPAREN          reduce using rule 46 (comp -> element .)
-    AND             reduce using rule 46 (comp -> element .)
-    OR              reduce using rule 46 (comp -> element .)
+    DEQUALS         reduce using rule 22 (factor -> NUMBER .)
+    DIFFERENT       reduce using rule 22 (factor -> NUMBER .)
+    HIGHER          reduce using rule 22 (factor -> NUMBER .)
+    LESS            reduce using rule 22 (factor -> NUMBER .)
+    HIGHEREQ        reduce using rule 22 (factor -> NUMBER .)
+    LESSEQ          reduce using rule 22 (factor -> NUMBER .)
+    TIMES           reduce using rule 22 (factor -> NUMBER .)
+    DIVIDE          reduce using rule 22 (factor -> NUMBER .)
+    PLUS            reduce using rule 22 (factor -> NUMBER .)
+    MINUS           reduce using rule 22 (factor -> NUMBER .)
+    $end            reduce using rule 22 (factor -> NUMBER .)
+    ELSE            reduce using rule 22 (factor -> NUMBER .)
+    ELIF            reduce using rule 22 (factor -> NUMBER .)
+    RCORCHETE       reduce using rule 22 (factor -> NUMBER .)
+    COMMA           reduce using rule 22 (factor -> NUMBER .)
+    DPOINT          reduce using rule 22 (factor -> NUMBER .)
+    AND             reduce using rule 22 (factor -> NUMBER .)
+    OR              reduce using rule 22 (factor -> NUMBER .)
+    RPAREN          reduce using rule 22 (factor -> NUMBER .)
 
 
 state 26
 
-    (36) bool -> TRUE .
+    (13) list -> LCORCHETE . RCORCHETE
+    (14) list -> LCORCHETE . element RCORCHETE
+    (15) list -> LCORCHETE . element elements RCORCHETE
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    RPAREN          reduce using rule 36 (bool -> TRUE .)
-    AND             reduce using rule 36 (bool -> TRUE .)
-    OR              reduce using rule 36 (bool -> TRUE .)
+    RCORCHETE       shift and go to state 52
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    element                        shift and go to state 53
+    factor                         shift and go to state 54
+    list                           shift and go to state 24
 
 state 27
 
-    (37) bool -> FALSE .
+    (24) factor -> NAME .
 
-    RPAREN          reduce using rule 37 (bool -> FALSE .)
-    AND             reduce using rule 37 (bool -> FALSE .)
-    OR              reduce using rule 37 (bool -> FALSE .)
+    TIMES           reduce using rule 24 (factor -> NAME .)
+    DIVIDE          reduce using rule 24 (factor -> NAME .)
+    PLUS            reduce using rule 24 (factor -> NAME .)
+    MINUS           reduce using rule 24 (factor -> NAME .)
+    $end            reduce using rule 24 (factor -> NAME .)
+    ELSE            reduce using rule 24 (factor -> NAME .)
+    ELIF            reduce using rule 24 (factor -> NAME .)
+    DEQUALS         reduce using rule 24 (factor -> NAME .)
+    DIFFERENT       reduce using rule 24 (factor -> NAME .)
+    HIGHER          reduce using rule 24 (factor -> NAME .)
+    LESS            reduce using rule 24 (factor -> NAME .)
+    HIGHEREQ        reduce using rule 24 (factor -> NAME .)
+    LESSEQ          reduce using rule 24 (factor -> NAME .)
+    DPOINT          reduce using rule 24 (factor -> NAME .)
+    AND             reduce using rule 24 (factor -> NAME .)
+    OR              reduce using rule 24 (factor -> NAME .)
+    RPAREN          reduce using rule 24 (factor -> NAME .)
+    RCORCHETE       reduce using rule 24 (factor -> NAME .)
+    COMMA           reduce using rule 24 (factor -> NAME .)
 
 
 state 28
 
-    (15) element -> factor .
-    (11) term -> factor .
+    (1) assign -> NAME EQUALS expr .
+    (7) expr -> expr . PLUS term
+    (8) expr -> expr . MINUS term
 
-  ! reduce/reduce conflict for DEQUALS resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for DIFFERENT resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for HIGHER resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for LESS resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for HIGHEREQ resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for LESSEQ resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for RPAREN resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for AND resolved using rule 11 (term -> factor .)
-  ! reduce/reduce conflict for OR resolved using rule 11 (term -> factor .)
-    TIMES           reduce using rule 11 (term -> factor .)
-    DIVIDE          reduce using rule 11 (term -> factor .)
-    PLUS            reduce using rule 11 (term -> factor .)
-    MINUS           reduce using rule 11 (term -> factor .)
-    DEQUALS         reduce using rule 11 (term -> factor .)
-    DIFFERENT       reduce using rule 11 (term -> factor .)
-    HIGHER          reduce using rule 11 (term -> factor .)
-    LESS            reduce using rule 11 (term -> factor .)
-    HIGHEREQ        reduce using rule 11 (term -> factor .)
-    LESSEQ          reduce using rule 11 (term -> factor .)
-    RPAREN          reduce using rule 11 (term -> factor .)
-    AND             reduce using rule 11 (term -> factor .)
-    OR              reduce using rule 11 (term -> factor .)
-
-  ! DEQUALS         [ reduce using rule 15 (element -> factor .) ]
-  ! DIFFERENT       [ reduce using rule 15 (element -> factor .) ]
-  ! HIGHER          [ reduce using rule 15 (element -> factor .) ]
-  ! LESS            [ reduce using rule 15 (element -> factor .) ]
-  ! HIGHEREQ        [ reduce using rule 15 (element -> factor .) ]
-  ! LESSEQ          [ reduce using rule 15 (element -> factor .) ]
-  ! RPAREN          [ reduce using rule 15 (element -> factor .) ]
-  ! AND             [ reduce using rule 15 (element -> factor .) ]
-  ! OR              [ reduce using rule 15 (element -> factor .) ]
+    $end            reduce using rule 1 (assign -> NAME EQUALS expr .)
+    ELSE            reduce using rule 1 (assign -> NAME EQUALS expr .)
+    ELIF            reduce using rule 1 (assign -> NAME EQUALS expr .)
+    PLUS            shift and go to state 47
+    MINUS           shift and go to state 48
 
 
 state 29
 
-    (16) element -> NAME .
-    (23) factor -> NAME .
+    (2) assign -> NAME EQUALS list .
 
-  ! reduce/reduce conflict for DEQUALS resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for DIFFERENT resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for HIGHER resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for LESS resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for HIGHEREQ resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for LESSEQ resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for RCORCHETE resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for COMMA resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for RPAREN resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for AND resolved using rule 16 (element -> NAME .)
-  ! reduce/reduce conflict for OR resolved using rule 16 (element -> NAME .)
-    DEQUALS         reduce using rule 16 (element -> NAME .)
-    DIFFERENT       reduce using rule 16 (element -> NAME .)
-    HIGHER          reduce using rule 16 (element -> NAME .)
-    LESS            reduce using rule 16 (element -> NAME .)
-    HIGHEREQ        reduce using rule 16 (element -> NAME .)
-    LESSEQ          reduce using rule 16 (element -> NAME .)
-    RCORCHETE       reduce using rule 16 (element -> NAME .)
-    COMMA           reduce using rule 16 (element -> NAME .)
-    RPAREN          reduce using rule 16 (element -> NAME .)
-    AND             reduce using rule 16 (element -> NAME .)
-    OR              reduce using rule 16 (element -> NAME .)
-    TIMES           reduce using rule 23 (factor -> NAME .)
-    DIVIDE          reduce using rule 23 (factor -> NAME .)
-    PLUS            reduce using rule 23 (factor -> NAME .)
-    MINUS           reduce using rule 23 (factor -> NAME .)
-
-  ! DEQUALS         [ reduce using rule 23 (factor -> NAME .) ]
-  ! DIFFERENT       [ reduce using rule 23 (factor -> NAME .) ]
-  ! HIGHER          [ reduce using rule 23 (factor -> NAME .) ]
-  ! LESS            [ reduce using rule 23 (factor -> NAME .) ]
-  ! HIGHEREQ        [ reduce using rule 23 (factor -> NAME .) ]
-  ! LESSEQ          [ reduce using rule 23 (factor -> NAME .) ]
-  ! RCORCHETE       [ reduce using rule 23 (factor -> NAME .) ]
-  ! COMMA           [ reduce using rule 23 (factor -> NAME .) ]
-  ! RPAREN          [ reduce using rule 23 (factor -> NAME .) ]
-  ! AND             [ reduce using rule 23 (factor -> NAME .) ]
-  ! OR              [ reduce using rule 23 (factor -> NAME .) ]
+    $end            reduce using rule 2 (assign -> NAME EQUALS list .)
+    ELSE            reduce using rule 2 (assign -> NAME EQUALS list .)
+    ELIF            reduce using rule 2 (assign -> NAME EQUALS list .)
 
 
 state 30
 
-    (17) element -> list .
+    (3) assign -> NAME EQUALS cad .
+    (27) cad -> cad . LCORCHETE index RCORCHETE
 
-    DEQUALS         reduce using rule 17 (element -> list .)
-    DIFFERENT       reduce using rule 17 (element -> list .)
-    HIGHER          reduce using rule 17 (element -> list .)
-    LESS            reduce using rule 17 (element -> list .)
-    HIGHEREQ        reduce using rule 17 (element -> list .)
-    LESSEQ          reduce using rule 17 (element -> list .)
-    RCORCHETE       reduce using rule 17 (element -> list .)
-    COMMA           reduce using rule 17 (element -> list .)
-    RPAREN          reduce using rule 17 (element -> list .)
-    AND             reduce using rule 17 (element -> list .)
-    OR              reduce using rule 17 (element -> list .)
+    $end            reduce using rule 3 (assign -> NAME EQUALS cad .)
+    ELSE            reduce using rule 3 (assign -> NAME EQUALS cad .)
+    ELIF            reduce using rule 3 (assign -> NAME EQUALS cad .)
+    LCORCHETE       shift and go to state 55
 
 
 state 31
 
-    (47) for -> FOR NAME IN . RANGE LPAREN r_value RPAREN DPOINT
-    (48) for -> FOR NAME IN . RANGE LPAREN r_values RPAREN DPOINT
-    (49) for -> FOR NAME IN . NAME DPOINT
+    (25) cad -> COMILLA . NAME COMILLA
 
-    RANGE           shift and go to state 54
-    NAME            shift and go to state 53
+    NAME            shift and go to state 56
 
 
 state 32
 
-    (6) expr -> expr PLUS . term
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (26) cad -> COMILLAD . NAME COMILLAD
 
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    NAME            shift and go to state 57
 
-    term                           shift and go to state 55
-    factor                         shift and go to state 19
 
 state 33
 
-    (7) expr -> expr MINUS . term
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (12) term -> factor .
 
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    TIMES           reduce using rule 12 (term -> factor .)
+    DIVIDE          reduce using rule 12 (term -> factor .)
+    PLUS            reduce using rule 12 (term -> factor .)
+    MINUS           reduce using rule 12 (term -> factor .)
+    $end            reduce using rule 12 (term -> factor .)
+    ELSE            reduce using rule 12 (term -> factor .)
+    ELIF            reduce using rule 12 (term -> factor .)
+    DEQUALS         reduce using rule 12 (term -> factor .)
+    DIFFERENT       reduce using rule 12 (term -> factor .)
+    HIGHER          reduce using rule 12 (term -> factor .)
+    LESS            reduce using rule 12 (term -> factor .)
+    HIGHEREQ        reduce using rule 12 (term -> factor .)
+    LESSEQ          reduce using rule 12 (term -> factor .)
+    DPOINT          reduce using rule 12 (term -> factor .)
+    AND             reduce using rule 12 (term -> factor .)
+    OR              reduce using rule 12 (term -> factor .)
+    RPAREN          reduce using rule 12 (term -> factor .)
 
-    term                           shift and go to state 56
-    factor                         shift and go to state 19
 
 state 34
 
-    (26) cad -> cad LCORCHETE . index RCORCHETE
-    (27) index -> . factor
-    (28) index -> . factor DPOINT factor
-    (29) index -> . factor DPOINT factor DPOINT factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (48) for -> FOR NAME IN . RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> FOR NAME IN . RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> FOR NAME IN . NAME DPOINT
 
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    RANGE           shift and go to state 59
+    NAME            shift and go to state 58
 
-    index                          shift and go to state 57
-    factor                         shift and go to state 58
 
 state 35
 
-    (9) term -> term TIMES . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (31) while -> WHILE LPAREN comparison . RPAREN DPOINT
+    (32) while -> WHILE LPAREN comparison . comparisons RPAREN DPOINT
+    (33) comparisons -> . AND comparison
+    (34) comparisons -> . AND comparison comparisons
+    (35) comparisons -> . OR comparison
+    (36) comparisons -> . OR comparison comparisons
 
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    RPAREN          shift and go to state 60
+    AND             shift and go to state 39
+    OR              shift and go to state 40
 
-    factor                         shift and go to state 59
+    comparisons                    shift and go to state 61
 
 state 36
 
-    (10) term -> term DIVIDE . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (55) if -> IF LPAREN comparison . RPAREN DPOINT assign
+    (56) if -> IF LPAREN comparison . comparisons RPAREN DPOINT assign
+    (59) if -> IF LPAREN comparison . RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> IF LPAREN comparison . comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (63) if -> IF LPAREN comparison . RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> IF LPAREN comparison . comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (33) comparisons -> . AND comparison
+    (34) comparisons -> . AND comparison comparisons
+    (35) comparisons -> . OR comparison
+    (36) comparisons -> . OR comparison comparisons
 
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    RPAREN          shift and go to state 62
+    AND             shift and go to state 39
+    OR              shift and go to state 40
 
-    factor                         shift and go to state 60
+    comparisons                    shift and go to state 63
 
 state 37
 
-    (22) factor -> MINUS NUMBER .
+    (57) if -> IF comparison DPOINT . assign
+    (61) if -> IF comparison DPOINT . assign ELSE DPOINT assign
+    (65) if -> IF comparison DPOINT . assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
 
-    TIMES           reduce using rule 22 (factor -> MINUS NUMBER .)
-    DIVIDE          reduce using rule 22 (factor -> MINUS NUMBER .)
-    PLUS            reduce using rule 22 (factor -> MINUS NUMBER .)
-    MINUS           reduce using rule 22 (factor -> MINUS NUMBER .)
-    $end            reduce using rule 22 (factor -> MINUS NUMBER .)
-    DEQUALS         reduce using rule 22 (factor -> MINUS NUMBER .)
-    DIFFERENT       reduce using rule 22 (factor -> MINUS NUMBER .)
-    HIGHER          reduce using rule 22 (factor -> MINUS NUMBER .)
-    LESS            reduce using rule 22 (factor -> MINUS NUMBER .)
-    HIGHEREQ        reduce using rule 22 (factor -> MINUS NUMBER .)
-    LESSEQ          reduce using rule 22 (factor -> MINUS NUMBER .)
-    RCORCHETE       reduce using rule 22 (factor -> MINUS NUMBER .)
-    COMMA           reduce using rule 22 (factor -> MINUS NUMBER .)
-    RPAREN          reduce using rule 22 (factor -> MINUS NUMBER .)
-    AND             reduce using rule 22 (factor -> MINUS NUMBER .)
-    OR              reduce using rule 22 (factor -> MINUS NUMBER .)
-    DPOINT          reduce using rule 22 (factor -> MINUS NUMBER .)
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
 
+    assign                         shift and go to state 64
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
 
 state 38
 
-    (12) list -> LCORCHETE RCORCHETE .
+    (58) if -> IF comparison comparisons . DPOINT assign
+    (62) if -> IF comparison comparisons . DPOINT assign ELSE DPOINT assign
+    (66) if -> IF comparison comparisons . DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
 
-    $end            reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    DEQUALS         reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    DIFFERENT       reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    HIGHER          reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    LESS            reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    HIGHEREQ        reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    LESSEQ          reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    RCORCHETE       reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    COMMA           reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    RPAREN          reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    AND             reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
-    OR              reduce using rule 12 (list -> LCORCHETE RCORCHETE .)
+    DPOINT          shift and go to state 65
 
 
 state 39
 
-    (13) list -> LCORCHETE element . RCORCHETE
-    (14) list -> LCORCHETE element . elements RCORCHETE
-    (18) elements -> . COMMA element
-    (19) elements -> . COMMA list
-    (20) elements -> . COMMA element elements
+    (33) comparisons -> AND . comparison
+    (34) comparisons -> AND . comparison comparisons
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    RCORCHETE       shift and go to state 61
-    COMMA           shift and go to state 63
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
-    elements                       shift and go to state 62
+    comparison                     shift and go to state 66
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 40
 
-    (15) element -> factor .
+    (35) comparisons -> OR . comparison
+    (36) comparisons -> OR . comparison comparisons
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    RCORCHETE       reduce using rule 15 (element -> factor .)
-    COMMA           reduce using rule 15 (element -> factor .)
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comparison                     shift and go to state 67
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 41
 
-    (24) cad -> COMILLA NAME . COMILLA
+    (39) comparison -> comp DEQUALS . comp
+    (46) comp -> . expr
+    (47) comp -> . element
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    COMILLA         shift and go to state 64
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comp                           shift and go to state 68
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 42
 
-    (25) cad -> COMILLAD NAME . COMILLAD
+    (40) comparison -> comp DIFFERENT . comp
+    (46) comp -> . expr
+    (47) comp -> . element
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    COMILLAD        shift and go to state 65
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comp                           shift and go to state 69
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 43
 
-    (30) while -> WHILE LPAREN comparison RPAREN . DPOINT
+    (41) comparison -> comp HIGHER . comp
+    (46) comp -> . expr
+    (47) comp -> . element
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    DPOINT          shift and go to state 66
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comp                           shift and go to state 70
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 44
 
-    (31) while -> WHILE LPAREN comparison comparisons . RPAREN DPOINT
+    (42) comparison -> comp LESS . comp
+    (46) comp -> . expr
+    (47) comp -> . element
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    RPAREN          shift and go to state 67
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comp                           shift and go to state 71
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 45
 
-    (32) comparisons -> AND . comparison
-    (33) comparisons -> AND . comparison comparisons
-    (38) comparison -> . comp DEQUALS comp
-    (39) comparison -> . comp DIFFERENT comp
-    (40) comparison -> . comp HIGHER comp
-    (41) comparison -> . comp LESS comp
-    (42) comparison -> . comp HIGHEREQ comp
-    (43) comparison -> . comp LESSEQ comp
-    (44) comparison -> . bool
-    (45) comp -> . expr
-    (46) comp -> . element
-    (36) bool -> . TRUE
-    (37) bool -> . FALSE
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (43) comparison -> comp HIGHEREQ . comp
+    (46) comp -> . expr
+    (47) comp -> . element
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
-    comparison                     shift and go to state 68
-    comp                           shift and go to state 22
-    bool                           shift and go to state 23
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
+    comp                           shift and go to state 72
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 46
 
-    (34) comparisons -> OR . comparison
-    (35) comparisons -> OR . comparison comparisons
-    (38) comparison -> . comp DEQUALS comp
-    (39) comparison -> . comp DIFFERENT comp
-    (40) comparison -> . comp HIGHER comp
-    (41) comparison -> . comp LESS comp
-    (42) comparison -> . comp HIGHEREQ comp
-    (43) comparison -> . comp LESSEQ comp
-    (44) comparison -> . bool
-    (45) comp -> . expr
-    (46) comp -> . element
-    (36) bool -> . TRUE
-    (37) bool -> . FALSE
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (44) comparison -> comp LESSEQ . comp
+    (46) comp -> . expr
+    (47) comp -> . element
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    TRUE            shift and go to state 26
-    FALSE           shift and go to state 27
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
-    comparison                     shift and go to state 69
-    comp                           shift and go to state 22
-    bool                           shift and go to state 23
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
+    comp                           shift and go to state 73
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 47
 
-    (38) comparison -> comp DEQUALS . comp
-    (45) comp -> . expr
-    (46) comp -> . element
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (7) expr -> expr PLUS . term
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
-    comp                           shift and go to state 70
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
+    term                           shift and go to state 74
+    factor                         shift and go to state 33
 
 state 48
 
-    (39) comparison -> comp DIFFERENT . comp
-    (45) comp -> . expr
-    (46) comp -> . element
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (8) expr -> expr MINUS . term
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
-    comp                           shift and go to state 71
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
+    term                           shift and go to state 75
+    factor                         shift and go to state 33
 
 state 49
 
-    (40) comparison -> comp HIGHER . comp
-    (45) comp -> . expr
-    (46) comp -> . element
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (10) term -> term TIMES . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
-    comp                           shift and go to state 72
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
+    factor                         shift and go to state 76
 
 state 50
 
-    (41) comparison -> comp LESS . comp
-    (45) comp -> . expr
-    (46) comp -> . element
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (11) term -> term DIVIDE . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
-    comp                           shift and go to state 73
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
+    factor                         shift and go to state 77
 
 state 51
 
-    (42) comparison -> comp HIGHEREQ . comp
-    (45) comp -> . expr
-    (46) comp -> . element
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (23) factor -> MINUS NUMBER .
 
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    DEQUALS         reduce using rule 23 (factor -> MINUS NUMBER .)
+    DIFFERENT       reduce using rule 23 (factor -> MINUS NUMBER .)
+    HIGHER          reduce using rule 23 (factor -> MINUS NUMBER .)
+    LESS            reduce using rule 23 (factor -> MINUS NUMBER .)
+    HIGHEREQ        reduce using rule 23 (factor -> MINUS NUMBER .)
+    LESSEQ          reduce using rule 23 (factor -> MINUS NUMBER .)
+    TIMES           reduce using rule 23 (factor -> MINUS NUMBER .)
+    DIVIDE          reduce using rule 23 (factor -> MINUS NUMBER .)
+    PLUS            reduce using rule 23 (factor -> MINUS NUMBER .)
+    MINUS           reduce using rule 23 (factor -> MINUS NUMBER .)
+    $end            reduce using rule 23 (factor -> MINUS NUMBER .)
+    ELSE            reduce using rule 23 (factor -> MINUS NUMBER .)
+    ELIF            reduce using rule 23 (factor -> MINUS NUMBER .)
+    RCORCHETE       reduce using rule 23 (factor -> MINUS NUMBER .)
+    COMMA           reduce using rule 23 (factor -> MINUS NUMBER .)
+    DPOINT          reduce using rule 23 (factor -> MINUS NUMBER .)
+    AND             reduce using rule 23 (factor -> MINUS NUMBER .)
+    OR              reduce using rule 23 (factor -> MINUS NUMBER .)
+    RPAREN          reduce using rule 23 (factor -> MINUS NUMBER .)
 
-    comp                           shift and go to state 74
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
 
 state 52
 
-    (43) comparison -> comp LESSEQ . comp
-    (45) comp -> . expr
-    (46) comp -> . element
-    (6) expr -> . expr PLUS term
-    (7) expr -> . expr MINUS term
-    (8) expr -> . term
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (9) term -> . term TIMES factor
-    (10) term -> . term DIVIDE factor
-    (11) term -> . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
+    (13) list -> LCORCHETE RCORCHETE .
 
-    NAME            shift and go to state 29
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    LCORCHETE       shift and go to state 16
+    DEQUALS         reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    DIFFERENT       reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    HIGHER          reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    LESS            reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    HIGHEREQ        reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    LESSEQ          reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    $end            reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    ELSE            reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    ELIF            reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    RCORCHETE       reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    COMMA           reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    DPOINT          reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    AND             reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    OR              reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
+    RPAREN          reduce using rule 13 (list -> LCORCHETE RCORCHETE .)
 
-    comp                           shift and go to state 75
-    expr                           shift and go to state 24
-    element                        shift and go to state 25
-    term                           shift and go to state 14
-    factor                         shift and go to state 28
-    list                           shift and go to state 30
 
 state 53
 
-    (49) for -> FOR NAME IN NAME . DPOINT
+    (14) list -> LCORCHETE element . RCORCHETE
+    (15) list -> LCORCHETE element . elements RCORCHETE
+    (19) elements -> . COMMA element
+    (20) elements -> . COMMA list
+    (21) elements -> . COMMA element elements
 
-    DPOINT          shift and go to state 76
+    RCORCHETE       shift and go to state 78
+    COMMA           shift and go to state 80
 
+    elements                       shift and go to state 79
 
 state 54
 
-    (47) for -> FOR NAME IN RANGE . LPAREN r_value RPAREN DPOINT
-    (48) for -> FOR NAME IN RANGE . LPAREN r_values RPAREN DPOINT
+    (16) element -> factor .
 
-    LPAREN          shift and go to state 77
+    RCORCHETE       reduce using rule 16 (element -> factor .)
+    COMMA           reduce using rule 16 (element -> factor .)
 
 
 state 55
 
-    (6) expr -> expr PLUS term .
-    (9) term -> term . TIMES factor
-    (10) term -> term . DIVIDE factor
+    (27) cad -> cad LCORCHETE . index RCORCHETE
+    (28) index -> . factor
+    (29) index -> . factor DPOINT factor
+    (30) index -> . factor DPOINT factor DPOINT factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    PLUS            reduce using rule 6 (expr -> expr PLUS term .)
-    MINUS           reduce using rule 6 (expr -> expr PLUS term .)
-    $end            reduce using rule 6 (expr -> expr PLUS term .)
-    DEQUALS         reduce using rule 6 (expr -> expr PLUS term .)
-    DIFFERENT       reduce using rule 6 (expr -> expr PLUS term .)
-    HIGHER          reduce using rule 6 (expr -> expr PLUS term .)
-    LESS            reduce using rule 6 (expr -> expr PLUS term .)
-    HIGHEREQ        reduce using rule 6 (expr -> expr PLUS term .)
-    LESSEQ          reduce using rule 6 (expr -> expr PLUS term .)
-    RPAREN          reduce using rule 6 (expr -> expr PLUS term .)
-    AND             reduce using rule 6 (expr -> expr PLUS term .)
-    OR              reduce using rule 6 (expr -> expr PLUS term .)
-    TIMES           shift and go to state 35
-    DIVIDE          shift and go to state 36
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
+    index                          shift and go to state 81
+    factor                         shift and go to state 82
 
 state 56
 
-    (7) expr -> expr MINUS term .
-    (9) term -> term . TIMES factor
-    (10) term -> term . DIVIDE factor
+    (25) cad -> COMILLA NAME . COMILLA
 
-    PLUS            reduce using rule 7 (expr -> expr MINUS term .)
-    MINUS           reduce using rule 7 (expr -> expr MINUS term .)
-    $end            reduce using rule 7 (expr -> expr MINUS term .)
-    DEQUALS         reduce using rule 7 (expr -> expr MINUS term .)
-    DIFFERENT       reduce using rule 7 (expr -> expr MINUS term .)
-    HIGHER          reduce using rule 7 (expr -> expr MINUS term .)
-    LESS            reduce using rule 7 (expr -> expr MINUS term .)
-    HIGHEREQ        reduce using rule 7 (expr -> expr MINUS term .)
-    LESSEQ          reduce using rule 7 (expr -> expr MINUS term .)
-    RPAREN          reduce using rule 7 (expr -> expr MINUS term .)
-    AND             reduce using rule 7 (expr -> expr MINUS term .)
-    OR              reduce using rule 7 (expr -> expr MINUS term .)
-    TIMES           shift and go to state 35
-    DIVIDE          shift and go to state 36
+    COMILLA         shift and go to state 83
 
 
 state 57
 
-    (26) cad -> cad LCORCHETE index . RCORCHETE
+    (26) cad -> COMILLAD NAME . COMILLAD
 
-    RCORCHETE       shift and go to state 78
+    COMILLAD        shift and go to state 84
 
 
 state 58
 
-    (27) index -> factor .
-    (28) index -> factor . DPOINT factor
-    (29) index -> factor . DPOINT factor DPOINT factor
+    (50) for -> FOR NAME IN NAME . DPOINT
 
-    RCORCHETE       reduce using rule 27 (index -> factor .)
-    DPOINT          shift and go to state 79
+    DPOINT          shift and go to state 85
 
 
 state 59
 
-    (9) term -> term TIMES factor .
+    (48) for -> FOR NAME IN RANGE . LPAREN r_value RPAREN DPOINT
+    (49) for -> FOR NAME IN RANGE . LPAREN r_values RPAREN DPOINT
 
-    TIMES           reduce using rule 9 (term -> term TIMES factor .)
-    DIVIDE          reduce using rule 9 (term -> term TIMES factor .)
-    PLUS            reduce using rule 9 (term -> term TIMES factor .)
-    MINUS           reduce using rule 9 (term -> term TIMES factor .)
-    $end            reduce using rule 9 (term -> term TIMES factor .)
-    DEQUALS         reduce using rule 9 (term -> term TIMES factor .)
-    DIFFERENT       reduce using rule 9 (term -> term TIMES factor .)
-    HIGHER          reduce using rule 9 (term -> term TIMES factor .)
-    LESS            reduce using rule 9 (term -> term TIMES factor .)
-    HIGHEREQ        reduce using rule 9 (term -> term TIMES factor .)
-    LESSEQ          reduce using rule 9 (term -> term TIMES factor .)
-    RPAREN          reduce using rule 9 (term -> term TIMES factor .)
-    AND             reduce using rule 9 (term -> term TIMES factor .)
-    OR              reduce using rule 9 (term -> term TIMES factor .)
+    LPAREN          shift and go to state 86
 
 
 state 60
 
-    (10) term -> term DIVIDE factor .
+    (31) while -> WHILE LPAREN comparison RPAREN . DPOINT
 
-    TIMES           reduce using rule 10 (term -> term DIVIDE factor .)
-    DIVIDE          reduce using rule 10 (term -> term DIVIDE factor .)
-    PLUS            reduce using rule 10 (term -> term DIVIDE factor .)
-    MINUS           reduce using rule 10 (term -> term DIVIDE factor .)
-    $end            reduce using rule 10 (term -> term DIVIDE factor .)
-    DEQUALS         reduce using rule 10 (term -> term DIVIDE factor .)
-    DIFFERENT       reduce using rule 10 (term -> term DIVIDE factor .)
-    HIGHER          reduce using rule 10 (term -> term DIVIDE factor .)
-    LESS            reduce using rule 10 (term -> term DIVIDE factor .)
-    HIGHEREQ        reduce using rule 10 (term -> term DIVIDE factor .)
-    LESSEQ          reduce using rule 10 (term -> term DIVIDE factor .)
-    RPAREN          reduce using rule 10 (term -> term DIVIDE factor .)
-    AND             reduce using rule 10 (term -> term DIVIDE factor .)
-    OR              reduce using rule 10 (term -> term DIVIDE factor .)
+    DPOINT          shift and go to state 87
 
 
 state 61
 
-    (13) list -> LCORCHETE element RCORCHETE .
+    (32) while -> WHILE LPAREN comparison comparisons . RPAREN DPOINT
 
-    $end            reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    DEQUALS         reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    DIFFERENT       reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    HIGHER          reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    LESS            reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    HIGHEREQ        reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    LESSEQ          reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    RCORCHETE       reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    COMMA           reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    RPAREN          reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    AND             reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
-    OR              reduce using rule 13 (list -> LCORCHETE element RCORCHETE .)
+    RPAREN          shift and go to state 88
 
 
 state 62
 
-    (14) list -> LCORCHETE element elements . RCORCHETE
+    (55) if -> IF LPAREN comparison RPAREN . DPOINT assign
+    (59) if -> IF LPAREN comparison RPAREN . DPOINT assign ELSE DPOINT assign
+    (63) if -> IF LPAREN comparison RPAREN . DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
 
-    RCORCHETE       shift and go to state 80
+    DPOINT          shift and go to state 89
 
 
 state 63
 
-    (18) elements -> COMMA . element
-    (19) elements -> COMMA . list
-    (20) elements -> COMMA . element elements
-    (15) element -> . factor
-    (16) element -> . NAME
-    (17) element -> . list
-    (12) list -> . LCORCHETE RCORCHETE
-    (13) list -> . LCORCHETE element RCORCHETE
-    (14) list -> . LCORCHETE element elements RCORCHETE
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (56) if -> IF LPAREN comparison comparisons . RPAREN DPOINT assign
+    (60) if -> IF LPAREN comparison comparisons . RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> IF LPAREN comparison comparisons . RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
 
-    NAME            shift and go to state 29
-    LCORCHETE       shift and go to state 16
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
+    RPAREN          shift and go to state 90
 
-    element                        shift and go to state 81
-    list                           shift and go to state 82
-    factor                         shift and go to state 40
 
 state 64
 
-    (24) cad -> COMILLA NAME COMILLA .
+    (57) if -> IF comparison DPOINT assign .
+    (61) if -> IF comparison DPOINT assign . ELSE DPOINT assign
+    (65) if -> IF comparison DPOINT assign . ELIF comparison DPOINT assign ELSE DPOINT assign
 
-    LCORCHETE       reduce using rule 24 (cad -> COMILLA NAME COMILLA .)
-    $end            reduce using rule 24 (cad -> COMILLA NAME COMILLA .)
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for ELIF resolved as shift
+    $end            reduce using rule 57 (if -> IF comparison DPOINT assign .)
+    ELSE            shift and go to state 91
+    ELIF            shift and go to state 92
+
+  ! ELSE            [ reduce using rule 57 (if -> IF comparison DPOINT assign .) ]
+  ! ELIF            [ reduce using rule 57 (if -> IF comparison DPOINT assign .) ]
 
 
 state 65
 
-    (25) cad -> COMILLAD NAME COMILLAD .
+    (58) if -> IF comparison comparisons DPOINT . assign
+    (62) if -> IF comparison comparisons DPOINT . assign ELSE DPOINT assign
+    (66) if -> IF comparison comparisons DPOINT . assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
 
-    LCORCHETE       reduce using rule 25 (cad -> COMILLAD NAME COMILLAD .)
-    $end            reduce using rule 25 (cad -> COMILLAD NAME COMILLAD .)
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
 
+    assign                         shift and go to state 93
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
 
 state 66
 
-    (30) while -> WHILE LPAREN comparison RPAREN DPOINT .
+    (33) comparisons -> AND comparison .
+    (34) comparisons -> AND comparison . comparisons
+    (33) comparisons -> . AND comparison
+    (34) comparisons -> . AND comparison comparisons
+    (35) comparisons -> . OR comparison
+    (36) comparisons -> . OR comparison comparisons
 
-    $end            reduce using rule 30 (while -> WHILE LPAREN comparison RPAREN DPOINT .)
+    DPOINT          reduce using rule 33 (comparisons -> AND comparison .)
+    RPAREN          reduce using rule 33 (comparisons -> AND comparison .)
+    AND             shift and go to state 39
+    OR              shift and go to state 40
 
+    comparisons                    shift and go to state 94
 
 state 67
 
-    (31) while -> WHILE LPAREN comparison comparisons RPAREN . DPOINT
+    (35) comparisons -> OR comparison .
+    (36) comparisons -> OR comparison . comparisons
+    (33) comparisons -> . AND comparison
+    (34) comparisons -> . AND comparison comparisons
+    (35) comparisons -> . OR comparison
+    (36) comparisons -> . OR comparison comparisons
 
-    DPOINT          shift and go to state 83
+    DPOINT          reduce using rule 35 (comparisons -> OR comparison .)
+    RPAREN          reduce using rule 35 (comparisons -> OR comparison .)
+    AND             shift and go to state 39
+    OR              shift and go to state 40
 
+    comparisons                    shift and go to state 95
 
 state 68
 
-    (32) comparisons -> AND comparison .
-    (33) comparisons -> AND comparison . comparisons
-    (32) comparisons -> . AND comparison
-    (33) comparisons -> . AND comparison comparisons
-    (34) comparisons -> . OR comparison
-    (35) comparisons -> . OR comparison comparisons
+    (39) comparison -> comp DEQUALS comp .
 
-    RPAREN          reduce using rule 32 (comparisons -> AND comparison .)
-    AND             shift and go to state 45
-    OR              shift and go to state 46
+    DPOINT          reduce using rule 39 (comparison -> comp DEQUALS comp .)
+    AND             reduce using rule 39 (comparison -> comp DEQUALS comp .)
+    OR              reduce using rule 39 (comparison -> comp DEQUALS comp .)
+    RPAREN          reduce using rule 39 (comparison -> comp DEQUALS comp .)
 
-    comparisons                    shift and go to state 84
 
 state 69
 
-    (34) comparisons -> OR comparison .
-    (35) comparisons -> OR comparison . comparisons
-    (32) comparisons -> . AND comparison
-    (33) comparisons -> . AND comparison comparisons
-    (34) comparisons -> . OR comparison
-    (35) comparisons -> . OR comparison comparisons
+    (40) comparison -> comp DIFFERENT comp .
 
-    RPAREN          reduce using rule 34 (comparisons -> OR comparison .)
-    AND             shift and go to state 45
-    OR              shift and go to state 46
+    DPOINT          reduce using rule 40 (comparison -> comp DIFFERENT comp .)
+    AND             reduce using rule 40 (comparison -> comp DIFFERENT comp .)
+    OR              reduce using rule 40 (comparison -> comp DIFFERENT comp .)
+    RPAREN          reduce using rule 40 (comparison -> comp DIFFERENT comp .)
 
-    comparisons                    shift and go to state 85
 
 state 70
 
-    (38) comparison -> comp DEQUALS comp .
+    (41) comparison -> comp HIGHER comp .
 
-    RPAREN          reduce using rule 38 (comparison -> comp DEQUALS comp .)
-    AND             reduce using rule 38 (comparison -> comp DEQUALS comp .)
-    OR              reduce using rule 38 (comparison -> comp DEQUALS comp .)
+    DPOINT          reduce using rule 41 (comparison -> comp HIGHER comp .)
+    AND             reduce using rule 41 (comparison -> comp HIGHER comp .)
+    OR              reduce using rule 41 (comparison -> comp HIGHER comp .)
+    RPAREN          reduce using rule 41 (comparison -> comp HIGHER comp .)
 
 
 state 71
 
-    (39) comparison -> comp DIFFERENT comp .
+    (42) comparison -> comp LESS comp .
 
-    RPAREN          reduce using rule 39 (comparison -> comp DIFFERENT comp .)
-    AND             reduce using rule 39 (comparison -> comp DIFFERENT comp .)
-    OR              reduce using rule 39 (comparison -> comp DIFFERENT comp .)
+    DPOINT          reduce using rule 42 (comparison -> comp LESS comp .)
+    AND             reduce using rule 42 (comparison -> comp LESS comp .)
+    OR              reduce using rule 42 (comparison -> comp LESS comp .)
+    RPAREN          reduce using rule 42 (comparison -> comp LESS comp .)
 
 
 state 72
 
-    (40) comparison -> comp HIGHER comp .
+    (43) comparison -> comp HIGHEREQ comp .
 
-    RPAREN          reduce using rule 40 (comparison -> comp HIGHER comp .)
-    AND             reduce using rule 40 (comparison -> comp HIGHER comp .)
-    OR              reduce using rule 40 (comparison -> comp HIGHER comp .)
+    DPOINT          reduce using rule 43 (comparison -> comp HIGHEREQ comp .)
+    AND             reduce using rule 43 (comparison -> comp HIGHEREQ comp .)
+    OR              reduce using rule 43 (comparison -> comp HIGHEREQ comp .)
+    RPAREN          reduce using rule 43 (comparison -> comp HIGHEREQ comp .)
 
 
 state 73
 
-    (41) comparison -> comp LESS comp .
+    (44) comparison -> comp LESSEQ comp .
 
-    RPAREN          reduce using rule 41 (comparison -> comp LESS comp .)
-    AND             reduce using rule 41 (comparison -> comp LESS comp .)
-    OR              reduce using rule 41 (comparison -> comp LESS comp .)
+    DPOINT          reduce using rule 44 (comparison -> comp LESSEQ comp .)
+    AND             reduce using rule 44 (comparison -> comp LESSEQ comp .)
+    OR              reduce using rule 44 (comparison -> comp LESSEQ comp .)
+    RPAREN          reduce using rule 44 (comparison -> comp LESSEQ comp .)
 
 
 state 74
 
-    (42) comparison -> comp HIGHEREQ comp .
+    (7) expr -> expr PLUS term .
+    (10) term -> term . TIMES factor
+    (11) term -> term . DIVIDE factor
 
-    RPAREN          reduce using rule 42 (comparison -> comp HIGHEREQ comp .)
-    AND             reduce using rule 42 (comparison -> comp HIGHEREQ comp .)
-    OR              reduce using rule 42 (comparison -> comp HIGHEREQ comp .)
+    PLUS            reduce using rule 7 (expr -> expr PLUS term .)
+    MINUS           reduce using rule 7 (expr -> expr PLUS term .)
+    DEQUALS         reduce using rule 7 (expr -> expr PLUS term .)
+    DIFFERENT       reduce using rule 7 (expr -> expr PLUS term .)
+    HIGHER          reduce using rule 7 (expr -> expr PLUS term .)
+    LESS            reduce using rule 7 (expr -> expr PLUS term .)
+    HIGHEREQ        reduce using rule 7 (expr -> expr PLUS term .)
+    LESSEQ          reduce using rule 7 (expr -> expr PLUS term .)
+    $end            reduce using rule 7 (expr -> expr PLUS term .)
+    ELSE            reduce using rule 7 (expr -> expr PLUS term .)
+    ELIF            reduce using rule 7 (expr -> expr PLUS term .)
+    DPOINT          reduce using rule 7 (expr -> expr PLUS term .)
+    AND             reduce using rule 7 (expr -> expr PLUS term .)
+    OR              reduce using rule 7 (expr -> expr PLUS term .)
+    RPAREN          reduce using rule 7 (expr -> expr PLUS term .)
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
 
 
 state 75
 
-    (43) comparison -> comp LESSEQ comp .
+    (8) expr -> expr MINUS term .
+    (10) term -> term . TIMES factor
+    (11) term -> term . DIVIDE factor
 
-    RPAREN          reduce using rule 43 (comparison -> comp LESSEQ comp .)
-    AND             reduce using rule 43 (comparison -> comp LESSEQ comp .)
-    OR              reduce using rule 43 (comparison -> comp LESSEQ comp .)
+    PLUS            reduce using rule 8 (expr -> expr MINUS term .)
+    MINUS           reduce using rule 8 (expr -> expr MINUS term .)
+    DEQUALS         reduce using rule 8 (expr -> expr MINUS term .)
+    DIFFERENT       reduce using rule 8 (expr -> expr MINUS term .)
+    HIGHER          reduce using rule 8 (expr -> expr MINUS term .)
+    LESS            reduce using rule 8 (expr -> expr MINUS term .)
+    HIGHEREQ        reduce using rule 8 (expr -> expr MINUS term .)
+    LESSEQ          reduce using rule 8 (expr -> expr MINUS term .)
+    $end            reduce using rule 8 (expr -> expr MINUS term .)
+    ELSE            reduce using rule 8 (expr -> expr MINUS term .)
+    ELIF            reduce using rule 8 (expr -> expr MINUS term .)
+    DPOINT          reduce using rule 8 (expr -> expr MINUS term .)
+    AND             reduce using rule 8 (expr -> expr MINUS term .)
+    OR              reduce using rule 8 (expr -> expr MINUS term .)
+    RPAREN          reduce using rule 8 (expr -> expr MINUS term .)
+    TIMES           shift and go to state 49
+    DIVIDE          shift and go to state 50
 
 
 state 76
 
-    (49) for -> FOR NAME IN NAME DPOINT .
+    (10) term -> term TIMES factor .
 
-    $end            reduce using rule 49 (for -> FOR NAME IN NAME DPOINT .)
+    TIMES           reduce using rule 10 (term -> term TIMES factor .)
+    DIVIDE          reduce using rule 10 (term -> term TIMES factor .)
+    PLUS            reduce using rule 10 (term -> term TIMES factor .)
+    MINUS           reduce using rule 10 (term -> term TIMES factor .)
+    DEQUALS         reduce using rule 10 (term -> term TIMES factor .)
+    DIFFERENT       reduce using rule 10 (term -> term TIMES factor .)
+    HIGHER          reduce using rule 10 (term -> term TIMES factor .)
+    LESS            reduce using rule 10 (term -> term TIMES factor .)
+    HIGHEREQ        reduce using rule 10 (term -> term TIMES factor .)
+    LESSEQ          reduce using rule 10 (term -> term TIMES factor .)
+    $end            reduce using rule 10 (term -> term TIMES factor .)
+    ELSE            reduce using rule 10 (term -> term TIMES factor .)
+    ELIF            reduce using rule 10 (term -> term TIMES factor .)
+    DPOINT          reduce using rule 10 (term -> term TIMES factor .)
+    AND             reduce using rule 10 (term -> term TIMES factor .)
+    OR              reduce using rule 10 (term -> term TIMES factor .)
+    RPAREN          reduce using rule 10 (term -> term TIMES factor .)
 
 
 state 77
 
-    (47) for -> FOR NAME IN RANGE LPAREN . r_value RPAREN DPOINT
-    (48) for -> FOR NAME IN RANGE LPAREN . r_values RPAREN DPOINT
-    (52) r_value -> . factor
-    (53) r_value -> . LEN LPAREN NAME RPAREN
-    (50) r_values -> . r_value COMMA r_value
-    (51) r_values -> . r_value COMMA r_value COMMA r_value
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (11) term -> term DIVIDE factor .
 
-    LEN             shift and go to state 89
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    TIMES           reduce using rule 11 (term -> term DIVIDE factor .)
+    DIVIDE          reduce using rule 11 (term -> term DIVIDE factor .)
+    PLUS            reduce using rule 11 (term -> term DIVIDE factor .)
+    MINUS           reduce using rule 11 (term -> term DIVIDE factor .)
+    DEQUALS         reduce using rule 11 (term -> term DIVIDE factor .)
+    DIFFERENT       reduce using rule 11 (term -> term DIVIDE factor .)
+    HIGHER          reduce using rule 11 (term -> term DIVIDE factor .)
+    LESS            reduce using rule 11 (term -> term DIVIDE factor .)
+    HIGHEREQ        reduce using rule 11 (term -> term DIVIDE factor .)
+    LESSEQ          reduce using rule 11 (term -> term DIVIDE factor .)
+    $end            reduce using rule 11 (term -> term DIVIDE factor .)
+    ELSE            reduce using rule 11 (term -> term DIVIDE factor .)
+    ELIF            reduce using rule 11 (term -> term DIVIDE factor .)
+    DPOINT          reduce using rule 11 (term -> term DIVIDE factor .)
+    AND             reduce using rule 11 (term -> term DIVIDE factor .)
+    OR              reduce using rule 11 (term -> term DIVIDE factor .)
+    RPAREN          reduce using rule 11 (term -> term DIVIDE factor .)
 
-    r_value                        shift and go to state 86
-    r_values                       shift and go to state 87
-    factor                         shift and go to state 88
 
 state 78
 
-    (26) cad -> cad LCORCHETE index RCORCHETE .
+    (14) list -> LCORCHETE element RCORCHETE .
 
-    LCORCHETE       reduce using rule 26 (cad -> cad LCORCHETE index RCORCHETE .)
-    $end            reduce using rule 26 (cad -> cad LCORCHETE index RCORCHETE .)
+    DEQUALS         reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    DIFFERENT       reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    HIGHER          reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    LESS            reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    HIGHEREQ        reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    LESSEQ          reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    $end            reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    ELSE            reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    ELIF            reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    RCORCHETE       reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    COMMA           reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    DPOINT          reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    AND             reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    OR              reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
+    RPAREN          reduce using rule 14 (list -> LCORCHETE element RCORCHETE .)
 
 
 state 79
 
-    (28) index -> factor DPOINT . factor
-    (29) index -> factor DPOINT . factor DPOINT factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (15) list -> LCORCHETE element elements . RCORCHETE
 
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    RCORCHETE       shift and go to state 96
 
-    factor                         shift and go to state 90
 
 state 80
 
-    (14) list -> LCORCHETE element elements RCORCHETE .
+    (19) elements -> COMMA . element
+    (20) elements -> COMMA . list
+    (21) elements -> COMMA . element elements
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    $end            reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    DEQUALS         reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    DIFFERENT       reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    HIGHER          reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    LESS            reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    HIGHEREQ        reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    LESSEQ          reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    RCORCHETE       reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    COMMA           reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    RPAREN          reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    AND             reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
-    OR              reduce using rule 14 (list -> LCORCHETE element elements RCORCHETE .)
+    NAME            shift and go to state 23
+    LCORCHETE       shift and go to state 26
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
 
+    element                        shift and go to state 97
+    list                           shift and go to state 98
+    factor                         shift and go to state 54
 
 state 81
 
-    (18) elements -> COMMA element .
-    (20) elements -> COMMA element . elements
-    (18) elements -> . COMMA element
-    (19) elements -> . COMMA list
-    (20) elements -> . COMMA element elements
+    (27) cad -> cad LCORCHETE index . RCORCHETE
 
-    RCORCHETE       reduce using rule 18 (elements -> COMMA element .)
-    COMMA           shift and go to state 63
+    RCORCHETE       shift and go to state 99
 
-    elements                       shift and go to state 91
 
 state 82
 
-    (19) elements -> COMMA list .
-    (17) element -> list .
+    (28) index -> factor .
+    (29) index -> factor . DPOINT factor
+    (30) index -> factor . DPOINT factor DPOINT factor
 
-  ! reduce/reduce conflict for RCORCHETE resolved using rule 17 (element -> list .)
-    COMMA           reduce using rule 17 (element -> list .)
-    RCORCHETE       reduce using rule 17 (element -> list .)
-
-  ! RCORCHETE       [ reduce using rule 19 (elements -> COMMA list .) ]
+    RCORCHETE       reduce using rule 28 (index -> factor .)
+    DPOINT          shift and go to state 100
 
 
 state 83
 
-    (31) while -> WHILE LPAREN comparison comparisons RPAREN DPOINT .
+    (25) cad -> COMILLA NAME COMILLA .
 
-    $end            reduce using rule 31 (while -> WHILE LPAREN comparison comparisons RPAREN DPOINT .)
+    LCORCHETE       reduce using rule 25 (cad -> COMILLA NAME COMILLA .)
+    $end            reduce using rule 25 (cad -> COMILLA NAME COMILLA .)
+    ELSE            reduce using rule 25 (cad -> COMILLA NAME COMILLA .)
+    ELIF            reduce using rule 25 (cad -> COMILLA NAME COMILLA .)
 
 
 state 84
 
-    (33) comparisons -> AND comparison comparisons .
+    (26) cad -> COMILLAD NAME COMILLAD .
 
-    RPAREN          reduce using rule 33 (comparisons -> AND comparison comparisons .)
+    LCORCHETE       reduce using rule 26 (cad -> COMILLAD NAME COMILLAD .)
+    $end            reduce using rule 26 (cad -> COMILLAD NAME COMILLAD .)
+    ELSE            reduce using rule 26 (cad -> COMILLAD NAME COMILLAD .)
+    ELIF            reduce using rule 26 (cad -> COMILLAD NAME COMILLAD .)
 
 
 state 85
 
-    (35) comparisons -> OR comparison comparisons .
+    (50) for -> FOR NAME IN NAME DPOINT .
 
-    RPAREN          reduce using rule 35 (comparisons -> OR comparison comparisons .)
+    $end            reduce using rule 50 (for -> FOR NAME IN NAME DPOINT .)
+    ELSE            reduce using rule 50 (for -> FOR NAME IN NAME DPOINT .)
+    ELIF            reduce using rule 50 (for -> FOR NAME IN NAME DPOINT .)
 
 
 state 86
 
-    (47) for -> FOR NAME IN RANGE LPAREN r_value . RPAREN DPOINT
-    (50) r_values -> r_value . COMMA r_value
-    (51) r_values -> r_value . COMMA r_value COMMA r_value
+    (48) for -> FOR NAME IN RANGE LPAREN . r_value RPAREN DPOINT
+    (49) for -> FOR NAME IN RANGE LPAREN . r_values RPAREN DPOINT
+    (53) r_value -> . factor
+    (54) r_value -> . LEN LPAREN NAME RPAREN
+    (51) r_values -> . r_value COMMA r_value
+    (52) r_values -> . r_value COMMA r_value COMMA r_value
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    RPAREN          shift and go to state 92
-    COMMA           shift and go to state 93
+    LEN             shift and go to state 104
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
+    r_value                        shift and go to state 101
+    r_values                       shift and go to state 102
+    factor                         shift and go to state 103
 
 state 87
 
-    (48) for -> FOR NAME IN RANGE LPAREN r_values . RPAREN DPOINT
+    (31) while -> WHILE LPAREN comparison RPAREN DPOINT .
 
-    RPAREN          shift and go to state 94
+    $end            reduce using rule 31 (while -> WHILE LPAREN comparison RPAREN DPOINT .)
+    ELSE            reduce using rule 31 (while -> WHILE LPAREN comparison RPAREN DPOINT .)
+    ELIF            reduce using rule 31 (while -> WHILE LPAREN comparison RPAREN DPOINT .)
 
 
 state 88
 
-    (52) r_value -> factor .
+    (32) while -> WHILE LPAREN comparison comparisons RPAREN . DPOINT
 
-    RPAREN          reduce using rule 52 (r_value -> factor .)
-    COMMA           reduce using rule 52 (r_value -> factor .)
+    DPOINT          shift and go to state 105
 
 
 state 89
 
-    (53) r_value -> LEN . LPAREN NAME RPAREN
+    (55) if -> IF LPAREN comparison RPAREN DPOINT . assign
+    (59) if -> IF LPAREN comparison RPAREN DPOINT . assign ELSE DPOINT assign
+    (63) if -> IF LPAREN comparison RPAREN DPOINT . assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
 
-    LPAREN          shift and go to state 95
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
 
+    assign                         shift and go to state 106
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
 
 state 90
 
-    (28) index -> factor DPOINT factor .
-    (29) index -> factor DPOINT factor . DPOINT factor
+    (56) if -> IF LPAREN comparison comparisons RPAREN . DPOINT assign
+    (60) if -> IF LPAREN comparison comparisons RPAREN . DPOINT assign ELSE DPOINT assign
+    (64) if -> IF LPAREN comparison comparisons RPAREN . DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
 
-    RCORCHETE       reduce using rule 28 (index -> factor DPOINT factor .)
-    DPOINT          shift and go to state 96
+    DPOINT          shift and go to state 107
 
 
 state 91
 
-    (20) elements -> COMMA element elements .
+    (61) if -> IF comparison DPOINT assign ELSE . DPOINT assign
 
-    RCORCHETE       reduce using rule 20 (elements -> COMMA element elements .)
+    DPOINT          shift and go to state 108
 
 
 state 92
 
-    (47) for -> FOR NAME IN RANGE LPAREN r_value RPAREN . DPOINT
+    (65) if -> IF comparison DPOINT assign ELIF . comparison DPOINT assign ELSE DPOINT assign
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
 
-    DPOINT          shift and go to state 97
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
 
+    comparison                     shift and go to state 109
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
 
 state 93
 
-    (50) r_values -> r_value COMMA . r_value
-    (51) r_values -> r_value COMMA . r_value COMMA r_value
-    (52) r_value -> . factor
-    (53) r_value -> . LEN LPAREN NAME RPAREN
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (58) if -> IF comparison comparisons DPOINT assign .
+    (62) if -> IF comparison comparisons DPOINT assign . ELSE DPOINT assign
+    (66) if -> IF comparison comparisons DPOINT assign . ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
 
-    LEN             shift and go to state 89
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for ELIF resolved as shift
+    $end            reduce using rule 58 (if -> IF comparison comparisons DPOINT assign .)
+    ELSE            shift and go to state 110
+    ELIF            shift and go to state 111
 
-    r_value                        shift and go to state 98
-    factor                         shift and go to state 88
+  ! ELSE            [ reduce using rule 58 (if -> IF comparison comparisons DPOINT assign .) ]
+  ! ELIF            [ reduce using rule 58 (if -> IF comparison comparisons DPOINT assign .) ]
+
 
 state 94
 
-    (48) for -> FOR NAME IN RANGE LPAREN r_values RPAREN . DPOINT
+    (34) comparisons -> AND comparison comparisons .
 
-    DPOINT          shift and go to state 99
+    DPOINT          reduce using rule 34 (comparisons -> AND comparison comparisons .)
+    RPAREN          reduce using rule 34 (comparisons -> AND comparison comparisons .)
 
 
 state 95
 
-    (53) r_value -> LEN LPAREN . NAME RPAREN
+    (36) comparisons -> OR comparison comparisons .
 
-    NAME            shift and go to state 100
+    DPOINT          reduce using rule 36 (comparisons -> OR comparison comparisons .)
+    RPAREN          reduce using rule 36 (comparisons -> OR comparison comparisons .)
 
 
 state 96
 
-    (29) index -> factor DPOINT factor DPOINT . factor
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (15) list -> LCORCHETE element elements RCORCHETE .
 
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    DEQUALS         reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    DIFFERENT       reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    HIGHER          reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    LESS            reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    HIGHEREQ        reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    LESSEQ          reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    $end            reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    ELSE            reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    ELIF            reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    RCORCHETE       reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    COMMA           reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    DPOINT          reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    AND             reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    OR              reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
+    RPAREN          reduce using rule 15 (list -> LCORCHETE element elements RCORCHETE .)
 
-    factor                         shift and go to state 101
 
 state 97
 
-    (47) for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .
+    (19) elements -> COMMA element .
+    (21) elements -> COMMA element . elements
+    (19) elements -> . COMMA element
+    (20) elements -> . COMMA list
+    (21) elements -> . COMMA element elements
 
-    $end            reduce using rule 47 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .)
+    RCORCHETE       reduce using rule 19 (elements -> COMMA element .)
+    COMMA           shift and go to state 80
 
+    elements                       shift and go to state 112
 
 state 98
 
-    (50) r_values -> r_value COMMA r_value .
-    (51) r_values -> r_value COMMA r_value . COMMA r_value
+    (20) elements -> COMMA list .
+    (18) element -> list .
 
-    RPAREN          reduce using rule 50 (r_values -> r_value COMMA r_value .)
-    COMMA           shift and go to state 102
+  ! reduce/reduce conflict for RCORCHETE resolved using rule 18 (element -> list .)
+    COMMA           reduce using rule 18 (element -> list .)
+    RCORCHETE       reduce using rule 18 (element -> list .)
+
+  ! RCORCHETE       [ reduce using rule 20 (elements -> COMMA list .) ]
 
 
 state 99
 
-    (48) for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .
+    (27) cad -> cad LCORCHETE index RCORCHETE .
 
-    $end            reduce using rule 48 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .)
+    LCORCHETE       reduce using rule 27 (cad -> cad LCORCHETE index RCORCHETE .)
+    $end            reduce using rule 27 (cad -> cad LCORCHETE index RCORCHETE .)
+    ELSE            reduce using rule 27 (cad -> cad LCORCHETE index RCORCHETE .)
+    ELIF            reduce using rule 27 (cad -> cad LCORCHETE index RCORCHETE .)
 
 
 state 100
 
-    (53) r_value -> LEN LPAREN NAME . RPAREN
+    (29) index -> factor DPOINT . factor
+    (30) index -> factor DPOINT . factor DPOINT factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
 
-    RPAREN          shift and go to state 103
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
 
+    factor                         shift and go to state 113
 
 state 101
 
-    (29) index -> factor DPOINT factor DPOINT factor .
+    (48) for -> FOR NAME IN RANGE LPAREN r_value . RPAREN DPOINT
+    (51) r_values -> r_value . COMMA r_value
+    (52) r_values -> r_value . COMMA r_value COMMA r_value
 
-    RCORCHETE       reduce using rule 29 (index -> factor DPOINT factor DPOINT factor .)
+    RPAREN          shift and go to state 114
+    COMMA           shift and go to state 115
 
 
 state 102
 
-    (51) r_values -> r_value COMMA r_value COMMA . r_value
-    (52) r_value -> . factor
-    (53) r_value -> . LEN LPAREN NAME RPAREN
-    (21) factor -> . NUMBER
-    (22) factor -> . MINUS NUMBER
-    (23) factor -> . NAME
+    (49) for -> FOR NAME IN RANGE LPAREN r_values . RPAREN DPOINT
 
-    LEN             shift and go to state 89
-    NUMBER          shift and go to state 20
-    MINUS           shift and go to state 15
-    NAME            shift and go to state 10
+    RPAREN          shift and go to state 116
 
-    r_value                        shift and go to state 104
-    factor                         shift and go to state 88
 
 state 103
 
-    (53) r_value -> LEN LPAREN NAME RPAREN .
+    (53) r_value -> factor .
 
-    RPAREN          reduce using rule 53 (r_value -> LEN LPAREN NAME RPAREN .)
-    COMMA           reduce using rule 53 (r_value -> LEN LPAREN NAME RPAREN .)
+    RPAREN          reduce using rule 53 (r_value -> factor .)
+    COMMA           reduce using rule 53 (r_value -> factor .)
 
 
 state 104
 
-    (51) r_values -> r_value COMMA r_value COMMA r_value .
+    (54) r_value -> LEN . LPAREN NAME RPAREN
 
-    RPAREN          reduce using rule 51 (r_values -> r_value COMMA r_value COMMA r_value .)
+    LPAREN          shift and go to state 117
+
+
+state 105
+
+    (32) while -> WHILE LPAREN comparison comparisons RPAREN DPOINT .
+
+    $end            reduce using rule 32 (while -> WHILE LPAREN comparison comparisons RPAREN DPOINT .)
+    ELSE            reduce using rule 32 (while -> WHILE LPAREN comparison comparisons RPAREN DPOINT .)
+    ELIF            reduce using rule 32 (while -> WHILE LPAREN comparison comparisons RPAREN DPOINT .)
+
+
+state 106
+
+    (55) if -> IF LPAREN comparison RPAREN DPOINT assign .
+    (59) if -> IF LPAREN comparison RPAREN DPOINT assign . ELSE DPOINT assign
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign . ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for ELIF resolved as shift
+    $end            reduce using rule 55 (if -> IF LPAREN comparison RPAREN DPOINT assign .)
+    ELSE            shift and go to state 118
+    ELIF            shift and go to state 119
+
+  ! ELSE            [ reduce using rule 55 (if -> IF LPAREN comparison RPAREN DPOINT assign .) ]
+  ! ELIF            [ reduce using rule 55 (if -> IF LPAREN comparison RPAREN DPOINT assign .) ]
+
+
+state 107
+
+    (56) if -> IF LPAREN comparison comparisons RPAREN DPOINT . assign
+    (60) if -> IF LPAREN comparison comparisons RPAREN DPOINT . assign ELSE DPOINT assign
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT . assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 120
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 108
+
+    (61) if -> IF comparison DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 121
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 109
+
+    (65) if -> IF comparison DPOINT assign ELIF comparison . DPOINT assign ELSE DPOINT assign
+
+    DPOINT          shift and go to state 122
+
+
+state 110
+
+    (62) if -> IF comparison comparisons DPOINT assign ELSE . DPOINT assign
+
+    DPOINT          shift and go to state 123
+
+
+state 111
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF . comparison comparisons DPOINT assign ELSE DPOINT assign
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
+
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
+
+    comparison                     shift and go to state 124
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
+
+state 112
+
+    (21) elements -> COMMA element elements .
+
+    RCORCHETE       reduce using rule 21 (elements -> COMMA element elements .)
+
+
+state 113
+
+    (29) index -> factor DPOINT factor .
+    (30) index -> factor DPOINT factor . DPOINT factor
+
+    RCORCHETE       reduce using rule 29 (index -> factor DPOINT factor .)
+    DPOINT          shift and go to state 125
+
+
+state 114
+
+    (48) for -> FOR NAME IN RANGE LPAREN r_value RPAREN . DPOINT
+
+    DPOINT          shift and go to state 126
+
+
+state 115
+
+    (51) r_values -> r_value COMMA . r_value
+    (52) r_values -> r_value COMMA . r_value COMMA r_value
+    (53) r_value -> . factor
+    (54) r_value -> . LEN LPAREN NAME RPAREN
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+
+    LEN             shift and go to state 104
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
+
+    r_value                        shift and go to state 127
+    factor                         shift and go to state 103
+
+state 116
+
+    (49) for -> FOR NAME IN RANGE LPAREN r_values RPAREN . DPOINT
+
+    DPOINT          shift and go to state 128
+
+
+state 117
+
+    (54) r_value -> LEN LPAREN . NAME RPAREN
+
+    NAME            shift and go to state 129
+
+
+state 118
+
+    (59) if -> IF LPAREN comparison RPAREN DPOINT assign ELSE . DPOINT assign
+
+    DPOINT          shift and go to state 130
+
+
+state 119
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF . LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+
+    LPAREN          shift and go to state 131
+
+
+state 120
+
+    (56) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign .
+    (60) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign . ELSE DPOINT assign
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign . ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for ELIF resolved as shift
+    $end            reduce using rule 56 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign .)
+    ELSE            shift and go to state 132
+    ELIF            shift and go to state 133
+
+  ! ELSE            [ reduce using rule 56 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign .) ]
+  ! ELIF            [ reduce using rule 56 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign .) ]
+
+
+state 121
+
+    (61) if -> IF comparison DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 61 (if -> IF comparison DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 61 (if -> IF comparison DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 61 (if -> IF comparison DPOINT assign ELSE DPOINT assign .)
+
+
+state 122
+
+    (65) if -> IF comparison DPOINT assign ELIF comparison DPOINT . assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 134
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 123
+
+    (62) if -> IF comparison comparisons DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 135
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 124
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF comparison . comparisons DPOINT assign ELSE DPOINT assign
+    (33) comparisons -> . AND comparison
+    (34) comparisons -> . AND comparison comparisons
+    (35) comparisons -> . OR comparison
+    (36) comparisons -> . OR comparison comparisons
+
+    AND             shift and go to state 39
+    OR              shift and go to state 40
+
+    comparisons                    shift and go to state 136
+
+state 125
+
+    (30) index -> factor DPOINT factor DPOINT . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
+
+    factor                         shift and go to state 137
+
+state 126
+
+    (48) for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .
+
+    $end            reduce using rule 48 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .)
+    ELSE            reduce using rule 48 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .)
+    ELIF            reduce using rule 48 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT .)
+
+
+state 127
+
+    (51) r_values -> r_value COMMA r_value .
+    (52) r_values -> r_value COMMA r_value . COMMA r_value
+
+    RPAREN          reduce using rule 51 (r_values -> r_value COMMA r_value .)
+    COMMA           shift and go to state 138
+
+
+state 128
+
+    (49) for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .
+
+    $end            reduce using rule 49 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .)
+    ELSE            reduce using rule 49 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .)
+    ELIF            reduce using rule 49 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT .)
+
+
+state 129
+
+    (54) r_value -> LEN LPAREN NAME . RPAREN
+
+    RPAREN          shift and go to state 139
+
+
+state 130
+
+    (59) if -> IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 140
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 131
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN . comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
+
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
+
+    comparison                     shift and go to state 141
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
+
+state 132
+
+    (60) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE . DPOINT assign
+
+    DPOINT          shift and go to state 142
+
+
+state 133
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF . LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+
+    LPAREN          shift and go to state 143
+
+
+state 134
+
+    (65) if -> IF comparison DPOINT assign ELIF comparison DPOINT assign . ELSE DPOINT assign
+
+    ELSE            shift and go to state 144
+
+
+state 135
+
+    (62) if -> IF comparison comparisons DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 62 (if -> IF comparison comparisons DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 62 (if -> IF comparison comparisons DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 62 (if -> IF comparison comparisons DPOINT assign ELSE DPOINT assign .)
+
+
+state 136
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons . DPOINT assign ELSE DPOINT assign
+
+    DPOINT          shift and go to state 145
+
+
+state 137
+
+    (30) index -> factor DPOINT factor DPOINT factor .
+
+    RCORCHETE       reduce using rule 30 (index -> factor DPOINT factor DPOINT factor .)
+
+
+state 138
+
+    (52) r_values -> r_value COMMA r_value COMMA . r_value
+    (53) r_value -> . factor
+    (54) r_value -> . LEN LPAREN NAME RPAREN
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+
+    LEN             shift and go to state 104
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    NAME            shift and go to state 27
+
+    r_value                        shift and go to state 146
+    factor                         shift and go to state 103
+
+state 139
+
+    (54) r_value -> LEN LPAREN NAME RPAREN .
+
+    RPAREN          reduce using rule 54 (r_value -> LEN LPAREN NAME RPAREN .)
+    COMMA           reduce using rule 54 (r_value -> LEN LPAREN NAME RPAREN .)
+
+
+state 140
+
+    (59) if -> IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 59 (if -> IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 59 (if -> IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 59 (if -> IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .)
+
+
+state 141
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison . RPAREN DPOINT assign ELSE DPOINT assign
+
+    RPAREN          shift and go to state 147
+
+
+state 142
+
+    (60) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 148
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 143
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN . comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (39) comparison -> . comp DEQUALS comp
+    (40) comparison -> . comp DIFFERENT comp
+    (41) comparison -> . comp HIGHER comp
+    (42) comparison -> . comp LESS comp
+    (43) comparison -> . comp HIGHEREQ comp
+    (44) comparison -> . comp LESSEQ comp
+    (45) comparison -> . bool
+    (46) comp -> . expr
+    (47) comp -> . element
+    (37) bool -> . TRUE
+    (38) bool -> . FALSE
+    (7) expr -> . expr PLUS term
+    (8) expr -> . expr MINUS term
+    (9) expr -> . term
+    (16) element -> . factor
+    (17) element -> . NAME
+    (18) element -> . list
+    (10) term -> . term TIMES factor
+    (11) term -> . term DIVIDE factor
+    (12) term -> . factor
+    (22) factor -> . NUMBER
+    (23) factor -> . MINUS NUMBER
+    (24) factor -> . NAME
+    (13) list -> . LCORCHETE RCORCHETE
+    (14) list -> . LCORCHETE element RCORCHETE
+    (15) list -> . LCORCHETE element elements RCORCHETE
+
+    TRUE            shift and go to state 18
+    FALSE           shift and go to state 19
+    NAME            shift and go to state 23
+    NUMBER          shift and go to state 25
+    MINUS           shift and go to state 21
+    LCORCHETE       shift and go to state 26
+
+    comparison                     shift and go to state 149
+    comp                           shift and go to state 14
+    bool                           shift and go to state 15
+    expr                           shift and go to state 16
+    element                        shift and go to state 17
+    term                           shift and go to state 20
+    factor                         shift and go to state 22
+    list                           shift and go to state 24
+
+state 144
+
+    (65) if -> IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE . DPOINT assign
+
+    DPOINT          shift and go to state 150
+
+
+state 145
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT . assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 151
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 146
+
+    (52) r_values -> r_value COMMA r_value COMMA r_value .
+
+    RPAREN          reduce using rule 52 (r_values -> r_value COMMA r_value COMMA r_value .)
+
+
+state 147
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN . DPOINT assign ELSE DPOINT assign
+
+    DPOINT          shift and go to state 152
+
+
+state 148
+
+    (60) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 60 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 60 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 60 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .)
+
+
+state 149
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison . comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (33) comparisons -> . AND comparison
+    (34) comparisons -> . AND comparison comparisons
+    (35) comparisons -> . OR comparison
+    (36) comparisons -> . OR comparison comparisons
+
+    AND             shift and go to state 39
+    OR              shift and go to state 40
+
+    comparisons                    shift and go to state 153
+
+state 150
+
+    (65) if -> IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 154
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 151
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign . ELSE DPOINT assign
+
+    ELSE            shift and go to state 155
+
+
+state 152
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT . assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 156
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 153
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons . RPAREN DPOINT assign ELSE DPOINT assign
+
+    RPAREN          shift and go to state 157
+
+
+state 154
+
+    (65) if -> IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 65 (if -> IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 65 (if -> IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 65 (if -> IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign .)
+
+
+state 155
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE . DPOINT assign
+
+    DPOINT          shift and go to state 158
+
+
+state 156
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign . ELSE DPOINT assign
+
+    ELSE            shift and go to state 159
+
+
+state 157
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN . DPOINT assign ELSE DPOINT assign
+
+    DPOINT          shift and go to state 160
+
+
+state 158
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 161
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 159
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE . DPOINT assign
+
+    DPOINT          shift and go to state 162
+
+
+state 160
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT . assign ELSE DPOINT assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 163
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 161
+
+    (66) if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 66 (if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 66 (if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 66 (if -> IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign .)
+
+
+state 162
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 164
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 163
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign . ELSE DPOINT assign
+
+    ELSE            shift and go to state 165
+
+
+state 164
+
+    (63) if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign .)
+
+
+state 165
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE . DPOINT assign
+
+    DPOINT          shift and go to state 166
+
+
+state 166
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT . assign
+    (1) assign -> . NAME EQUALS expr
+    (2) assign -> . NAME EQUALS list
+    (3) assign -> . NAME EQUALS cad
+    (4) assign -> . for
+    (5) assign -> . while
+    (6) assign -> . if
+    (48) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT
+    (49) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT
+    (50) for -> . FOR NAME IN NAME DPOINT
+    (31) while -> . WHILE LPAREN comparison RPAREN DPOINT
+    (32) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT
+    (55) if -> . IF LPAREN comparison RPAREN DPOINT assign
+    (56) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign
+    (57) if -> . IF comparison DPOINT assign
+    (58) if -> . IF comparison comparisons DPOINT assign
+    (59) if -> . IF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (60) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (61) if -> . IF comparison DPOINT assign ELSE DPOINT assign
+    (62) if -> . IF comparison comparisons DPOINT assign ELSE DPOINT assign
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT assign ELIF LPAREN comparison RPAREN DPOINT assign ELSE DPOINT assign
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign
+    (65) if -> . IF comparison DPOINT assign ELIF comparison DPOINT assign ELSE DPOINT assign
+    (66) if -> . IF comparison comparisons DPOINT assign ELIF comparison comparisons DPOINT assign ELSE DPOINT assign
+
+    NAME            shift and go to state 2
+    FOR             shift and go to state 6
+    WHILE           shift and go to state 7
+    IF              shift and go to state 8
+
+    assign                         shift and go to state 167
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 167
+
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .
+
+    $end            reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELSE            reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .)
+    ELIF            reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT assign ELIF LPAREN comparison comparisons RPAREN DPOINT assign ELSE DPOINT assign .)
 
 WARNING: 
 WARNING: Conflicts:
 WARNING: 
-WARNING: reduce/reduce conflict in state 28 resolved using rule (term -> factor)
-WARNING: rejected rule (element -> factor) in state 28
-WARNING: reduce/reduce conflict in state 29 resolved using rule (element -> NAME)
-WARNING: rejected rule (factor -> NAME) in state 29
-WARNING: reduce/reduce conflict in state 82 resolved using rule (element -> list)
-WARNING: rejected rule (elements -> COMMA list) in state 82
+WARNING: shift/reduce conflict for ELSE in state 64 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 64 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 93 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 93 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 106 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 106 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 120 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 120 resolved as shift
+WARNING: reduce/reduce conflict in state 22 resolved using rule (term -> factor)
+WARNING: rejected rule (element -> factor) in state 22
+WARNING: reduce/reduce conflict in state 23 resolved using rule (element -> NAME)
+WARNING: rejected rule (factor -> NAME) in state 23
+WARNING: reduce/reduce conflict in state 98 resolved using rule (element -> list)
+WARNING: rejected rule (elements -> COMMA list) in state 98
 WARNING: Rule (elements -> COMMA list) is never reduced
