@@ -83,13 +83,14 @@ def t_error(t):
 lexer = lex.lex()
 
 ##PRUEBA LEX##
-'''
-cadena = "[1,3]"
-lexer.input(cadena)
 
-while True:
-    tok = lexer.token()
-    if not tok: break
-    print(tok)
+def mostrar_tokens(cadena):
+    l=[]
+    lexer.input(cadena)
+    while True:
+        tok = lexer.token()
+        if not tok: break
+        print(tok.type)
+        l.append(tok.type)
+    return l
     #Formato de la salida: LexRoken(type, value, lineno, lexpos)
-'''

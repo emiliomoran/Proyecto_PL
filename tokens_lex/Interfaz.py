@@ -2,95 +2,80 @@ import tkinter.messagebox
 from tkinter import *
 from tkinter.ttk import Frame, Label, Entry
 from sintactico import *
-
+from funciones_extra import *
+from lexico import *
 root=Tk()
-root.geometry("800x600")
-def retrieve_input_lexico():
+root.geometry("1200x800")
+text1=Text(root)
+text1.pack(padx=10, side=LEFT )
+text1.place(x=60,y=40, height=300, width=400)
+text2=Text(root)
+text2.pack(padx=0, side=LEFT)
+text2.place(x=60,y=350, height=300, width=400)
+resul=Text(root,state='disabled')
+resul.pack(padx=10, side=LEFT)
+resul.place(x=700,y=40, height=610, width=400)
+
+def retrieve_input_plagio():
     inputValue1=text1.get("1.0","end-1c")
     inputValue2=text2.get("1.0","end-1c")
-    #print(inputValue1)
-    #print(inputValue2)
-
     cadena1 = inputValue1.strip()
     cadena2 = inputValue2.strip()
-    print(cadena1)    
-    ejecutar_yacc(cadena1)
-    print()
-    print(cadena2)
-    ejecutar_yacc(cadena1)
-    """
-    lista1 = inputValue1.split('\n')
-    lista2 = inputValue2.split('\n')
+    tupla1=ejecutar_yacc(cadena1)
+    tupla2=ejecutar_yacc(cadena2)
+    resultado=promedio(tupla1,tupla2)
+    resul.config(state="normal")
+    resul.insert('end', '\n'+'*'*40+'\n')
+    resul.insert('end', resultado)
+    resul.configure(state='disabled')
 
-    #print(lista1)
-    for i in range(len(lista1)):
-    	if(lista1[i].startswith('while') or lista1[i].startswith('if') or lista1[i].startswith('elif') or lista1[i].startswith('else') or  lista1[i].startswith('for')):
-    		index_padre = i
-    	if '\t' in lista1[i]:
-    		lista1[index_padre] = lista1[index_padre] +" "+lista1[i][1:]
+def retrieve_input_lexico():
+    resul.delete(1.0,END)
+    inputValue1=text1.get("1.0","end-1c")
+    inputValue2=text2.get("1.0","end-1c")
+    cadena1 = inputValue1.strip()
+    cadena2 = inputValue2.strip()
+    lista1=mostrar_tokens(cadena1)
+    lista2=mostrar_tokens(cadena2)
+    resul.config(state="normal")
+    resul.insert('end', '\n'+'*'*40+'\n')
+    resul.insert('end', "programa 1:\n")
+    for i in lista1:
+        resul.insert('end', i+"\n")
+    resul.insert('end', "programa 2:\n")
+    for i in lista2:
+        resul.insert('end', i+"\n")
+    resul.configure(state='disabled')
 
-    lista1_final = []
-    for element in lista1:
-    	if not '\t' in element:
-    		lista1_final.append(element)
-    
-    print(lista1_final)
-
-    for i in range(len(lista1_final)):
-    	if lista1_final[i].startswith('if'):
-    		index_padre = i
-    	if lista1_final[i].startswith('elif') or lista1_final[i].startswith('else'):
-    		lista1_final[index_padre] = lista1_final[index_padre] + " " + lista1_final[i]
-
-    lista1_final_final = []
-    for element in lista1_final:
-    	if not (element.startswith('elif') or element.startswith('else')):
-    		lista1_final_final.append(element)
-
-    print('Codigo programa 1: ',lista1_final_final)
-    #for element in lista1_final:
-    	#ejecutar_yacc(element)
-
-    for i in range(len(lista2)):
-    	if(lista2[i].startswith('while') or lista2[i].startswith('if') or lista2[i].startswith('for')):
-    		index_padre = i
-    	if '\t' in lista2[i]:
-    		lista2[index_padre] = lista2[index_padre] +" "+lista2[i][1:]
-
-    lista2_final = []
-    for element in lista2:
-    	if not '\t' in element:
-    		lista2_final.append(element)
-    
-    print('Codigo programa 2: ',lista2_final)
-    for element in lista2_final:
-    	ejecutar_yacc(element)
-	"""
-
+def retrieve_input_sintactico():
+    inputValue1 = text1.get("1.0", "end-1c")
+    inputValue2 = text2.get("1.0", "end-1c")
+    cadena1 = inputValue1.strip()
+    cadena2 = inputValue2.strip()
+    tupla1 = ejecutar_yacc(cadena1)
+    tupla2 = ejecutar_yacc(cadena2)
+    resul.config(state="normal")
+    resul.insert('end', '\n' + '*' * 40 + '\n')
+    resul.insert('end', "programa 1:\n")
+    resul.insert('end', str(tupla1) + "\n")
+    resul.insert('end', "programa 2:\n")
+    resul.insert('end', str(tupla2) + "\n")
+    resul.configure(state='disabled')
 btnSint=Button(root, height=2, width=14, text="Analisis sintactico", bg="green",
-                    command=lambda: retrieve_input_lexico())
+                    command=lambda: retrieve_input_sintactico())
 #command=lambda: retrieve_input() >>> just means do this when i press the button
-btnSint.pack(side=TOP, pady=2 )
+btnSint.pack(side=TOP, pady=100 )
+
 
 btnLex=Button(root, height=2, width=14, text="Analisis lexico",bg="green",
                     command=lambda: retrieve_input_lexico())
 #command=lambda: retrieve_input() >>> just means do this when i press the button
-btnLex.pack(side=TOP, pady=2 )
+btnLex.pack(side=TOP, pady=50 )
 
 btnPlagio=Button(root, height=2, width=14, text="Plagio",bg="green",
-                    command=lambda: retrieve_input_lexico())
+                    command=lambda: retrieve_input_plagio())
 #command=lambda: retrieve_input() >>> just means do this when i press the button
-btnPlagio.pack(side=TOP, pady=2)
-
-
-text1=Text(root, height=30, width=40)
-text1.pack(padx=10, side=LEFT )
-
-text2=Text(root, height=30, width=40)
-text2.pack(padx=0, side=LEFT)
-
-resul=Text(root, height=20, width=20)
-resul.pack(padx=10, side=LEFT )
+btnPlagio.pack(side=TOP, pady=100)
 
 
 mainloop()

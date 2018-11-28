@@ -5,14 +5,13 @@ tokens = lexico.tokens
 
 def p_sentencia(p):
 	'''sentencia : assign
-				 | for
-				 | while
-				 | if
-				 | assign sentencia
+	| for
+	| while
+	| if
+	| assign sentencia
 				 | for sentencia
 				 | while sentencia
 				 | if sentencia'''
-
 	if(len(p)==2):
 		p[0] = ('SENTENCIA',p[1])
 	if(len(p)==3):
@@ -62,7 +61,7 @@ def p_term(p):
 	if(len(p)==4):
 		p[0] = (p[2],p[1],p[3])
 	if(len(p)==2):
-		p[0] = (p[1])		
+		p[0] = (p[1])
 
 def p_list(p):
 	'''list : LCORCHETE RCORCHETE
@@ -161,17 +160,17 @@ def p_bool(p):
 
 
 def p_comparison(p):
-    '''comparison : comp DEQUALS comp
-                  | comp DIFFERENT comp
-                  | comp HIGHER comp
-                  | comp LESS comp
-                  | comp HIGHEREQ  comp
-                  | comp LESSEQ comp
-                  | bool'''
-    if(len(p)==4):
-    	p[0] = (p[2],p[1],p[3])
-    if(len(p)==2):
-    	p[0] = (p[1])
+	'''comparison : comp DEQUALS comp
+				  | comp DIFFERENT comp
+				  | comp HIGHER comp
+				  | comp LESS comp
+				  | comp HIGHEREQ  comp
+				  | comp LESSEQ comp
+				  | bool'''
+	if(len(p)==4):
+		p[0] = (p[2],p[1],p[3])
+	if(len(p)==2):
+		p[0] = (p[1])
 
 def p_comp(p):
 	'''comp : expr
@@ -206,17 +205,21 @@ def p_r_value(p):
 
 def p_if(p):
 	'''if : IF LPAREN comparison RPAREN DPOINT sentencia
-    	  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    	  | IF comparison DPOINT sentencia
-    	  | IF comparison comparisons DPOINT sentencia
-    	  | IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    	  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    	  | IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    	  | IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    	  | IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    	  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    	  | IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    	  | IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia'''
+		  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+		  | IF comparison DPOINT sentencia
+		  | IF comparison comparisons DPOINT sentencia
+		  | IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+		  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+		  | IF comparison DPOINT sentencia ELSE DPOINT sentencia
+		  | IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+		  | IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+		  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+		  | IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+		  | IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+		  | IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia
+		  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia
+		  | IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia
+		  | IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia'''
 	if(len(p)==5):
 		p[0] = (p[1],p[2],p[4])
 	if(len(p)==7):
@@ -241,32 +244,39 @@ def p_if(p):
 		p[0] = (p[1],p[2],p[4],p[5],p[6],p[8],p[9],p[11])
 	if(len(p)==14):
 		p[0] = (p[1],p[2],p[3],p[5],p[6],p[7],p[8],p[10],p[11],p[13])
-
-def p_error(p):
-    if p:
-        resultado = "Error sintactico de tipo {} en el valor {}".format( str(p.type),str(p.value))
-        print(resultado)
-    else:
-        resultado = "Error sintactico {}".format(p)
-        print(resultado)
+	if(len(p)==13):
+		p[0] = (p[1],p[3],p[6],p[7],p[9],p[12])
+	if(len(p)==15):
+		p[0] = (p[1],p[3],p[4],p[7],p[8],p[10],p[11],p[14])
+	if(len(p) == 9 and p[5]=='elif'):
+		p[0] = (p[1], p[2], p[4], p[5], p[6], p[8])
+	if(len(p)==11 and p[6]=='elif'):
+		p[0] = (p[1],p[2],p[3],p[5],p[6],p[7],p[8],p[10])
+'''def p_error(p):
+	if p:
+		resultado = "Error sintactico de tipo {} en el valor {}".format( str(p.type),str(p.value))
+		return resultado
+	else:
+		resultado = "Error sintactico {}".format(p)
+		return resultado'''
 
 yacc.yacc()
 
 def ejecutar_yacc(s):
- 	result = yacc.parse(s)
- 	print(result)
- 	print(type(result))    
- 	print(list(result))
+	result = yacc.parse(s)
+	print(result)
+	print(type(result))
+	return result
 
 """
 while 1:
-    try:
-        s = input('calc > ')
-    except EOFError:
-        break
-    if not s: continue
-    result = yacc.parse(s)
-    print(result)
-    print(type(result))    
-    #print(result.__str__())
+	try:
+		s = input('calc > ')
+	except EOFError:
+		break
+	if not s: continue
+	result = yacc.parse(s)
+	print(result)
+	print(type(result))    
+	#print(result.__str__())
 """
