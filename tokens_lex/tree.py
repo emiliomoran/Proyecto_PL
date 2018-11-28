@@ -220,6 +220,3 @@ def testBinarySearchTree():
     list = t.traversalTree(InPreOrder, t.root)
     for x in list:
         print(x)
-
-if __name__ == "__main__":
-    testBinarySearchTree()
