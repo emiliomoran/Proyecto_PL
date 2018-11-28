@@ -77,6 +77,8 @@ def p_list(p):
 		p[0] = (p[2],p[3])
 	"""
 
+	p[0] = ('LISTA')
+
 def p_element(p):
 	'''element : factor
 			   | NAME
@@ -111,6 +113,7 @@ def p_cad(p):
 	if(len(p)==5):
 		p[0] = (p[1],p[3])
 	"""
+	P[0] = ('CADENA')
 
 def p_index(p):
 	'''index : factor
@@ -124,6 +127,8 @@ def p_index(p):
 	if(len(p)==6):
 		p[0] = (p[1],p[3],p[5])
 	"""
+
+	p[0] = ('INDEX')
 
 def p_while(p):
 	'''while : WHILE LPAREN comparison RPAREN DPOINT sentencia
@@ -170,7 +175,8 @@ def p_comparison(p):
 
 def p_comp(p):
 	'''comp : expr
-			| element'''
+			| element
+			| bool'''
 	p[0] = (p[1])
 
 def p_for(p):
@@ -199,18 +205,42 @@ def p_r_value(p):
 		p[0] = (p[1],p[3])
 
 def p_if(p):
-    '''if : IF LPAREN comparison RPAREN DPOINT sentencia
+	'''if : IF LPAREN comparison RPAREN DPOINT sentencia
     	  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia
     	  | IF comparison DPOINT sentencia
     	  | IF comparison comparisons DPOINT sentencia
-          | IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-          | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-          | IF comparison DPOINT sentencia ELSE DPOINT sentencia
-          | IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-          | IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-          | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-		  | IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-		  | IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia'''	
+    	  | IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    	  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    	  | IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    	  | IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    	  | IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    	  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    	  | IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    	  | IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia'''
+	if(len(p)==5):
+		p[0] = (p[1],p[2],p[4])
+	if(len(p)==7):
+		p[0] = (p[1],p[3],p[6])
+	if(len(p)==8):
+		p[0] = (p[1],p[3],p[4],p[7])
+	if(len(p)==6):
+		p[0] = (p[1],p[2],p[3],p[5])
+	if(len(p)==10):
+		p[0] = (p[1],p[3],p[6],p[7],p[9])
+	if(len(p)==11):
+		p[0] = (p[1],p[3],p[4],p[7],p[8],p[10])
+	if(len(p)==8 and p[5]=="else"):
+		p[0] = (p[1],p[2],p[4],p[5],p[7])
+	if(len(p)==9):
+		p[0] = (p[1],p[2],p[3],p[5],p[6],p[8])
+	if(len(p)==16):
+		p[0] = (p[1],p[3],p[6],p[7],p[9],p[12],p[13],p[15])
+	if(len(p)==18):
+		p[0] = (p[1],p[3],p[4],p[7],p[8],p[10],p[11],p[14],p[15],p[17])
+	if(len(p)==12):
+		p[0] = (p[1],p[2],p[4],p[5],p[6],p[8],p[9],p[11])
+	if(len(p)==14):
+		p[0] = (p[1],p[2],p[3],p[5],p[6],p[7],p[8],p[10],p[11],p[13])
 
 def p_error(p):
     if p:
@@ -222,11 +252,11 @@ def p_error(p):
 
 yacc.yacc()
 
-
 def ejecutar_yacc(s):
  	result = yacc.parse(s)
  	print(result)
  	print(type(result))    
+ 	print(list(result))
 
 """
 while 1:

@@ -78,25 +78,26 @@ Rule 51    comparison -> comp LESSEQ comp
 Rule 52    comparison -> bool
 Rule 53    comp -> expr
 Rule 54    comp -> element
-Rule 55    for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-Rule 56    for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-Rule 57    for -> FOR NAME IN NAME DPOINT assign
-Rule 58    r_values -> r_value COMMA r_value
-Rule 59    r_values -> r_value COMMA r_value COMMA r_value
-Rule 60    r_value -> factor
-Rule 61    r_value -> LEN LPAREN NAME RPAREN
-Rule 62    if -> IF LPAREN comparison RPAREN DPOINT sentencia
-Rule 63    if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-Rule 64    if -> IF comparison DPOINT sentencia
-Rule 65    if -> IF comparison comparisons DPOINT sentencia
-Rule 66    if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-Rule 67    if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-Rule 68    if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia
-Rule 69    if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-Rule 70    if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-Rule 71    if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-Rule 72    if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-Rule 73    if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+Rule 55    comp -> bool
+Rule 56    for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+Rule 57    for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+Rule 58    for -> FOR NAME IN NAME DPOINT assign
+Rule 59    r_values -> r_value COMMA r_value
+Rule 60    r_values -> r_value COMMA r_value COMMA r_value
+Rule 61    r_value -> factor
+Rule 62    r_value -> LEN LPAREN NAME RPAREN
+Rule 63    if -> IF LPAREN comparison RPAREN DPOINT sentencia
+Rule 64    if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+Rule 65    if -> IF comparison DPOINT sentencia
+Rule 66    if -> IF comparison comparisons DPOINT sentencia
+Rule 67    if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+Rule 68    if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+Rule 69    if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia
+Rule 70    if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+Rule 71    if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+Rule 72    if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+Rule 73    if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+Rule 74    if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
 Terminals, with rules where they appear
 
@@ -105,46 +106,46 @@ AS                   :
 BREAK                : 
 COMILLA              : 30 30
 COMILLAD             : 31 31
-COMMA                : 24 25 26 58 59 59
+COMMA                : 24 25 26 59 60 60
 DEF                  : 
 DEQUALS              : 46
 DIC                  : 
 DIFFERENT            : 47
 DIVIDE               : 16
 DIVIDEINT            : 
-DPOINT               : 34 35 35 36 37 38 39 55 56 57 62 63 64 65 66 66 67 67 68 68 69 69 70 70 70 71 71 71 72 72 72 73 73 73
-ELIF                 : 70 71 72 73
-ELSE                 : 66 67 68 69 70 71 72 73
+DPOINT               : 34 35 35 36 37 38 39 56 57 58 63 64 65 66 67 67 68 68 69 69 70 70 71 71 71 72 72 72 73 73 73 74 74 74
+ELIF                 : 71 72 73 74
+ELSE                 : 67 68 69 70 71 72 73 74
 EQUALS               : 9 10 11
 EXPONENT             : 
 FALSE                : 45
-FOR                  : 55 56 57
+FOR                  : 56 57 58
 FROM                 : 
 HIGHER               : 48
 HIGHEREQ             : 50
-IF                   : 62 63 64 65 66 67 68 69 70 71 72 73
+IF                   : 63 64 65 66 67 68 69 70 71 72 73 74
 IMPORT               : 
-IN                   : 55 56 57
+IN                   : 56 57 58
 IS                   : 
 LCORCHETE            : 18 19 20 32
-LEN                  : 61
+LEN                  : 62
 LESS                 : 49
 LESSEQ               : 51
 LIST                 : 
-LPAREN               : 36 38 55 56 61 62 63 66 67 70 70 71 71
+LPAREN               : 36 38 56 57 62 63 64 67 68 71 71 72 72
 MINUS                : 13 28
 MODULE               : 
-NAME                 : 9 10 11 22 29 30 31 55 56 57 57 61
+NAME                 : 9 10 11 22 29 30 31 56 57 58 58 62
 NONE                 : 
 NOT                  : 
 NUMBER               : 27 28
 OR                   : 42 43
 PLUS                 : 12
 PRINT                : 
-RANGE                : 55 56
+RANGE                : 56 57
 RCORCHETE            : 18 19 20 32
 RETURN               : 
-RPAREN               : 36 38 55 56 61 62 63 66 67 70 70 71 71
+RPAREN               : 36 38 56 57 62 63 64 67 68 71 71 72 72
 SET                  : 
 THEN                 : 
 TIMES                : 15
@@ -155,23 +156,23 @@ error                :
 
 Nonterminals, with rules where they appear
 
-assign               : 1 5 55 56 57
-bool                 : 52
+assign               : 1 5 56 57 58
+bool                 : 52 55
 cad                  : 11 32
 comp                 : 46 46 47 47 48 48 49 49 50 50 51 51
-comparison           : 36 37 38 39 40 41 42 43 62 63 64 65 66 67 68 69 70 70 71 71 72 72 73 73
-comparisons          : 38 39 41 43 63 65 67 69 71 71 73 73
+comparison           : 36 37 38 39 40 41 42 43 63 64 65 66 67 68 69 70 71 71 72 72 73 73 74 74
+comparisons          : 38 39 41 43 64 66 68 70 72 72 74 74
 element              : 19 20 24 26 54
 elements             : 20 26
 expr                 : 9 12 13 53
-factor               : 15 16 17 21 33 34 34 35 35 35 60
+factor               : 15 16 17 21 33 34 34 35 35 35 61
 for                  : 2 6
 if                   : 4 8
 index                : 32
 list                 : 10 23 25
-r_value              : 55 58 58 59 59 59
-r_values             : 56
-sentencia            : 5 6 7 8 36 37 38 39 62 63 64 65 66 66 67 67 68 68 69 69 70 70 70 71 71 71 72 72 72 73 73 73 0
+r_value              : 56 59 59 60 60 60
+r_values             : 57
+sentencia            : 5 6 7 8 36 37 38 39 63 64 65 66 67 67 68 68 69 69 70 70 71 71 71 72 72 72 73 73 73 74 74 74 0
 term                 : 12 13 14 15 16
 while                : 3 7
 
@@ -191,25 +192,25 @@ state 0
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
@@ -243,25 +244,25 @@ state 2
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
   ! shift/reduce conflict for NAME resolved as shift
   ! shift/reduce conflict for FOR resolved as shift
@@ -301,25 +302,25 @@ state 3
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
   ! shift/reduce conflict for NAME resolved as shift
   ! shift/reduce conflict for FOR resolved as shift
@@ -359,25 +360,25 @@ state 4
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
   ! shift/reduce conflict for NAME resolved as shift
   ! shift/reduce conflict for FOR resolved as shift
@@ -417,25 +418,25 @@ state 5
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
   ! shift/reduce conflict for NAME resolved as shift
   ! shift/reduce conflict for FOR resolved as shift
@@ -471,9 +472,9 @@ state 6
 
 state 7
 
-    (55) for -> FOR . NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> FOR . NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> FOR . NAME IN NAME DPOINT assign
+    (56) for -> FOR . NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> FOR . NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> FOR . NAME IN NAME DPOINT assign
 
     NAME            shift and go to state 15
 
@@ -493,6 +494,7 @@ state 8
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -530,18 +532,18 @@ state 8
 
 state 9
 
-    (62) if -> IF . LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> IF . LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> IF . comparison DPOINT sentencia
-    (65) if -> IF . comparison comparisons DPOINT sentencia
-    (66) if -> IF . LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> IF . LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> IF . comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> IF . comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> IF . LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> IF . LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> IF . comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> IF . comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> IF . LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> IF . LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> IF . comparison DPOINT sentencia
+    (66) if -> IF . comparison comparisons DPOINT sentencia
+    (67) if -> IF . LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> IF . LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> IF . comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> IF . comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF . LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> IF . LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> IF . comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> IF . comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
     (46) comparison -> . comp DEQUALS comp
     (47) comparison -> . comp DIFFERENT comp
     (48) comparison -> . comp HIGHER comp
@@ -551,6 +553,7 @@ state 9
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -674,9 +677,9 @@ state 14
 
 state 15
 
-    (55) for -> FOR NAME . IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> FOR NAME . IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> FOR NAME . IN NAME DPOINT assign
+    (56) for -> FOR NAME . IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> FOR NAME . IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> FOR NAME . IN NAME DPOINT assign
 
     IN              shift and go to state 40
 
@@ -694,6 +697,7 @@ state 16
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -763,11 +767,18 @@ state 18
 state 19
 
     (52) comparison -> bool .
+    (55) comp -> bool .
 
     DPOINT          reduce using rule 52 (comparison -> bool .)
     AND             reduce using rule 52 (comparison -> bool .)
     OR              reduce using rule 52 (comparison -> bool .)
     RPAREN          reduce using rule 52 (comparison -> bool .)
+    DEQUALS         reduce using rule 55 (comp -> bool .)
+    DIFFERENT       reduce using rule 55 (comp -> bool .)
+    HIGHER          reduce using rule 55 (comp -> bool .)
+    LESS            reduce using rule 55 (comp -> bool .)
+    HIGHEREQ        reduce using rule 55 (comp -> bool .)
+    LESSEQ          reduce using rule 55 (comp -> bool .)
 
 
 state 20
@@ -813,6 +824,12 @@ state 22
     DPOINT          reduce using rule 44 (bool -> TRUE .)
     AND             reduce using rule 44 (bool -> TRUE .)
     OR              reduce using rule 44 (bool -> TRUE .)
+    DEQUALS         reduce using rule 44 (bool -> TRUE .)
+    DIFFERENT       reduce using rule 44 (bool -> TRUE .)
+    HIGHER          reduce using rule 44 (bool -> TRUE .)
+    LESS            reduce using rule 44 (bool -> TRUE .)
+    HIGHEREQ        reduce using rule 44 (bool -> TRUE .)
+    LESSEQ          reduce using rule 44 (bool -> TRUE .)
     RPAREN          reduce using rule 44 (bool -> TRUE .)
 
 
@@ -823,6 +840,12 @@ state 23
     DPOINT          reduce using rule 45 (bool -> FALSE .)
     AND             reduce using rule 45 (bool -> FALSE .)
     OR              reduce using rule 45 (bool -> FALSE .)
+    DEQUALS         reduce using rule 45 (bool -> FALSE .)
+    DIFFERENT       reduce using rule 45 (bool -> FALSE .)
+    HIGHER          reduce using rule 45 (bool -> FALSE .)
+    LESS            reduce using rule 45 (bool -> FALSE .)
+    HIGHEREQ        reduce using rule 45 (bool -> FALSE .)
+    LESSEQ          reduce using rule 45 (bool -> FALSE .)
     RPAREN          reduce using rule 45 (bool -> FALSE .)
 
 
@@ -1026,12 +1049,12 @@ state 30
 
 state 31
 
-    (62) if -> IF LPAREN . comparison RPAREN DPOINT sentencia
-    (63) if -> IF LPAREN . comparison comparisons RPAREN DPOINT sentencia
-    (66) if -> IF LPAREN . comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> IF LPAREN . comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> IF LPAREN . comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> IF LPAREN . comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> IF LPAREN . comparison RPAREN DPOINT sentencia
+    (64) if -> IF LPAREN . comparison comparisons RPAREN DPOINT sentencia
+    (67) if -> IF LPAREN . comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> IF LPAREN . comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN . comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> IF LPAREN . comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
     (46) comparison -> . comp DEQUALS comp
     (47) comparison -> . comp DIFFERENT comp
     (48) comparison -> . comp HIGHER comp
@@ -1041,6 +1064,7 @@ state 31
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -1077,12 +1101,12 @@ state 31
 
 state 32
 
-    (64) if -> IF comparison . DPOINT sentencia
-    (65) if -> IF comparison . comparisons DPOINT sentencia
-    (68) if -> IF comparison . DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> IF comparison . comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> IF comparison . DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> IF comparison . comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (65) if -> IF comparison . DPOINT sentencia
+    (66) if -> IF comparison . comparisons DPOINT sentencia
+    (69) if -> IF comparison . DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> IF comparison . comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> IF comparison . DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> IF comparison . comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
     (40) comparisons -> . AND comparison
     (41) comparisons -> . AND comparison comparisons
     (42) comparisons -> . OR comparison
@@ -1211,9 +1235,9 @@ state 39
 
 state 40
 
-    (55) for -> FOR NAME IN . RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> FOR NAME IN . RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> FOR NAME IN . NAME DPOINT assign
+    (56) for -> FOR NAME IN . RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> FOR NAME IN . RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> FOR NAME IN . NAME DPOINT assign
 
     RANGE           shift and go to state 67
     NAME            shift and go to state 66
@@ -1248,25 +1272,25 @@ state 42
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
@@ -1299,6 +1323,7 @@ state 44
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -1346,6 +1371,7 @@ state 45
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -1385,12 +1411,15 @@ state 46
     (46) comparison -> comp DEQUALS . comp
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (12) expr -> . expr PLUS term
     (13) expr -> . expr MINUS term
     (14) expr -> . term
     (21) element -> . factor
     (22) element -> . NAME
     (23) element -> . list
+    (44) bool -> . TRUE
+    (45) bool -> . FALSE
     (15) term -> . term TIMES factor
     (16) term -> . term DIVIDE factor
     (17) term -> . factor
@@ -1402,6 +1431,8 @@ state 46
     (20) list -> . LCORCHETE element elements RCORCHETE
 
     NAME            shift and go to state 27
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
@@ -1409,6 +1440,7 @@ state 46
     comp                           shift and go to state 74
     expr                           shift and go to state 20
     element                        shift and go to state 21
+    bool                           shift and go to state 75
     term                           shift and go to state 24
     factor                         shift and go to state 26
     list                           shift and go to state 28
@@ -1418,12 +1450,15 @@ state 47
     (47) comparison -> comp DIFFERENT . comp
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (12) expr -> . expr PLUS term
     (13) expr -> . expr MINUS term
     (14) expr -> . term
     (21) element -> . factor
     (22) element -> . NAME
     (23) element -> . list
+    (44) bool -> . TRUE
+    (45) bool -> . FALSE
     (15) term -> . term TIMES factor
     (16) term -> . term DIVIDE factor
     (17) term -> . factor
@@ -1435,13 +1470,16 @@ state 47
     (20) list -> . LCORCHETE element elements RCORCHETE
 
     NAME            shift and go to state 27
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comp                           shift and go to state 75
+    comp                           shift and go to state 76
     expr                           shift and go to state 20
     element                        shift and go to state 21
+    bool                           shift and go to state 75
     term                           shift and go to state 24
     factor                         shift and go to state 26
     list                           shift and go to state 28
@@ -1451,12 +1489,15 @@ state 48
     (48) comparison -> comp HIGHER . comp
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (12) expr -> . expr PLUS term
     (13) expr -> . expr MINUS term
     (14) expr -> . term
     (21) element -> . factor
     (22) element -> . NAME
     (23) element -> . list
+    (44) bool -> . TRUE
+    (45) bool -> . FALSE
     (15) term -> . term TIMES factor
     (16) term -> . term DIVIDE factor
     (17) term -> . factor
@@ -1468,13 +1509,16 @@ state 48
     (20) list -> . LCORCHETE element elements RCORCHETE
 
     NAME            shift and go to state 27
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comp                           shift and go to state 76
+    comp                           shift and go to state 77
     expr                           shift and go to state 20
     element                        shift and go to state 21
+    bool                           shift and go to state 75
     term                           shift and go to state 24
     factor                         shift and go to state 26
     list                           shift and go to state 28
@@ -1484,12 +1528,15 @@ state 49
     (49) comparison -> comp LESS . comp
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (12) expr -> . expr PLUS term
     (13) expr -> . expr MINUS term
     (14) expr -> . term
     (21) element -> . factor
     (22) element -> . NAME
     (23) element -> . list
+    (44) bool -> . TRUE
+    (45) bool -> . FALSE
     (15) term -> . term TIMES factor
     (16) term -> . term DIVIDE factor
     (17) term -> . factor
@@ -1501,13 +1548,16 @@ state 49
     (20) list -> . LCORCHETE element elements RCORCHETE
 
     NAME            shift and go to state 27
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comp                           shift and go to state 77
+    comp                           shift and go to state 78
     expr                           shift and go to state 20
     element                        shift and go to state 21
+    bool                           shift and go to state 75
     term                           shift and go to state 24
     factor                         shift and go to state 26
     list                           shift and go to state 28
@@ -1517,12 +1567,15 @@ state 50
     (50) comparison -> comp HIGHEREQ . comp
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (12) expr -> . expr PLUS term
     (13) expr -> . expr MINUS term
     (14) expr -> . term
     (21) element -> . factor
     (22) element -> . NAME
     (23) element -> . list
+    (44) bool -> . TRUE
+    (45) bool -> . FALSE
     (15) term -> . term TIMES factor
     (16) term -> . term DIVIDE factor
     (17) term -> . factor
@@ -1534,13 +1587,16 @@ state 50
     (20) list -> . LCORCHETE element elements RCORCHETE
 
     NAME            shift and go to state 27
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comp                           shift and go to state 78
+    comp                           shift and go to state 79
     expr                           shift and go to state 20
     element                        shift and go to state 21
+    bool                           shift and go to state 75
     term                           shift and go to state 24
     factor                         shift and go to state 26
     list                           shift and go to state 28
@@ -1550,12 +1606,15 @@ state 51
     (51) comparison -> comp LESSEQ . comp
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (12) expr -> . expr PLUS term
     (13) expr -> . expr MINUS term
     (14) expr -> . term
     (21) element -> . factor
     (22) element -> . NAME
     (23) element -> . list
+    (44) bool -> . TRUE
+    (45) bool -> . FALSE
     (15) term -> . term TIMES factor
     (16) term -> . term DIVIDE factor
     (17) term -> . factor
@@ -1567,13 +1626,16 @@ state 51
     (20) list -> . LCORCHETE element elements RCORCHETE
 
     NAME            shift and go to state 27
+    TRUE            shift and go to state 22
+    FALSE           shift and go to state 23
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comp                           shift and go to state 79
+    comp                           shift and go to state 80
     expr                           shift and go to state 20
     element                        shift and go to state 21
+    bool                           shift and go to state 75
     term                           shift and go to state 24
     factor                         shift and go to state 26
     list                           shift and go to state 28
@@ -1592,7 +1654,7 @@ state 52
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    term                           shift and go to state 80
+    term                           shift and go to state 81
     factor                         shift and go to state 39
 
 state 53
@@ -1609,7 +1671,7 @@ state 53
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    term                           shift and go to state 81
+    term                           shift and go to state 82
     factor                         shift and go to state 39
 
 state 54
@@ -1623,7 +1685,7 @@ state 54
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    factor                         shift and go to state 82
+    factor                         shift and go to state 83
 
 state 55
 
@@ -1636,7 +1698,7 @@ state 55
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    factor                         shift and go to state 83
+    factor                         shift and go to state 84
 
 state 56
 
@@ -1700,10 +1762,10 @@ state 58
     (25) elements -> . COMMA list
     (26) elements -> . COMMA element elements
 
-    RCORCHETE       shift and go to state 84
-    COMMA           shift and go to state 86
+    RCORCHETE       shift and go to state 85
+    COMMA           shift and go to state 87
 
-    elements                       shift and go to state 85
+    elements                       shift and go to state 86
 
 state 59
 
@@ -1715,28 +1777,28 @@ state 59
 
 state 60
 
-    (62) if -> IF LPAREN comparison . RPAREN DPOINT sentencia
-    (63) if -> IF LPAREN comparison . comparisons RPAREN DPOINT sentencia
-    (66) if -> IF LPAREN comparison . RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> IF LPAREN comparison . comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> IF LPAREN comparison . RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> IF LPAREN comparison . comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> IF LPAREN comparison . RPAREN DPOINT sentencia
+    (64) if -> IF LPAREN comparison . comparisons RPAREN DPOINT sentencia
+    (67) if -> IF LPAREN comparison . RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> IF LPAREN comparison . comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison . RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison . comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
     (40) comparisons -> . AND comparison
     (41) comparisons -> . AND comparison comparisons
     (42) comparisons -> . OR comparison
     (43) comparisons -> . OR comparison comparisons
 
-    RPAREN          shift and go to state 87
+    RPAREN          shift and go to state 88
     AND             shift and go to state 44
     OR              shift and go to state 45
 
-    comparisons                    shift and go to state 88
+    comparisons                    shift and go to state 89
 
 state 61
 
-    (64) if -> IF comparison DPOINT . sentencia
-    (68) if -> IF comparison DPOINT . sentencia ELSE DPOINT sentencia
-    (72) if -> IF comparison DPOINT . sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (65) if -> IF comparison DPOINT . sentencia
+    (69) if -> IF comparison DPOINT . sentencia ELSE DPOINT sentencia
+    (73) if -> IF comparison DPOINT . sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -1748,32 +1810,32 @@ state 61
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 89
+    sentencia                      shift and go to state 90
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
@@ -1781,11 +1843,11 @@ state 61
 
 state 62
 
-    (65) if -> IF comparison comparisons . DPOINT sentencia
-    (69) if -> IF comparison comparisons . DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> IF comparison comparisons . DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (66) if -> IF comparison comparisons . DPOINT sentencia
+    (70) if -> IF comparison comparisons . DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> IF comparison comparisons . DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
-    DPOINT          shift and go to state 90
+    DPOINT          shift and go to state 91
 
 
 state 63
@@ -1802,50 +1864,50 @@ state 63
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    index                          shift and go to state 91
-    factor                         shift and go to state 92
+    index                          shift and go to state 92
+    factor                         shift and go to state 93
 
 state 64
 
     (30) cad -> COMILLA NAME . COMILLA
 
-    COMILLA         shift and go to state 93
+    COMILLA         shift and go to state 94
 
 
 state 65
 
     (31) cad -> COMILLAD NAME . COMILLAD
 
-    COMILLAD        shift and go to state 94
+    COMILLAD        shift and go to state 95
 
 
 state 66
 
-    (57) for -> FOR NAME IN NAME . DPOINT assign
+    (58) for -> FOR NAME IN NAME . DPOINT assign
 
-    DPOINT          shift and go to state 95
+    DPOINT          shift and go to state 96
 
 
 state 67
 
-    (55) for -> FOR NAME IN RANGE . LPAREN r_value RPAREN DPOINT assign
-    (56) for -> FOR NAME IN RANGE . LPAREN r_values RPAREN DPOINT assign
+    (56) for -> FOR NAME IN RANGE . LPAREN r_value RPAREN DPOINT assign
+    (57) for -> FOR NAME IN RANGE . LPAREN r_values RPAREN DPOINT assign
 
-    LPAREN          shift and go to state 96
+    LPAREN          shift and go to state 97
 
 
 state 68
 
     (36) while -> WHILE LPAREN comparison RPAREN . DPOINT sentencia
 
-    DPOINT          shift and go to state 97
+    DPOINT          shift and go to state 98
 
 
 state 69
 
     (38) while -> WHILE LPAREN comparison comparisons . RPAREN DPOINT sentencia
 
-    RPAREN          shift and go to state 98
+    RPAREN          shift and go to state 99
 
 
 state 70
@@ -1875,32 +1937,32 @@ state 71
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 99
+    sentencia                      shift and go to state 100
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
@@ -1920,7 +1982,7 @@ state 72
     AND             shift and go to state 44
     OR              shift and go to state 45
 
-    comparisons                    shift and go to state 100
+    comparisons                    shift and go to state 101
 
 state 73
 
@@ -1936,7 +1998,7 @@ state 73
     AND             shift and go to state 44
     OR              shift and go to state 45
 
-    comparisons                    shift and go to state 101
+    comparisons                    shift and go to state 102
 
 state 74
 
@@ -1950,6 +2012,16 @@ state 74
 
 state 75
 
+    (55) comp -> bool .
+
+    DPOINT          reduce using rule 55 (comp -> bool .)
+    AND             reduce using rule 55 (comp -> bool .)
+    OR              reduce using rule 55 (comp -> bool .)
+    RPAREN          reduce using rule 55 (comp -> bool .)
+
+
+state 76
+
     (47) comparison -> comp DIFFERENT comp .
 
     DPOINT          reduce using rule 47 (comparison -> comp DIFFERENT comp .)
@@ -1958,7 +2030,7 @@ state 75
     RPAREN          reduce using rule 47 (comparison -> comp DIFFERENT comp .)
 
 
-state 76
+state 77
 
     (48) comparison -> comp HIGHER comp .
 
@@ -1968,7 +2040,7 @@ state 76
     RPAREN          reduce using rule 48 (comparison -> comp HIGHER comp .)
 
 
-state 77
+state 78
 
     (49) comparison -> comp LESS comp .
 
@@ -1978,7 +2050,7 @@ state 77
     RPAREN          reduce using rule 49 (comparison -> comp LESS comp .)
 
 
-state 78
+state 79
 
     (50) comparison -> comp HIGHEREQ comp .
 
@@ -1988,7 +2060,7 @@ state 78
     RPAREN          reduce using rule 50 (comparison -> comp HIGHEREQ comp .)
 
 
-state 79
+state 80
 
     (51) comparison -> comp LESSEQ comp .
 
@@ -1998,7 +2070,7 @@ state 79
     RPAREN          reduce using rule 51 (comparison -> comp LESSEQ comp .)
 
 
-state 80
+state 81
 
     (12) expr -> expr PLUS term .
     (15) term -> term . TIMES factor
@@ -2027,7 +2099,7 @@ state 80
     DIVIDE          shift and go to state 55
 
 
-state 81
+state 82
 
     (13) expr -> expr MINUS term .
     (15) term -> term . TIMES factor
@@ -2056,7 +2128,7 @@ state 81
     DIVIDE          shift and go to state 55
 
 
-state 82
+state 83
 
     (15) term -> term TIMES factor .
 
@@ -2083,7 +2155,7 @@ state 82
     RPAREN          reduce using rule 15 (term -> term TIMES factor .)
 
 
-state 83
+state 84
 
     (16) term -> term DIVIDE factor .
 
@@ -2110,7 +2182,7 @@ state 83
     RPAREN          reduce using rule 16 (term -> term DIVIDE factor .)
 
 
-state 84
+state 85
 
     (19) list -> LCORCHETE element RCORCHETE .
 
@@ -2135,14 +2207,14 @@ state 84
     RPAREN          reduce using rule 19 (list -> LCORCHETE element RCORCHETE .)
 
 
-state 85
+state 86
 
     (20) list -> LCORCHETE element elements . RCORCHETE
 
-    RCORCHETE       shift and go to state 102
+    RCORCHETE       shift and go to state 103
 
 
-state 86
+state 87
 
     (24) elements -> COMMA . element
     (25) elements -> COMMA . list
@@ -2162,53 +2234,53 @@ state 86
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
 
-    element                        shift and go to state 103
-    list                           shift and go to state 104
+    element                        shift and go to state 104
+    list                           shift and go to state 105
     factor                         shift and go to state 59
-
-state 87
-
-    (62) if -> IF LPAREN comparison RPAREN . DPOINT sentencia
-    (66) if -> IF LPAREN comparison RPAREN . DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> IF LPAREN comparison RPAREN . DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-
-    DPOINT          shift and go to state 105
-
 
 state 88
 
-    (63) if -> IF LPAREN comparison comparisons . RPAREN DPOINT sentencia
-    (67) if -> IF LPAREN comparison comparisons . RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> IF LPAREN comparison comparisons . RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> IF LPAREN comparison RPAREN . DPOINT sentencia
+    (67) if -> IF LPAREN comparison RPAREN . DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison RPAREN . DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
-    RPAREN          shift and go to state 106
+    DPOINT          shift and go to state 106
 
 
 state 89
 
-    (64) if -> IF comparison DPOINT sentencia .
-    (68) if -> IF comparison DPOINT sentencia . ELSE DPOINT sentencia
-    (72) if -> IF comparison DPOINT sentencia . ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (64) if -> IF LPAREN comparison comparisons . RPAREN DPOINT sentencia
+    (68) if -> IF LPAREN comparison comparisons . RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison comparisons . RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
-  ! shift/reduce conflict for ELSE resolved as shift
-  ! shift/reduce conflict for ELIF resolved as shift
-    NAME            reduce using rule 64 (if -> IF comparison DPOINT sentencia .)
-    FOR             reduce using rule 64 (if -> IF comparison DPOINT sentencia .)
-    WHILE           reduce using rule 64 (if -> IF comparison DPOINT sentencia .)
-    IF              reduce using rule 64 (if -> IF comparison DPOINT sentencia .)
-    $end            reduce using rule 64 (if -> IF comparison DPOINT sentencia .)
-    ELSE            shift and go to state 107
-    ELIF            shift and go to state 108
-
-  ! ELSE            [ reduce using rule 64 (if -> IF comparison DPOINT sentencia .) ]
-  ! ELIF            [ reduce using rule 64 (if -> IF comparison DPOINT sentencia .) ]
+    RPAREN          shift and go to state 107
 
 
 state 90
 
-    (65) if -> IF comparison comparisons DPOINT . sentencia
-    (69) if -> IF comparison comparisons DPOINT . sentencia ELSE DPOINT sentencia
-    (73) if -> IF comparison comparisons DPOINT . sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (65) if -> IF comparison DPOINT sentencia .
+    (69) if -> IF comparison DPOINT sentencia . ELSE DPOINT sentencia
+    (73) if -> IF comparison DPOINT sentencia . ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for ELIF resolved as shift
+    NAME            reduce using rule 65 (if -> IF comparison DPOINT sentencia .)
+    FOR             reduce using rule 65 (if -> IF comparison DPOINT sentencia .)
+    WHILE           reduce using rule 65 (if -> IF comparison DPOINT sentencia .)
+    IF              reduce using rule 65 (if -> IF comparison DPOINT sentencia .)
+    $end            reduce using rule 65 (if -> IF comparison DPOINT sentencia .)
+    ELSE            shift and go to state 108
+    ELIF            shift and go to state 109
+
+  ! ELSE            [ reduce using rule 65 (if -> IF comparison DPOINT sentencia .) ]
+  ! ELIF            [ reduce using rule 65 (if -> IF comparison DPOINT sentencia .) ]
+
+
+state 91
+
+    (66) if -> IF comparison comparisons DPOINT . sentencia
+    (70) if -> IF comparison comparisons DPOINT . sentencia ELSE DPOINT sentencia
+    (74) if -> IF comparison comparisons DPOINT . sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -2220,55 +2292,55 @@ state 90
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 109
+    sentencia                      shift and go to state 110
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
-state 91
+state 92
 
     (32) cad -> cad LCORCHETE index . RCORCHETE
 
-    RCORCHETE       shift and go to state 110
+    RCORCHETE       shift and go to state 111
 
 
-state 92
+state 93
 
     (33) index -> factor .
     (34) index -> factor . DPOINT factor
     (35) index -> factor . DPOINT factor DPOINT factor
 
     RCORCHETE       reduce using rule 33 (index -> factor .)
-    DPOINT          shift and go to state 111
+    DPOINT          shift and go to state 112
 
 
-state 93
+state 94
 
     (30) cad -> COMILLA NAME COMILLA .
 
@@ -2282,7 +2354,7 @@ state 93
     ELIF            reduce using rule 30 (cad -> COMILLA NAME COMILLA .)
 
 
-state 94
+state 95
 
     (31) cad -> COMILLAD NAME COMILLAD .
 
@@ -2296,39 +2368,39 @@ state 94
     ELIF            reduce using rule 31 (cad -> COMILLAD NAME COMILLAD .)
 
 
-state 95
+state 96
 
-    (57) for -> FOR NAME IN NAME DPOINT . assign
+    (58) for -> FOR NAME IN NAME DPOINT . assign
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
 
     NAME            shift and go to state 6
 
-    assign                         shift and go to state 112
+    assign                         shift and go to state 113
 
-state 96
+state 97
 
-    (55) for -> FOR NAME IN RANGE LPAREN . r_value RPAREN DPOINT assign
-    (56) for -> FOR NAME IN RANGE LPAREN . r_values RPAREN DPOINT assign
-    (60) r_value -> . factor
-    (61) r_value -> . LEN LPAREN NAME RPAREN
-    (58) r_values -> . r_value COMMA r_value
-    (59) r_values -> . r_value COMMA r_value COMMA r_value
+    (56) for -> FOR NAME IN RANGE LPAREN . r_value RPAREN DPOINT assign
+    (57) for -> FOR NAME IN RANGE LPAREN . r_values RPAREN DPOINT assign
+    (61) r_value -> . factor
+    (62) r_value -> . LEN LPAREN NAME RPAREN
+    (59) r_values -> . r_value COMMA r_value
+    (60) r_values -> . r_value COMMA r_value COMMA r_value
     (27) factor -> . NUMBER
     (28) factor -> . MINUS NUMBER
     (29) factor -> . NAME
 
-    LEN             shift and go to state 116
+    LEN             shift and go to state 117
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    r_value                        shift and go to state 113
-    r_values                       shift and go to state 114
-    factor                         shift and go to state 115
+    r_value                        shift and go to state 114
+    r_values                       shift and go to state 115
+    factor                         shift and go to state 116
 
-state 97
+state 98
 
     (36) while -> WHILE LPAREN comparison RPAREN DPOINT . sentencia
     (1) sentencia -> . assign
@@ -2342,45 +2414,45 @@ state 97
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 117
+    sentencia                      shift and go to state 118
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
-state 98
+state 99
 
     (38) while -> WHILE LPAREN comparison comparisons RPAREN . DPOINT sentencia
 
-    DPOINT          shift and go to state 118
+    DPOINT          shift and go to state 119
 
 
-state 99
+state 100
 
     (39) while -> WHILE comparison comparisons DPOINT sentencia .
 
@@ -2393,7 +2465,7 @@ state 99
     ELIF            reduce using rule 39 (while -> WHILE comparison comparisons DPOINT sentencia .)
 
 
-state 100
+state 101
 
     (41) comparisons -> AND comparison comparisons .
 
@@ -2401,7 +2473,7 @@ state 100
     RPAREN          reduce using rule 41 (comparisons -> AND comparison comparisons .)
 
 
-state 101
+state 102
 
     (43) comparisons -> OR comparison comparisons .
 
@@ -2409,7 +2481,7 @@ state 101
     RPAREN          reduce using rule 43 (comparisons -> OR comparison comparisons .)
 
 
-state 102
+state 103
 
     (20) list -> LCORCHETE element elements RCORCHETE .
 
@@ -2434,7 +2506,7 @@ state 102
     RPAREN          reduce using rule 20 (list -> LCORCHETE element elements RCORCHETE .)
 
 
-state 103
+state 104
 
     (24) elements -> COMMA element .
     (26) elements -> COMMA element . elements
@@ -2443,11 +2515,11 @@ state 103
     (26) elements -> . COMMA element elements
 
     RCORCHETE       reduce using rule 24 (elements -> COMMA element .)
-    COMMA           shift and go to state 86
+    COMMA           shift and go to state 87
 
-    elements                       shift and go to state 119
+    elements                       shift and go to state 120
 
-state 104
+state 105
 
     (25) elements -> COMMA list .
     (23) element -> list .
@@ -2459,11 +2531,11 @@ state 104
   ! RCORCHETE       [ reduce using rule 25 (elements -> COMMA list .) ]
 
 
-state 105
+state 106
 
-    (62) if -> IF LPAREN comparison RPAREN DPOINT . sentencia
-    (66) if -> IF LPAREN comparison RPAREN DPOINT . sentencia ELSE DPOINT sentencia
-    (70) if -> IF LPAREN comparison RPAREN DPOINT . sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> IF LPAREN comparison RPAREN DPOINT . sentencia
+    (67) if -> IF LPAREN comparison RPAREN DPOINT . sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT . sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -2475,56 +2547,56 @@ state 105
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 120
+    sentencia                      shift and go to state 121
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
-state 106
-
-    (63) if -> IF LPAREN comparison comparisons RPAREN . DPOINT sentencia
-    (67) if -> IF LPAREN comparison comparisons RPAREN . DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> IF LPAREN comparison comparisons RPAREN . DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-
-    DPOINT          shift and go to state 121
-
-
 state 107
 
-    (68) if -> IF comparison DPOINT sentencia ELSE . DPOINT sentencia
+    (64) if -> IF LPAREN comparison comparisons RPAREN . DPOINT sentencia
+    (68) if -> IF LPAREN comparison comparisons RPAREN . DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison comparisons RPAREN . DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
     DPOINT          shift and go to state 122
 
 
 state 108
 
-    (72) if -> IF comparison DPOINT sentencia ELIF . comparison DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> IF comparison DPOINT sentencia ELSE . DPOINT sentencia
+
+    DPOINT          shift and go to state 123
+
+
+state 109
+
+    (73) if -> IF comparison DPOINT sentencia ELIF . comparison DPOINT sentencia ELSE DPOINT sentencia
     (46) comparison -> . comp DEQUALS comp
     (47) comparison -> . comp DIFFERENT comp
     (48) comparison -> . comp HIGHER comp
@@ -2534,6 +2606,7 @@ state 108
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -2559,7 +2632,7 @@ state 108
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comparison                     shift and go to state 123
+    comparison                     shift and go to state 124
     comp                           shift and go to state 18
     bool                           shift and go to state 19
     expr                           shift and go to state 20
@@ -2568,27 +2641,27 @@ state 108
     factor                         shift and go to state 26
     list                           shift and go to state 28
 
-state 109
+state 110
 
-    (65) if -> IF comparison comparisons DPOINT sentencia .
-    (69) if -> IF comparison comparisons DPOINT sentencia . ELSE DPOINT sentencia
-    (73) if -> IF comparison comparisons DPOINT sentencia . ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (66) if -> IF comparison comparisons DPOINT sentencia .
+    (70) if -> IF comparison comparisons DPOINT sentencia . ELSE DPOINT sentencia
+    (74) if -> IF comparison comparisons DPOINT sentencia . ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
   ! shift/reduce conflict for ELSE resolved as shift
   ! shift/reduce conflict for ELIF resolved as shift
-    NAME            reduce using rule 65 (if -> IF comparison comparisons DPOINT sentencia .)
-    FOR             reduce using rule 65 (if -> IF comparison comparisons DPOINT sentencia .)
-    WHILE           reduce using rule 65 (if -> IF comparison comparisons DPOINT sentencia .)
-    IF              reduce using rule 65 (if -> IF comparison comparisons DPOINT sentencia .)
-    $end            reduce using rule 65 (if -> IF comparison comparisons DPOINT sentencia .)
-    ELSE            shift and go to state 124
-    ELIF            shift and go to state 125
+    NAME            reduce using rule 66 (if -> IF comparison comparisons DPOINT sentencia .)
+    FOR             reduce using rule 66 (if -> IF comparison comparisons DPOINT sentencia .)
+    WHILE           reduce using rule 66 (if -> IF comparison comparisons DPOINT sentencia .)
+    IF              reduce using rule 66 (if -> IF comparison comparisons DPOINT sentencia .)
+    $end            reduce using rule 66 (if -> IF comparison comparisons DPOINT sentencia .)
+    ELSE            shift and go to state 125
+    ELIF            shift and go to state 126
 
-  ! ELSE            [ reduce using rule 65 (if -> IF comparison comparisons DPOINT sentencia .) ]
-  ! ELIF            [ reduce using rule 65 (if -> IF comparison comparisons DPOINT sentencia .) ]
+  ! ELSE            [ reduce using rule 66 (if -> IF comparison comparisons DPOINT sentencia .) ]
+  ! ELIF            [ reduce using rule 66 (if -> IF comparison comparisons DPOINT sentencia .) ]
 
 
-state 110
+state 111
 
     (32) cad -> cad LCORCHETE index RCORCHETE .
 
@@ -2602,7 +2675,7 @@ state 110
     ELIF            reduce using rule 32 (cad -> cad LCORCHETE index RCORCHETE .)
 
 
-state 111
+state 112
 
     (34) index -> factor DPOINT . factor
     (35) index -> factor DPOINT . factor DPOINT factor
@@ -2614,54 +2687,54 @@ state 111
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    factor                         shift and go to state 126
-
-state 112
-
-    (57) for -> FOR NAME IN NAME DPOINT assign .
-
-    NAME            reduce using rule 57 (for -> FOR NAME IN NAME DPOINT assign .)
-    FOR             reduce using rule 57 (for -> FOR NAME IN NAME DPOINT assign .)
-    WHILE           reduce using rule 57 (for -> FOR NAME IN NAME DPOINT assign .)
-    IF              reduce using rule 57 (for -> FOR NAME IN NAME DPOINT assign .)
-    $end            reduce using rule 57 (for -> FOR NAME IN NAME DPOINT assign .)
-    ELSE            reduce using rule 57 (for -> FOR NAME IN NAME DPOINT assign .)
-    ELIF            reduce using rule 57 (for -> FOR NAME IN NAME DPOINT assign .)
-
+    factor                         shift and go to state 127
 
 state 113
 
-    (55) for -> FOR NAME IN RANGE LPAREN r_value . RPAREN DPOINT assign
-    (58) r_values -> r_value . COMMA r_value
-    (59) r_values -> r_value . COMMA r_value COMMA r_value
+    (58) for -> FOR NAME IN NAME DPOINT assign .
 
-    RPAREN          shift and go to state 127
-    COMMA           shift and go to state 128
+    NAME            reduce using rule 58 (for -> FOR NAME IN NAME DPOINT assign .)
+    FOR             reduce using rule 58 (for -> FOR NAME IN NAME DPOINT assign .)
+    WHILE           reduce using rule 58 (for -> FOR NAME IN NAME DPOINT assign .)
+    IF              reduce using rule 58 (for -> FOR NAME IN NAME DPOINT assign .)
+    $end            reduce using rule 58 (for -> FOR NAME IN NAME DPOINT assign .)
+    ELSE            reduce using rule 58 (for -> FOR NAME IN NAME DPOINT assign .)
+    ELIF            reduce using rule 58 (for -> FOR NAME IN NAME DPOINT assign .)
 
 
 state 114
 
-    (56) for -> FOR NAME IN RANGE LPAREN r_values . RPAREN DPOINT assign
+    (56) for -> FOR NAME IN RANGE LPAREN r_value . RPAREN DPOINT assign
+    (59) r_values -> r_value . COMMA r_value
+    (60) r_values -> r_value . COMMA r_value COMMA r_value
 
-    RPAREN          shift and go to state 129
+    RPAREN          shift and go to state 128
+    COMMA           shift and go to state 129
 
 
 state 115
 
-    (60) r_value -> factor .
+    (57) for -> FOR NAME IN RANGE LPAREN r_values . RPAREN DPOINT assign
 
-    RPAREN          reduce using rule 60 (r_value -> factor .)
-    COMMA           reduce using rule 60 (r_value -> factor .)
+    RPAREN          shift and go to state 130
 
 
 state 116
 
-    (61) r_value -> LEN . LPAREN NAME RPAREN
+    (61) r_value -> factor .
 
-    LPAREN          shift and go to state 130
+    RPAREN          reduce using rule 61 (r_value -> factor .)
+    COMMA           reduce using rule 61 (r_value -> factor .)
 
 
 state 117
+
+    (62) r_value -> LEN . LPAREN NAME RPAREN
+
+    LPAREN          shift and go to state 131
+
+
+state 118
 
     (36) while -> WHILE LPAREN comparison RPAREN DPOINT sentencia .
 
@@ -2674,7 +2747,7 @@ state 117
     ELIF            reduce using rule 36 (while -> WHILE LPAREN comparison RPAREN DPOINT sentencia .)
 
 
-state 118
+state 119
 
     (38) while -> WHILE LPAREN comparison comparisons RPAREN DPOINT . sentencia
     (1) sentencia -> . assign
@@ -2688,114 +2761,69 @@ state 118
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 131
+    sentencia                      shift and go to state 132
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
-state 119
+state 120
 
     (26) elements -> COMMA element elements .
 
     RCORCHETE       reduce using rule 26 (elements -> COMMA element elements .)
 
 
-state 120
+state 121
 
-    (62) if -> IF LPAREN comparison RPAREN DPOINT sentencia .
-    (66) if -> IF LPAREN comparison RPAREN DPOINT sentencia . ELSE DPOINT sentencia
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia . ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> IF LPAREN comparison RPAREN DPOINT sentencia .
+    (67) if -> IF LPAREN comparison RPAREN DPOINT sentencia . ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia . ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
   ! shift/reduce conflict for ELSE resolved as shift
   ! shift/reduce conflict for ELIF resolved as shift
-    NAME            reduce using rule 62 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
-    FOR             reduce using rule 62 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
-    WHILE           reduce using rule 62 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
-    IF              reduce using rule 62 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
-    $end            reduce using rule 62 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
-    ELSE            shift and go to state 132
-    ELIF            shift and go to state 133
+    NAME            reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
+    FOR             reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
+    WHILE           reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
+    IF              reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
+    $end            reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .)
+    ELSE            shift and go to state 133
+    ELIF            shift and go to state 134
 
-  ! ELSE            [ reduce using rule 62 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .) ]
-  ! ELIF            [ reduce using rule 62 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .) ]
+  ! ELSE            [ reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .) ]
+  ! ELIF            [ reduce using rule 63 (if -> IF LPAREN comparison RPAREN DPOINT sentencia .) ]
 
-
-state 121
-
-    (63) if -> IF LPAREN comparison comparisons RPAREN DPOINT . sentencia
-    (67) if -> IF LPAREN comparison comparisons RPAREN DPOINT . sentencia ELSE DPOINT sentencia
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT . sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (1) sentencia -> . assign
-    (2) sentencia -> . for
-    (3) sentencia -> . while
-    (4) sentencia -> . if
-    (5) sentencia -> . assign sentencia
-    (6) sentencia -> . for sentencia
-    (7) sentencia -> . while sentencia
-    (8) sentencia -> . if sentencia
-    (9) assign -> . NAME EQUALS expr
-    (10) assign -> . NAME EQUALS list
-    (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
-    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
-    (37) while -> . WHILE comparison DPOINT sentencia
-    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-
-    NAME            shift and go to state 6
-    FOR             shift and go to state 7
-    WHILE           shift and go to state 8
-    IF              shift and go to state 9
-
-    sentencia                      shift and go to state 134
-    assign                         shift and go to state 2
-    for                            shift and go to state 3
-    while                          shift and go to state 4
-    if                             shift and go to state 5
 
 state 122
 
-    (68) if -> IF comparison DPOINT sentencia ELSE DPOINT . sentencia
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT . sentencia
+    (68) if -> IF LPAREN comparison comparisons RPAREN DPOINT . sentencia ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT . sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -2807,25 +2835,25 @@ state 122
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
@@ -2840,21 +2868,66 @@ state 122
 
 state 123
 
-    (72) if -> IF comparison DPOINT sentencia ELIF comparison . DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> IF comparison DPOINT sentencia ELSE DPOINT . sentencia
+    (1) sentencia -> . assign
+    (2) sentencia -> . for
+    (3) sentencia -> . while
+    (4) sentencia -> . if
+    (5) sentencia -> . assign sentencia
+    (6) sentencia -> . for sentencia
+    (7) sentencia -> . while sentencia
+    (8) sentencia -> . if sentencia
+    (9) assign -> . NAME EQUALS expr
+    (10) assign -> . NAME EQUALS list
+    (11) assign -> . NAME EQUALS cad
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
+    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
+    (37) while -> . WHILE comparison DPOINT sentencia
+    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (39) while -> . WHILE comparison comparisons DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
-    DPOINT          shift and go to state 136
+    NAME            shift and go to state 6
+    FOR             shift and go to state 7
+    WHILE           shift and go to state 8
+    IF              shift and go to state 9
 
+    sentencia                      shift and go to state 136
+    assign                         shift and go to state 2
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
 
 state 124
 
-    (69) if -> IF comparison comparisons DPOINT sentencia ELSE . DPOINT sentencia
+    (73) if -> IF comparison DPOINT sentencia ELIF comparison . DPOINT sentencia ELSE DPOINT sentencia
 
     DPOINT          shift and go to state 137
 
 
 state 125
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF . comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> IF comparison comparisons DPOINT sentencia ELSE . DPOINT sentencia
+
+    DPOINT          shift and go to state 138
+
+
+state 126
+
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF . comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
     (46) comparison -> . comp DEQUALS comp
     (47) comparison -> . comp DIFFERENT comp
     (48) comparison -> . comp HIGHER comp
@@ -2864,6 +2937,7 @@ state 125
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -2889,7 +2963,7 @@ state 125
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comparison                     shift and go to state 138
+    comparison                     shift and go to state 139
     comp                           shift and go to state 18
     bool                           shift and go to state 19
     expr                           shift and go to state 20
@@ -2898,55 +2972,55 @@ state 125
     factor                         shift and go to state 26
     list                           shift and go to state 28
 
-state 126
+state 127
 
     (34) index -> factor DPOINT factor .
     (35) index -> factor DPOINT factor . DPOINT factor
 
     RCORCHETE       reduce using rule 34 (index -> factor DPOINT factor .)
-    DPOINT          shift and go to state 139
-
-
-state 127
-
-    (55) for -> FOR NAME IN RANGE LPAREN r_value RPAREN . DPOINT assign
-
     DPOINT          shift and go to state 140
 
 
 state 128
 
-    (58) r_values -> r_value COMMA . r_value
-    (59) r_values -> r_value COMMA . r_value COMMA r_value
-    (60) r_value -> . factor
-    (61) r_value -> . LEN LPAREN NAME RPAREN
+    (56) for -> FOR NAME IN RANGE LPAREN r_value RPAREN . DPOINT assign
+
+    DPOINT          shift and go to state 141
+
+
+state 129
+
+    (59) r_values -> r_value COMMA . r_value
+    (60) r_values -> r_value COMMA . r_value COMMA r_value
+    (61) r_value -> . factor
+    (62) r_value -> . LEN LPAREN NAME RPAREN
     (27) factor -> . NUMBER
     (28) factor -> . MINUS NUMBER
     (29) factor -> . NAME
 
-    LEN             shift and go to state 116
+    LEN             shift and go to state 117
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    r_value                        shift and go to state 141
-    factor                         shift and go to state 115
-
-state 129
-
-    (56) for -> FOR NAME IN RANGE LPAREN r_values RPAREN . DPOINT assign
-
-    DPOINT          shift and go to state 142
-
+    r_value                        shift and go to state 142
+    factor                         shift and go to state 116
 
 state 130
 
-    (61) r_value -> LEN LPAREN . NAME RPAREN
+    (57) for -> FOR NAME IN RANGE LPAREN r_values RPAREN . DPOINT assign
 
-    NAME            shift and go to state 143
+    DPOINT          shift and go to state 143
 
 
 state 131
+
+    (62) r_value -> LEN LPAREN . NAME RPAREN
+
+    NAME            shift and go to state 144
+
+
+state 132
 
     (38) while -> WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia .
 
@@ -2959,101 +3033,56 @@ state 131
     ELIF            reduce using rule 38 (while -> WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia .)
 
 
-state 132
-
-    (66) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE . DPOINT sentencia
-
-    DPOINT          shift and go to state 144
-
-
 state 133
 
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF . LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (67) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE . DPOINT sentencia
 
-    LPAREN          shift and go to state 145
+    DPOINT          shift and go to state 145
 
 
 state 134
 
-    (63) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .
-    (67) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia . ELSE DPOINT sentencia
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia . ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF . LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
-  ! shift/reduce conflict for ELSE resolved as shift
-  ! shift/reduce conflict for ELIF resolved as shift
-    NAME            reduce using rule 63 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
-    FOR             reduce using rule 63 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
-    WHILE           reduce using rule 63 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
-    IF              reduce using rule 63 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
-    $end            reduce using rule 63 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
-    ELSE            shift and go to state 146
-    ELIF            shift and go to state 147
-
-  ! ELSE            [ reduce using rule 63 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .) ]
-  ! ELIF            [ reduce using rule 63 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .) ]
+    LPAREN          shift and go to state 146
 
 
 state 135
 
-    (68) if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .
+    (64) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .
+    (68) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia . ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia . ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
-    NAME            reduce using rule 68 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 68 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 68 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 68 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 68 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 68 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 68 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for ELIF resolved as shift
+    NAME            reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
+    FOR             reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
+    WHILE           reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
+    IF              reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
+    $end            reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .)
+    ELSE            shift and go to state 147
+    ELIF            shift and go to state 148
+
+  ! ELSE            [ reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .) ]
+  ! ELIF            [ reduce using rule 64 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia .) ]
 
 
 state 136
 
-    (72) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT . sentencia ELSE DPOINT sentencia
-    (1) sentencia -> . assign
-    (2) sentencia -> . for
-    (3) sentencia -> . while
-    (4) sentencia -> . if
-    (5) sentencia -> . assign sentencia
-    (6) sentencia -> . for sentencia
-    (7) sentencia -> . while sentencia
-    (8) sentencia -> . if sentencia
-    (9) assign -> . NAME EQUALS expr
-    (10) assign -> . NAME EQUALS list
-    (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
-    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
-    (37) while -> . WHILE comparison DPOINT sentencia
-    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .
 
-    NAME            shift and go to state 6
-    FOR             shift and go to state 7
-    WHILE           shift and go to state 8
-    IF              shift and go to state 9
+    NAME            reduce using rule 69 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 69 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 69 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 69 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 69 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 69 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 69 (if -> IF comparison DPOINT sentencia ELSE DPOINT sentencia .)
 
-    sentencia                      shift and go to state 148
-    assign                         shift and go to state 2
-    for                            shift and go to state 3
-    while                          shift and go to state 4
-    if                             shift and go to state 5
 
 state 137
 
-    (69) if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT . sentencia
+    (73) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT . sentencia ELSE DPOINT sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3065,25 +3094,25 @@ state 137
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
@@ -3098,7 +3127,52 @@ state 137
 
 state 138
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF comparison . comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT . sentencia
+    (1) sentencia -> . assign
+    (2) sentencia -> . for
+    (3) sentencia -> . while
+    (4) sentencia -> . if
+    (5) sentencia -> . assign sentencia
+    (6) sentencia -> . for sentencia
+    (7) sentencia -> . while sentencia
+    (8) sentencia -> . if sentencia
+    (9) assign -> . NAME EQUALS expr
+    (10) assign -> . NAME EQUALS list
+    (11) assign -> . NAME EQUALS cad
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
+    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
+    (37) while -> . WHILE comparison DPOINT sentencia
+    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (39) while -> . WHILE comparison comparisons DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+
+    NAME            shift and go to state 6
+    FOR             shift and go to state 7
+    WHILE           shift and go to state 8
+    IF              shift and go to state 9
+
+    sentencia                      shift and go to state 150
+    assign                         shift and go to state 2
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 139
+
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF comparison . comparisons DPOINT sentencia ELSE DPOINT sentencia
     (40) comparisons -> . AND comparison
     (41) comparisons -> . AND comparison comparisons
     (42) comparisons -> . OR comparison
@@ -3107,9 +3181,9 @@ state 138
     AND             shift and go to state 44
     OR              shift and go to state 45
 
-    comparisons                    shift and go to state 150
+    comparisons                    shift and go to state 151
 
-state 139
+state 140
 
     (35) index -> factor DPOINT factor DPOINT . factor
     (27) factor -> . NUMBER
@@ -3120,49 +3194,49 @@ state 139
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    factor                         shift and go to state 151
-
-state 140
-
-    (55) for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT . assign
-    (9) assign -> . NAME EQUALS expr
-    (10) assign -> . NAME EQUALS list
-    (11) assign -> . NAME EQUALS cad
-
-    NAME            shift and go to state 6
-
-    assign                         shift and go to state 152
+    factor                         shift and go to state 152
 
 state 141
 
-    (58) r_values -> r_value COMMA r_value .
-    (59) r_values -> r_value COMMA r_value . COMMA r_value
-
-    RPAREN          reduce using rule 58 (r_values -> r_value COMMA r_value .)
-    COMMA           shift and go to state 153
-
-
-state 142
-
-    (56) for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT . assign
+    (56) for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT . assign
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
 
     NAME            shift and go to state 6
 
-    assign                         shift and go to state 154
+    assign                         shift and go to state 153
+
+state 142
+
+    (59) r_values -> r_value COMMA r_value .
+    (60) r_values -> r_value COMMA r_value . COMMA r_value
+
+    RPAREN          reduce using rule 59 (r_values -> r_value COMMA r_value .)
+    COMMA           shift and go to state 154
+
 
 state 143
 
-    (61) r_value -> LEN LPAREN NAME . RPAREN
+    (57) for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT . assign
+    (9) assign -> . NAME EQUALS expr
+    (10) assign -> . NAME EQUALS list
+    (11) assign -> . NAME EQUALS cad
 
-    RPAREN          shift and go to state 155
+    NAME            shift and go to state 6
 
+    assign                         shift and go to state 155
 
 state 144
 
-    (66) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT . sentencia
+    (62) r_value -> LEN LPAREN NAME . RPAREN
+
+    RPAREN          shift and go to state 156
+
+
+state 145
+
+    (67) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT . sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3174,40 +3248,40 @@ state 144
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 156
+    sentencia                      shift and go to state 157
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
-state 145
+state 146
 
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN . comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN . comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
     (46) comparison -> . comp DEQUALS comp
     (47) comparison -> . comp DIFFERENT comp
     (48) comparison -> . comp HIGHER comp
@@ -3217,6 +3291,7 @@ state 145
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -3242,7 +3317,7 @@ state 145
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comparison                     shift and go to state 157
+    comparison                     shift and go to state 158
     comp                           shift and go to state 18
     bool                           shift and go to state 19
     expr                           shift and go to state 20
@@ -3251,128 +3326,128 @@ state 145
     factor                         shift and go to state 26
     list                           shift and go to state 28
 
-state 146
-
-    (67) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE . DPOINT sentencia
-
-    DPOINT          shift and go to state 158
-
-
 state 147
 
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF . LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE . DPOINT sentencia
 
-    LPAREN          shift and go to state 159
+    DPOINT          shift and go to state 159
 
 
 state 148
 
-    (72) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia . ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF . LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
-    ELSE            shift and go to state 160
+    LPAREN          shift and go to state 160
 
 
 state 149
 
-    (69) if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .
+    (73) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia . ELSE DPOINT sentencia
 
-    NAME            reduce using rule 69 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 69 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 69 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 69 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 69 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 69 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 69 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            shift and go to state 161
 
 
 state 150
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons . DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .
 
-    DPOINT          shift and go to state 161
+    NAME            reduce using rule 70 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 70 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 70 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 70 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 70 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 70 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 70 (if -> IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
 
 
 state 151
+
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons . DPOINT sentencia ELSE DPOINT sentencia
+
+    DPOINT          shift and go to state 162
+
+
+state 152
 
     (35) index -> factor DPOINT factor DPOINT factor .
 
     RCORCHETE       reduce using rule 35 (index -> factor DPOINT factor DPOINT factor .)
 
 
-state 152
-
-    (55) for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .
-
-    NAME            reduce using rule 55 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
-    FOR             reduce using rule 55 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
-    WHILE           reduce using rule 55 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
-    IF              reduce using rule 55 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
-    $end            reduce using rule 55 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
-    ELSE            reduce using rule 55 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
-    ELIF            reduce using rule 55 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
-
-
 state 153
 
-    (59) r_values -> r_value COMMA r_value COMMA . r_value
-    (60) r_value -> . factor
-    (61) r_value -> . LEN LPAREN NAME RPAREN
+    (56) for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .
+
+    NAME            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
+    FOR             reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
+    WHILE           reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
+    IF              reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
+    $end            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
+    ELSE            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
+    ELIF            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign .)
+
+
+state 154
+
+    (60) r_values -> r_value COMMA r_value COMMA . r_value
+    (61) r_value -> . factor
+    (62) r_value -> . LEN LPAREN NAME RPAREN
     (27) factor -> . NUMBER
     (28) factor -> . MINUS NUMBER
     (29) factor -> . NAME
 
-    LEN             shift and go to state 116
+    LEN             shift and go to state 117
     NUMBER          shift and go to state 29
     MINUS           shift and go to state 25
     NAME            shift and go to state 33
 
-    r_value                        shift and go to state 162
-    factor                         shift and go to state 115
-
-state 154
-
-    (56) for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .
-
-    NAME            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
-    FOR             reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
-    WHILE           reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
-    IF              reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
-    $end            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
-    ELSE            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
-    ELIF            reduce using rule 56 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
-
+    r_value                        shift and go to state 163
+    factor                         shift and go to state 116
 
 state 155
 
-    (61) r_value -> LEN LPAREN NAME RPAREN .
+    (57) for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .
 
-    RPAREN          reduce using rule 61 (r_value -> LEN LPAREN NAME RPAREN .)
-    COMMA           reduce using rule 61 (r_value -> LEN LPAREN NAME RPAREN .)
+    NAME            reduce using rule 57 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
+    FOR             reduce using rule 57 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
+    WHILE           reduce using rule 57 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
+    IF              reduce using rule 57 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
+    $end            reduce using rule 57 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
+    ELSE            reduce using rule 57 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
+    ELIF            reduce using rule 57 (for -> FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign .)
 
 
 state 156
 
-    (66) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .
+    (62) r_value -> LEN LPAREN NAME RPAREN .
 
-    NAME            reduce using rule 66 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 66 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 66 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 66 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 66 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 66 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 66 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    RPAREN          reduce using rule 62 (r_value -> LEN LPAREN NAME RPAREN .)
+    COMMA           reduce using rule 62 (r_value -> LEN LPAREN NAME RPAREN .)
 
 
 state 157
 
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison . RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (67) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .
 
-    RPAREN          shift and go to state 163
+    NAME            reduce using rule 67 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 67 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 67 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 67 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 67 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 67 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 67 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
 
 
 state 158
 
-    (67) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT . sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison . RPAREN DPOINT sentencia ELSE DPOINT sentencia
+
+    RPAREN          shift and go to state 164
+
+
+state 159
+
+    (68) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT . sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3384,40 +3459,40 @@ state 158
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 164
+    sentencia                      shift and go to state 165
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
-state 159
+state 160
 
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN . comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN . comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
     (46) comparison -> . comp DEQUALS comp
     (47) comparison -> . comp DIFFERENT comp
     (48) comparison -> . comp HIGHER comp
@@ -3427,6 +3502,7 @@ state 159
     (52) comparison -> . bool
     (53) comp -> . expr
     (54) comp -> . element
+    (55) comp -> . bool
     (44) bool -> . TRUE
     (45) bool -> . FALSE
     (12) expr -> . expr PLUS term
@@ -3452,7 +3528,7 @@ state 159
     MINUS           shift and go to state 25
     LCORCHETE       shift and go to state 30
 
-    comparison                     shift and go to state 165
+    comparison                     shift and go to state 166
     comp                           shift and go to state 18
     bool                           shift and go to state 19
     expr                           shift and go to state 20
@@ -3461,16 +3537,16 @@ state 159
     factor                         shift and go to state 26
     list                           shift and go to state 28
 
-state 160
-
-    (72) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE . DPOINT sentencia
-
-    DPOINT          shift and go to state 166
-
-
 state 161
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT . sentencia ELSE DPOINT sentencia
+    (73) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE . DPOINT sentencia
+
+    DPOINT          shift and go to state 167
+
+
+state 162
+
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT . sentencia ELSE DPOINT sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3482,67 +3558,67 @@ state 161
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 167
+    sentencia                      shift and go to state 168
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
-state 162
-
-    (59) r_values -> r_value COMMA r_value COMMA r_value .
-
-    RPAREN          reduce using rule 59 (r_values -> r_value COMMA r_value COMMA r_value .)
-
-
 state 163
 
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN . DPOINT sentencia ELSE DPOINT sentencia
+    (60) r_values -> r_value COMMA r_value COMMA r_value .
 
-    DPOINT          shift and go to state 168
+    RPAREN          reduce using rule 60 (r_values -> r_value COMMA r_value COMMA r_value .)
 
 
 state 164
 
-    (67) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN . DPOINT sentencia ELSE DPOINT sentencia
 
-    NAME            reduce using rule 67 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 67 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 67 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 67 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 67 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 67 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 67 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    DPOINT          shift and go to state 169
 
 
 state 165
 
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison . comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .
+
+    NAME            reduce using rule 68 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 68 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 68 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 68 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 68 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 68 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 68 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+
+
+state 166
+
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison . comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
     (40) comparisons -> . AND comparison
     (41) comparisons -> . AND comparison comparisons
     (42) comparisons -> . OR comparison
@@ -3551,63 +3627,11 @@ state 165
     AND             shift and go to state 44
     OR              shift and go to state 45
 
-    comparisons                    shift and go to state 169
-
-state 166
-
-    (72) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT . sentencia
-    (1) sentencia -> . assign
-    (2) sentencia -> . for
-    (3) sentencia -> . while
-    (4) sentencia -> . if
-    (5) sentencia -> . assign sentencia
-    (6) sentencia -> . for sentencia
-    (7) sentencia -> . while sentencia
-    (8) sentencia -> . if sentencia
-    (9) assign -> . NAME EQUALS expr
-    (10) assign -> . NAME EQUALS list
-    (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
-    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
-    (37) while -> . WHILE comparison DPOINT sentencia
-    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-
-    NAME            shift and go to state 6
-    FOR             shift and go to state 7
-    WHILE           shift and go to state 8
-    IF              shift and go to state 9
-
-    sentencia                      shift and go to state 170
-    assign                         shift and go to state 2
-    for                            shift and go to state 3
-    while                          shift and go to state 4
-    if                             shift and go to state 5
+    comparisons                    shift and go to state 170
 
 state 167
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia . ELSE DPOINT sentencia
-
-    ELSE            shift and go to state 171
-
-
-state 168
-
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT . sentencia ELSE DPOINT sentencia
+    (73) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT . sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3619,133 +3643,133 @@ state 168
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 172
+    sentencia                      shift and go to state 171
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
+state 168
+
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia . ELSE DPOINT sentencia
+
+    ELSE            shift and go to state 172
+
+
 state 169
 
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons . RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT . sentencia ELSE DPOINT sentencia
+    (1) sentencia -> . assign
+    (2) sentencia -> . for
+    (3) sentencia -> . while
+    (4) sentencia -> . if
+    (5) sentencia -> . assign sentencia
+    (6) sentencia -> . for sentencia
+    (7) sentencia -> . while sentencia
+    (8) sentencia -> . if sentencia
+    (9) assign -> . NAME EQUALS expr
+    (10) assign -> . NAME EQUALS list
+    (11) assign -> . NAME EQUALS cad
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
+    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
+    (37) while -> . WHILE comparison DPOINT sentencia
+    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (39) while -> . WHILE comparison comparisons DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
-    RPAREN          shift and go to state 173
+    NAME            shift and go to state 6
+    FOR             shift and go to state 7
+    WHILE           shift and go to state 8
+    IF              shift and go to state 9
 
+    sentencia                      shift and go to state 173
+    assign                         shift and go to state 2
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
 
 state 170
 
-    (72) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons . RPAREN DPOINT sentencia ELSE DPOINT sentencia
 
-    NAME            reduce using rule 72 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 72 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 72 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 72 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 72 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 72 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 72 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    RPAREN          shift and go to state 174
 
 
 state 171
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE . DPOINT sentencia
+    (73) if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .
 
-    DPOINT          shift and go to state 174
+    NAME            reduce using rule 73 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 73 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 73 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 73 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 73 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 73 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 73 (if -> IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia .)
 
 
 state 172
 
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia . ELSE DPOINT sentencia
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE . DPOINT sentencia
 
-    ELSE            shift and go to state 175
+    DPOINT          shift and go to state 175
 
 
 state 173
 
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN . DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia . ELSE DPOINT sentencia
 
-    DPOINT          shift and go to state 176
+    ELSE            shift and go to state 176
 
 
 state 174
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT . sentencia
-    (1) sentencia -> . assign
-    (2) sentencia -> . for
-    (3) sentencia -> . while
-    (4) sentencia -> . if
-    (5) sentencia -> . assign sentencia
-    (6) sentencia -> . for sentencia
-    (7) sentencia -> . while sentencia
-    (8) sentencia -> . if sentencia
-    (9) assign -> . NAME EQUALS expr
-    (10) assign -> . NAME EQUALS list
-    (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
-    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
-    (37) while -> . WHILE comparison DPOINT sentencia
-    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN . DPOINT sentencia ELSE DPOINT sentencia
 
-    NAME            shift and go to state 6
-    FOR             shift and go to state 7
-    WHILE           shift and go to state 8
-    IF              shift and go to state 9
+    DPOINT          shift and go to state 177
 
-    sentencia                      shift and go to state 177
-    assign                         shift and go to state 2
-    for                            shift and go to state 3
-    while                          shift and go to state 4
-    if                             shift and go to state 5
 
 state 175
 
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE . DPOINT sentencia
-
-    DPOINT          shift and go to state 178
-
-
-state 176
-
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT . sentencia ELSE DPOINT sentencia
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT . sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3757,53 +3781,47 @@ state 176
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 179
+    sentencia                      shift and go to state 178
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
+state 176
+
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE . DPOINT sentencia
+
+    DPOINT          shift and go to state 179
+
+
 state 177
 
-    (73) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .
-
-    NAME            reduce using rule 73 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 73 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 73 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 73 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 73 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 73 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 73 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
-
-
-state 178
-
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT . sentencia
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT . sentencia ELSE DPOINT sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3815,25 +3833,25 @@ state 178
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
@@ -3846,36 +3864,22 @@ state 178
     while                          shift and go to state 4
     if                             shift and go to state 5
 
+state 178
+
+    (74) if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .
+
+    NAME            reduce using rule 74 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 74 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 74 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 74 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 74 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 74 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 74 (if -> IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia .)
+
+
 state 179
 
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia . ELSE DPOINT sentencia
-
-    ELSE            shift and go to state 181
-
-
-state 180
-
-    (70) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .
-
-    NAME            reduce using rule 70 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 70 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 70 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 70 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 70 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 70 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 70 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-
-
-state 181
-
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE . DPOINT sentencia
-
-    DPOINT          shift and go to state 182
-
-
-state 182
-
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT . sentencia
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT . sentencia
     (1) sentencia -> . assign
     (2) sentencia -> . for
     (3) sentencia -> . while
@@ -3887,48 +3891,120 @@ state 182
     (9) assign -> . NAME EQUALS expr
     (10) assign -> . NAME EQUALS list
     (11) assign -> . NAME EQUALS cad
-    (55) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
-    (56) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
-    (57) for -> . FOR NAME IN NAME DPOINT assign
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
     (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
     (37) while -> . WHILE comparison DPOINT sentencia
     (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
     (39) while -> . WHILE comparison comparisons DPOINT sentencia
-    (62) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
-    (63) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
-    (64) if -> . IF comparison DPOINT sentencia
-    (65) if -> . IF comparison comparisons DPOINT sentencia
-    (66) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (67) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (68) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (69) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
-    (70) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (71) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
-    (72) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
-    (73) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
     NAME            shift and go to state 6
     FOR             shift and go to state 7
     WHILE           shift and go to state 8
     IF              shift and go to state 9
 
-    sentencia                      shift and go to state 183
+    sentencia                      shift and go to state 181
     assign                         shift and go to state 2
     for                            shift and go to state 3
     while                          shift and go to state 4
     if                             shift and go to state 5
 
+state 180
+
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia . ELSE DPOINT sentencia
+
+    ELSE            shift and go to state 182
+
+
+state 181
+
+    (71) if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .
+
+    NAME            reduce using rule 71 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 71 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 71 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 71 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 71 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 71 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 71 (if -> IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+
+
+state 182
+
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE . DPOINT sentencia
+
+    DPOINT          shift and go to state 183
+
+
 state 183
 
-    (71) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT . sentencia
+    (1) sentencia -> . assign
+    (2) sentencia -> . for
+    (3) sentencia -> . while
+    (4) sentencia -> . if
+    (5) sentencia -> . assign sentencia
+    (6) sentencia -> . for sentencia
+    (7) sentencia -> . while sentencia
+    (8) sentencia -> . if sentencia
+    (9) assign -> . NAME EQUALS expr
+    (10) assign -> . NAME EQUALS list
+    (11) assign -> . NAME EQUALS cad
+    (56) for -> . FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
+    (57) for -> . FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
+    (58) for -> . FOR NAME IN NAME DPOINT assign
+    (36) while -> . WHILE LPAREN comparison RPAREN DPOINT sentencia
+    (37) while -> . WHILE comparison DPOINT sentencia
+    (38) while -> . WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (39) while -> . WHILE comparison comparisons DPOINT sentencia
+    (63) if -> . IF LPAREN comparison RPAREN DPOINT sentencia
+    (64) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia
+    (65) if -> . IF comparison DPOINT sentencia
+    (66) if -> . IF comparison comparisons DPOINT sentencia
+    (67) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (68) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (69) if -> . IF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (70) if -> . IF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
+    (71) if -> . IF LPAREN comparison RPAREN DPOINT sentencia ELIF LPAREN comparison RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (72) if -> . IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia
+    (73) if -> . IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia ELSE DPOINT sentencia
+    (74) if -> . IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia ELSE DPOINT sentencia
 
-    NAME            reduce using rule 71 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    FOR             reduce using rule 71 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    WHILE           reduce using rule 71 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    IF              reduce using rule 71 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    $end            reduce using rule 71 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELSE            reduce using rule 71 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
-    ELIF            reduce using rule 71 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    NAME            shift and go to state 6
+    FOR             shift and go to state 7
+    WHILE           shift and go to state 8
+    IF              shift and go to state 9
+
+    sentencia                      shift and go to state 184
+    assign                         shift and go to state 2
+    for                            shift and go to state 3
+    while                          shift and go to state 4
+    if                             shift and go to state 5
+
+state 184
+
+    (72) if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .
+
+    NAME            reduce using rule 72 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    FOR             reduce using rule 72 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    WHILE           reduce using rule 72 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    IF              reduce using rule 72 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    $end            reduce using rule 72 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELSE            reduce using rule 72 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
+    ELIF            reduce using rule 72 (if -> IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia ELSE DPOINT sentencia .)
 
 WARNING: 
 WARNING: Conflicts:
@@ -3949,18 +4025,18 @@ WARNING: shift/reduce conflict for NAME in state 5 resolved as shift
 WARNING: shift/reduce conflict for FOR in state 5 resolved as shift
 WARNING: shift/reduce conflict for WHILE in state 5 resolved as shift
 WARNING: shift/reduce conflict for IF in state 5 resolved as shift
-WARNING: shift/reduce conflict for ELSE in state 89 resolved as shift
-WARNING: shift/reduce conflict for ELIF in state 89 resolved as shift
-WARNING: shift/reduce conflict for ELSE in state 109 resolved as shift
-WARNING: shift/reduce conflict for ELIF in state 109 resolved as shift
-WARNING: shift/reduce conflict for ELSE in state 120 resolved as shift
-WARNING: shift/reduce conflict for ELIF in state 120 resolved as shift
-WARNING: shift/reduce conflict for ELSE in state 134 resolved as shift
-WARNING: shift/reduce conflict for ELIF in state 134 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 90 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 90 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 110 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 110 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 121 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 121 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 135 resolved as shift
+WARNING: shift/reduce conflict for ELIF in state 135 resolved as shift
 WARNING: reduce/reduce conflict in state 26 resolved using rule (term -> factor)
 WARNING: rejected rule (element -> factor) in state 26
 WARNING: reduce/reduce conflict in state 27 resolved using rule (element -> NAME)
 WARNING: rejected rule (factor -> NAME) in state 27
-WARNING: reduce/reduce conflict in state 104 resolved using rule (element -> list)
-WARNING: rejected rule (elements -> COMMA list) in state 104
+WARNING: reduce/reduce conflict in state 105 resolved using rule (element -> list)
+WARNING: rejected rule (elements -> COMMA list) in state 105
 WARNING: Rule (elements -> COMMA list) is never reduced

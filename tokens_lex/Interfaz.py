@@ -8,14 +8,23 @@ root.geometry("800x600")
 def retrieve_input_lexico():
     inputValue1=text1.get("1.0","end-1c")
     inputValue2=text2.get("1.0","end-1c")
-    print(inputValue1)
-    print(inputValue2)
+    #print(inputValue1)
+    #print(inputValue2)
+
+    cadena1 = inputValue1.strip()
+    cadena2 = inputValue2.strip()
+    print(cadena1)    
+    ejecutar_yacc(cadena1)
+    print()
+    print(cadena2)
+    ejecutar_yacc(cadena1)
+    """
     lista1 = inputValue1.split('\n')
     lista2 = inputValue2.split('\n')
 
     #print(lista1)
     for i in range(len(lista1)):
-    	if(lista1[i].startswith('while') or lista1[i].startswith('if') or lista1[i].startswith('for')):
+    	if(lista1[i].startswith('while') or lista1[i].startswith('if') or lista1[i].startswith('elif') or lista1[i].startswith('else') or  lista1[i].startswith('for')):
     		index_padre = i
     	if '\t' in lista1[i]:
     		lista1[index_padre] = lista1[index_padre] +" "+lista1[i][1:]
@@ -25,10 +34,22 @@ def retrieve_input_lexico():
     	if not '\t' in element:
     		lista1_final.append(element)
     
-    print('Codigo programa 1: ',lista1_final)
-    for element in lista1_final:
-    	ejecutar_yacc(element)
+    print(lista1_final)
 
+    for i in range(len(lista1_final)):
+    	if lista1_final[i].startswith('if'):
+    		index_padre = i
+    	if lista1_final[i].startswith('elif') or lista1_final[i].startswith('else'):
+    		lista1_final[index_padre] = lista1_final[index_padre] + " " + lista1_final[i]
+
+    lista1_final_final = []
+    for element in lista1_final:
+    	if not (element.startswith('elif') or element.startswith('else')):
+    		lista1_final_final.append(element)
+
+    print('Codigo programa 1: ',lista1_final_final)
+    #for element in lista1_final:
+    	#ejecutar_yacc(element)
 
     for i in range(len(lista2)):
     	if(lista2[i].startswith('while') or lista2[i].startswith('if') or lista2[i].startswith('for')):
@@ -44,6 +65,7 @@ def retrieve_input_lexico():
     print('Codigo programa 2: ',lista2_final)
     for element in lista2_final:
     	ejecutar_yacc(element)
+	"""
 
 btnSint=Button(root, height=2, width=14, text="Analisis sintactico", bg="green",
                     command=lambda: retrieve_input_lexico())
