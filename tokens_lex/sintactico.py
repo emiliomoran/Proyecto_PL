@@ -90,7 +90,13 @@ def p_index(p):
 
 def p_while(p):
 	'''while : WHILE LPAREN comparison RPAREN DPOINT
-			 | WHILE LPAREN comparison comparisons RPAREN DPOINT'''
+			 | WHILE comparison DPOINT
+			 | WHILE LPAREN comparison comparisons RPAREN DPOINT
+			 | WHILE comparison comparisons DPOINT'''
+	if(len(p)==4):
+		p[0] = (p[1],p[2])
+	if(len(p)==5):
+		p[0] = (p[1],p[2],p[3])
 	if(len(p)==6):
 		p[0] = (p[1],p[3])
 	if(len(p)==7):
