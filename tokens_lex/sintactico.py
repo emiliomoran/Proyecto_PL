@@ -3,7 +3,7 @@ import lexico
 
 tokens = lexico.tokens
 errors_list=[]
-def p_sentencia(p):
+def p_sentencia(p): #definicion de sentencia/estructura de datos
 	'''sentencia : assign
 	| for
 	| while
@@ -18,7 +18,7 @@ def p_sentencia(p):
 		p[0] = ('SENTENCIA',p[1],p[2])
 
 
-def p_assign(p):
+def p_assign(p): #definicion de asignacion de variables
 	'''assign : NAME EQUALS expr
 			  | NAME EQUALS list
 			  | NAME EQUALS cad'''
@@ -63,7 +63,7 @@ def p_term(p):
 	if(len(p)==2):
 		p[0] = (p[1])
 
-def p_list(p):
+def p_list(p): #definicion de  lista
 	'''list : LCORCHETE RCORCHETE
 			| LCORCHETE element RCORCHETE
 			| LCORCHETE element elements RCORCHETE'''
@@ -78,7 +78,7 @@ def p_list(p):
 
 	p[0] = ('LISTA')
 
-def p_element(p):
+def p_element(p): #definicion numerica
 	'''element : factor
 			   | NAME
 			   | list'''
@@ -93,7 +93,7 @@ def p_elements(p):
 	if(len(p)==4):
 		p[0] = (p[2],p[3])
 
-def p_factor(p):
+def p_factor(p): #definicion numerica de valores
 	'''factor : NUMBER
 			  | MINUS NUMBER
 			  | NAME'''
@@ -102,17 +102,17 @@ def p_factor(p):
 	if(len(p)==2):
 		p[0] = (p[1])
 
-def p_cad(p):
+def p_cad(p): #definicion de cadena de caracteres
 	'''cad : COMILLA str COMILLA
 		   | COMILLAD str COMILLAD
 		   | cad LCORCHETE index RCORCHETE'''
 	p[0] = ('CADENA')
 
-def p_str(p):
+def p_str(p): #definicion de string
 	'''str : NAME
 		   | NAME str'''
 
-def p_index(p):
+def p_index(p): #definicion de indice
 	'''index : factor
 			 | factor DPOINT factor
 			 | factor DPOINT factor DPOINT factor'''
@@ -127,7 +127,7 @@ def p_index(p):
 
 	p[0] = ('INDEX')
 
-def p_while(p):
+def p_while(p):#definicion de la estructura while
 	'''while : WHILE LPAREN comparison RPAREN DPOINT sentencia
 			 | WHILE comparison DPOINT sentencia
 			 | WHILE LPAREN comparison comparisons RPAREN DPOINT sentencia
@@ -141,7 +141,7 @@ def p_while(p):
 	if(len(p)==8):
 		p[0] = (p[1],p[3],p[4],p[7])
 
-def p_comparisons(p):
+def p_comparisons(p): #definicion para anidar sentencias logicas
 	'''comparisons : AND comparison
 				   | AND comparison comparisons
 				   | OR comparison
@@ -151,13 +151,13 @@ def p_comparisons(p):
 	if(len(p)==4):
 		p[0] = (p[1],p[2],p[3])
 
-def p_bool(p):
+def p_bool(p): #definicion de valores booleanos
 	'''bool : TRUE
 			| FALSE'''
 	p[0] = (p[1])
 
 
-def p_comparison(p):
+def p_comparison(p): #definicion de las comparaciones que se realizan entre dos variables
 	'''comparison : comp DEQUALS comp
 				  | comp DIFFERENT comp
 				  | comp HIGHER comp
@@ -176,7 +176,7 @@ def p_comp(p):
 			| bool'''
 	p[0] = (p[1])
 
-def p_for(p):
+def p_for(p): #definicion del for en 3 formas conocidas
 	'''for : FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
 		   | FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
 		   | FOR NAME IN NAME DPOINT assign'''
@@ -201,7 +201,7 @@ def p_r_value(p):
 	if(len(p)==5):
 		p[0] = (p[1],p[3])
 
-def p_if(p):
+def p_if(p): #definicion de if en sus diversas formas
 	'''if : IF LPAREN comparison RPAREN DPOINT sentencia
 		  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia
 		  | IF comparison DPOINT sentencia
@@ -218,6 +218,7 @@ def p_if(p):
 		  | IF LPAREN comparison comparisons RPAREN DPOINT sentencia ELIF LPAREN comparison comparisons RPAREN DPOINT sentencia
 		  | IF comparison DPOINT sentencia ELIF comparison DPOINT sentencia
 		  | IF comparison comparisons DPOINT sentencia ELIF comparison comparisons DPOINT sentencia'''
+	#cada uno de los tokens que vayan a fotmar el arbol tambien debe de definirselo abajo
 	if(len(p)==5):
 		p[0] = (p[1],p[2],p[4])
 	if(len(p)==7):
@@ -250,7 +251,7 @@ def p_if(p):
 		p[0] = (p[1], p[2], p[4], p[5], p[6], p[8])
 	if(len(p)==11 and p[6]=='elif'):
 		p[0] = (p[1],p[2],p[3],p[5],p[6],p[7],p[8],p[10])
-def p_error(p):
+def p_error(p):		#funcion que se ejecuta en caso de generarse un error en la ejecucion de ejecutar_yacc(s)
     if p is not None:
         errors_list.append(p.type)
     else:
@@ -258,7 +259,7 @@ def p_error(p):
 
 yacc.yacc()
 
-def ejecutar_yacc(s):
+def ejecutar_yacc(s):		#funcion que realiza el arbol sintactico del programa
 	result = yacc.parse(s)
 	return result
 

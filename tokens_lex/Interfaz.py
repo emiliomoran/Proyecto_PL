@@ -108,6 +108,7 @@ def retrieve_input_sintactico():
             archivo.write(e_l[i+len1] + "\n")
     resul.configure(state='disabled')
     archivo.close()
+    e_l.clear()
 btnSint=Button(root, text="Analisis sintactico", bg="green",
                     command=lambda: retrieve_input_sintactico())
 #command=lambda: retrieve_input() >>> just means do this when i press the button

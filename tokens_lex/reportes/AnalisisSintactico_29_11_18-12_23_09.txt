@@ -1,0 +1,10 @@
+
+****************************************
+          ANALISIS SINTACTICO           
+****************************************
+programa 1:
+('SENTENCIA', ('=', 'x', 3))
+Errores en el programa 1:
+DPOINT
+programa 2:
+('SENTENCIA', ('if', 'True', ('SENTENCIA', ('=', 'x', 2)), 'else', ('SENTENCIA', ('=', 'x', 3))))

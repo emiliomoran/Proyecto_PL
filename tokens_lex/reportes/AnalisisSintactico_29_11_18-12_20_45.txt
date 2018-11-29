@@ -1,0 +1,10 @@
+
+****************************************
+          ANALISIS SINTACTICO           
+****************************************
+programa 1:
+('SENTENCIA', ('if', 'True', ('SENTENCIA', ('=', 'x', 2))))
+programa 2:
+('SENTENCIA', ('=', 'x', 3))
+Errores en el programa 2:
+ELSE
