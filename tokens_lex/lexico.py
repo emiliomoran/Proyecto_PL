@@ -88,6 +88,11 @@ lexer = lex.lex()
 
 ##PRUEBA LEX##
 
+def get_tokens(e):
+    lexer.input(e)
+    tok = lexer.token()
+    return tok.type
+
 def mostrar_tokens(cadena):
     try:
         l = []

@@ -1,0 +1,10 @@
+
+****************************************
+          ANALISIS SINTACTICO           
+****************************************
+programa 1:
+('SENTENCIA', ('=', 'x', ('+', ('*', 'x', 'x'), 'i')), ('SENTENCIA', ('while', ('>', 'z', 0), ('SENTENCIA', ('=', 'x', ('+', 'y', 'y')), ('SENTENCIA', ('=', 'z', ('-', 'z', 1)))))))
+Errores en el programa 1:
+NUMBER
+programa 2:
+None

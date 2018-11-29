@@ -1,0 +1,12 @@
+
+****************************************
+            ANALISIS LEXICO             
+****************************************
+programa 1:
+NAME
+EQUALS
+NUMBER
+programa 2:
+NAME
+EQUALS
+NUMBER
