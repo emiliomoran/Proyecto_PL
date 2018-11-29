@@ -1,0 +1,13 @@
+
+****************************************
+            ANALISIS LEXICO             
+****************************************
+programa 1:
+Error en los tokens
+Errores en el programa 1:
+|
+|
+programa 2:
+NAME
+EQUALS
+NUMBER

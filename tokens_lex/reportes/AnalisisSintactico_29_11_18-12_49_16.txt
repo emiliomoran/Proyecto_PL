@@ -1,0 +1,8 @@
+
+****************************************
+          ANALISIS SINTACTICO           
+****************************************
+programa 1:
+('SENTENCIA', ('=', 'l', 'LISTA'), ('SENTENCIA', ('=', 'x', 2), ('SENTENCIA', ('=', 'y', 4), ('SENTENCIA', ('=', 'z', 6), ('SENTENCIA', ('if', ('<', 'x', 'y'), ('SENTENCIA', ('=', 'a', ('+', 'x', 'y')), ('SENTENCIA', ('if', ('==', 'a', 'z'), ('SENTENCIA', ('=', 'b', ('/', 'a', 'z'))), 'else', ('SENTENCIA', ('for', 'i', 'in', 'l', ('=', 'x', ('+', ('*', 'x', 'x'), 'i'))), ('SENTENCIA', ('while', ('>', 'z', 0), ('SENTENCIA', ('=', 'x', ('+', 'y', 'y')), ('SENTENCIA', ('=', 'z', ('-', 'z', 1))))))))))))))))
+programa 2:
+('SENTENCIA', ('=', 'a', 2))

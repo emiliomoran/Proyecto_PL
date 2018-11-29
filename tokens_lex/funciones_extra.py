@@ -22,4 +22,6 @@ def promedio(tupla1,tupla2): #funcion que recibe los arboles(tuplas) de los prog
         for i in range(max):
             if lista1[i]==lista2[i]:
                 coincidencias+=1
+        if len(lista1)==0:
+            return "El programa 1 posee errores lexicos"
         return "Porcentaje de posible plagio:"+str(round((coincidencias/len(lista1))*100,2))+"%"

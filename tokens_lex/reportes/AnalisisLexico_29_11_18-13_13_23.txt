@@ -1,0 +1,12 @@
+
+****************************************
+            ANALISIS LEXICO             
+****************************************
+programa 1:
+No hay tokens
+programa 2:
+Errores en el programa 1:
+|
+NAME
+EQUALS
+NUMBER

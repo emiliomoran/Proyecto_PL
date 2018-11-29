@@ -260,8 +260,11 @@ def p_error(p):		#funcion que se ejecuta en caso de generarse un error en la eje
 yacc.yacc()
 
 def ejecutar_yacc(s):		#funcion que realiza el arbol sintactico del programa
-	result = yacc.parse(s)
-	return result
+    try:
+        result = yacc.parse(s)
+        return result
+    except:
+        return ()
 
 """
 while 1:

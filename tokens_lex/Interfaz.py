@@ -5,6 +5,7 @@ from sintactico import *
 from funciones_extra import *
 from lexico import *
 from sintactico import errors_list as e_l
+from lexico import errors_list_lex as e_l2
 import time
 root=Tk()
 root.geometry("1200x750")
@@ -48,12 +49,16 @@ def retrieve_input_plagio():
 
 def retrieve_input_lexico():
     resul.delete(1.0,END)
+    lista1=[]
+    lista2=[]
     inputValue1=text1.get("1.0","end-1c")
     inputValue2=text2.get("1.0","end-1c")
     cadena1 = inputValue1.strip()
     cadena2 = inputValue2.strip()
     lista1=mostrar_tokens(cadena1)
+    len11=len(e_l2)
     lista2=mostrar_tokens(cadena2)
+    len22=len(e_l2)
     resul.config(state="normal")
     inicio='\n' + '*' * 40 + '\n'+"ANALISIS LEXICO".center(40, " ") +'\n' + '*' * 40 + '\n'
     archivo = open("reportes/AnalisisLexico_" + time.strftime("%d_%m_%y") + "-" + time.strftime("%H_%M_%S") + ".txt","w")
@@ -61,14 +66,35 @@ def retrieve_input_lexico():
     archivo.write(inicio)
     resul.insert('end', "programa 1:\n")
     archivo.write("programa 1:\n")
-    for i in lista1:
-        resul.insert('end', i+"\n")
-        archivo.write(i+"\n")
+    if lista1!=None:
+        for i in lista1:
+            resul.insert('end', i + "\n")
+            archivo.write(i + "\n")
+    else:
+        resul.insert('end', "No hay tokens\n")
+        archivo.write("Error en los tokens\n")
+
+    if len11>0:
+        resul.insert('end', "Errores en el programa 1:\n")
+        archivo.write("Errores en el programa 1:\n")
+        for i in range(len11):
+            resul.insert('end', e_l2[i] + "\n")
+            archivo.write(e_l2[i] + "\n")
     resul.insert('end', "programa 2:\n")
     archivo.write("programa 2:\n")
-    for i in lista2:
-        resul.insert('end', i+"\n")
-        archivo.write(i+"\n")
+    if lista2!=None:
+        for i in lista2:
+            resul.insert('end', i + "\n")
+            archivo.write(i + "\n")
+    else:
+        resul.insert('end', "Error en los tokens\n")
+        archivo.write("No hay tokens\n")
+    if (len22-len11)>0:
+        resul.insert('end', "Errores en el programa 2:\n")
+        archivo.write("Errores en el programa 2:\n")
+        for i in range(len22-len11):
+            resul.insert('end', e_l2[i+len11] + "\n")
+            archivo.write(e_l2[i+len11] + "\n")
     archivo.close()
     resul.configure(state='disabled')
 

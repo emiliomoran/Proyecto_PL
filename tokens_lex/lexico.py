@@ -1,5 +1,5 @@
 import ply.lex as lex
-
+errors_list_lex=[]
 #Palabras reservadas
 reservadas = {
   'if' : 'IF',
@@ -78,18 +78,28 @@ def t_newline(t):
 
 #Para errores
 def t_error(t):
-    print("Caracter ilegal '%s'" % t.value[0])
+    if t is not None:
+        errors_list_lex.append(t.value[0])
+    else:
+        print("No se ingreso nada")
+    print(errors_list_lex)
 
 lexer = lex.lex()
 
 ##PRUEBA LEX##
 
 def mostrar_tokens(cadena):
-    l=[]
-    lexer.input(cadena)
-    while True:
-        tok = lexer.token()
-        if not tok: break
-        l.append(tok.type)
-    return l
+    try:
+        l = []
+        if cadena==None:
+            return l
+
+        lexer.input(cadena)
+        while True:
+            tok = lexer.token()
+            if not tok: break
+            l.append(tok.type)
+        return l
+    except:
+        print("mal")
     #Formato de la salida: LexRoken(type, value, lineno, lexpos)
