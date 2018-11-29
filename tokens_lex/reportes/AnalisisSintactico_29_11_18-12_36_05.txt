@@ -1,0 +1,8 @@
+
+****************************************
+          ANALISIS SINTACTICO           
+****************************************
+programa 1:
+('SENTENCIA', ('for', 'i', 'in', 'l', ('=', 'x', 2)))
+programa 2:
+('SENTENCIA', ('for', 'i', 'in', 'range', 10, ('=', 'y', 1)))

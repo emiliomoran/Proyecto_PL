@@ -1,0 +1,8 @@
+
+****************************************
+          ANALISIS SINTACTICO           
+****************************************
+programa 1:
+('SENTENCIA', None)
+programa 2:
+('SENTENCIA', ('=', 'a', 2))

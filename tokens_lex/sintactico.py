@@ -180,10 +180,10 @@ def p_for(p): #definicion del for en 3 formas conocidas
 	'''for : FOR NAME IN RANGE LPAREN r_value RPAREN DPOINT assign
 		   | FOR NAME IN RANGE LPAREN r_values RPAREN DPOINT assign
 		   | FOR NAME IN NAME DPOINT assign'''
-	if(len(p)==9):
-		p[0] = (p[2],p[3],p[4])
-	if(len(p)==6):
-		p[0] = (p[2],p[4])
+	if(len(p)==10):
+		p[0] = (p[1],p[2],p[3],p[4],p[6],p[9])
+	if(len(p)==7):
+		p[0] = (p[1],p[2],p[3],p[4],p[6])
 
 def p_r_values(p):
 	'''r_values : r_value COMMA r_value
