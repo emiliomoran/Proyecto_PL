@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3034144-fe41-478a-a69e-29f624a38152" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tokens_lex/Interfaz.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokens_lex/Interfaz.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokens_lex/lexico.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokens_lex/lexico.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokens_lex/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/tokens_lex/parser.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tokens_lex/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokens_lex/parsetab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tokens_lex/funciones_extra.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokens_lex/funciones_extra.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tokens_lex/sintactico.py" beforeDir="false" afterPath="$PROJECT_DIR$/tokens_lex/sintactico.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,45 +17,46 @@
     <session id="812278785">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="out" value="1" />
-          <entry key="py" value="15" />
+          <entry key="py" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="15" />
+          <entry key="Python" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="out" value="1" />
-          <entry key="py" value="960" />
+          <entry key="py" value="1225" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="960" />
+          <entry key="Python" value="1225" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tokens_lex/funciones_extra.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="55">
+              <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -64,11 +64,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tokens_lex/sintactico.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="266" column="17" lean-forward="true" selection-start-line="266" selection-start-column="17" selection-end-line="266" selection-end-column="17" />
+            <state relative-caret-position="72">
+              <caret line="254" column="15" selection-start-line="254" selection-start-column="15" selection-end-line="254" selection-end-column="15" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1543442486441" expanded="true" signature="326:328" ph="..." />
+                <marker date="1543454770721" expanded="true" signature="340:342" ph="..." />
               </folding>
             </state>
           </provider>
@@ -79,15 +79,13 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tokens_lex/Interfaz.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+            <state relative-caret-position="-506">
+              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <marker date="1543442909095" expanded="true" signature="996:1529" ph="..." />
-                <marker date="1543442909095" expanded="true" signature="1561:2081" ph="..." />
               </folding>
             </state>
           </provider>
@@ -116,24 +114,23 @@
         <option value="$PROJECT_DIR$/tokens_lex/parser.out" />
         <option value="$PROJECT_DIR$/tokens_lex/parsetab.py" />
         <option value="$PROJECT_DIR$/tokens_lex/lexico.py" />
-        <option value="$PROJECT_DIR$/tokens_lex/funciones_extra.py" />
         <option value="$PROJECT_DIR$/tokens_lex/sintactico.py" />
         <option value="$PROJECT_DIR$/tokens_lex/Interfaz.py" />
+        <option value="$PROJECT_DIR$/tokens_lex/funciones_extra.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
+    <option name="x" value="952" />
     <option name="y" value="50" />
-    <option name="width" value="978" />
-    <option name="height" value="1039" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,6 +147,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -238,7 +236,7 @@
     <frame x="-7" y="33" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.086577184" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.087248325" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -281,9 +279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="57" column="34" lean-forward="true" selection-start-line="43" selection-end-line="57" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -297,6 +292,17 @@
     <entry file="file://$PROJECT_DIR$/tokens_lex/prueba.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/tokens_lex/sintactico.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="254" column="15" selection-start-line="254" selection-start-column="15" selection-end-line="254" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1543454770721" expanded="true" signature="340:342" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tokens_lex/lexico.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -307,33 +313,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tokens_lex/funciones_extra.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tokens_lex/sintactico.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="266" column="17" lean-forward="true" selection-start-line="266" selection-start-column="17" selection-end-line="266" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1543442486441" expanded="true" signature="326:328" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tokens_lex/Interfaz.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+        <state relative-caret-position="-506">
+          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <marker date="1543442909095" expanded="true" signature="996:1529" ph="..." />
-            <marker date="1543442909095" expanded="true" signature="1561:2081" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tokens_lex/funciones_extra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
       </provider>
     </entry>

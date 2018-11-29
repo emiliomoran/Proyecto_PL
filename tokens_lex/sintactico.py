@@ -2,7 +2,7 @@ import ply.yacc as yacc
 import lexico
 
 tokens = lexico.tokens
-
+errors_list=[]
 def p_sentencia(p):
 	'''sentencia : assign
 	| for
@@ -112,7 +112,7 @@ def p_cad(p):
 	if(len(p)==5):
 		p[0] = (p[1],p[3])
 	"""
-	P[0] = ('CADENA')
+	p[0] = ('CADENA')
 
 def p_index(p):
 	'''index : factor
@@ -252,20 +252,16 @@ def p_if(p):
 		p[0] = (p[1], p[2], p[4], p[5], p[6], p[8])
 	if(len(p)==11 and p[6]=='elif'):
 		p[0] = (p[1],p[2],p[3],p[5],p[6],p[7],p[8],p[10])
-'''def p_error(p):
-	if p:
-		resultado = "Error sintactico de tipo {} en el valor {}".format( str(p.type),str(p.value))
-		return resultado
-	else:
-		resultado = "Error sintactico {}".format(p)
-		return resultado'''
+def p_error(p):
+    if p is not None:
+        errors_list.append(p.type)
+    else:
+        print("No se ingreso nada")
 
 yacc.yacc()
 
 def ejecutar_yacc(s):
 	result = yacc.parse(s)
-	print(result)
-	print(type(result))
 	return result
 
 """
