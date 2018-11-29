@@ -5,6 +5,7 @@ from sintactico import *
 from funciones_extra import *
 from lexico import *
 from sintactico import errors_list as e_l
+import time
 root=Tk()
 root.geometry("1200x800")
 text1=Text(root)
@@ -26,7 +27,11 @@ def retrieve_input_plagio():
     tupla2=ejecutar_yacc(cadena2)
     resultado=promedio(tupla1,tupla2)
     resul.config(state="normal")
-    resul.insert('end', '\n' + '*' * 40 + '\n'+resultado.center(40, " ") +'\n' + '*' * 40 + '\n')
+    contenido='\n' + '*' * 40 + '\n'+resultado.center(40, " ") +'\n' + '*' * 40 + '\n'
+    archivo = open("reportes/AnalisisDePlagio_"+time.strftime("%d_%m_%y")+"-"+time.strftime("%H_%M_%S")+".txt", "w")
+    archivo.write(contenido)
+    archivo.close()
+    resul.insert('end', contenido)
     resul.configure(state='disabled')
 
 def retrieve_input_lexico():
@@ -38,13 +43,21 @@ def retrieve_input_lexico():
     lista1=mostrar_tokens(cadena1)
     lista2=mostrar_tokens(cadena2)
     resul.config(state="normal")
-    resul.insert('end', '\n' + '*' * 40 + '\n'+"ANALISIS LEXICO".center(40, " ") +'\n' + '*' * 40 + '\n')
+    inicio='\n' + '*' * 40 + '\n'+"ANALISIS LEXICO".center(40, " ") +'\n' + '*' * 40 + '\n'
+    archivo = open("reportes/AnalisisLexico_" + time.strftime("%d_%m_%y") + "-" + time.strftime("%H_%M_%S") + ".txt","w")
+    resul.insert('end', inicio)
+    archivo.write(inicio)
     resul.insert('end', "programa 1:\n")
+    archivo.write("programa 1:\n")
     for i in lista1:
         resul.insert('end', i+"\n")
+        archivo.write(i+"\n")
     resul.insert('end', "programa 2:\n")
+    archivo.write("programa 2:\n")
     for i in lista2:
         resul.insert('end', i+"\n")
+        archivo.write(i+"\n")
+    archivo.close()
     resul.configure(state='disabled')
 
 def retrieve_input_sintactico():
@@ -57,20 +70,32 @@ def retrieve_input_sintactico():
     tupla2 = ejecutar_yacc(cadena2)
     len2=len(e_l)
     resul.config(state="normal")
-    resul.insert('end', '\n' + '*' * 40 + '\n'+"ANALISIS SINTACTICO".center(40, " ") +'\n' + '*' * 40 + '\n')
+    inicio='\n' + '*' * 40 + '\n'+"ANALISIS SINTACTICO".center(40, " ") +'\n' + '*' * 40 + '\n'
+    archivo = open("reportes/AnalisisSintactico_" + time.strftime("%d_%m_%y") + "-" + time.strftime("%H_%M_%S") + ".txt","w")
+    resul.insert('end', inicio)
+    archivo.write(inicio)
     resul.insert('end', "programa 1:\n")
+    archivo.write("programa 1:\n")
     resul.insert('end', str(tupla1) + "\n")
+    archivo.write(str(tupla1) + "\n")
     if len1>0:
         resul.insert('end', "Errores en el programa 1:\n")
+        archivo.write("Errores en el programa 1:\n")
         for i in range(len1):
             resul.insert('end', e_l[i] + "\n")
+            archivo.write(e_l[i] + "\n")
     resul.insert('end', "programa 2:\n")
+    archivo.write("programa 2:\n")
     resul.insert('end', str(tupla2) + "\n")
+    archivo.write(str(tupla2) + "\n")
     if (len2-len1)>0:
         resul.insert('end', "Errores en el programa 2:\n")
+        archivo.write("Errores en el programa 2:\n")
         for i in range(len2-len1):
             resul.insert('end', e_l[i+len1] + "\n")
+            archivo.write(e_l[i+len1] + "\n")
     resul.configure(state='disabled')
+    archivo.close()
 btnSint=Button(root, height=2, width=14, text="Analisis sintactico", bg="green",
                     command=lambda: retrieve_input_sintactico())
 #command=lambda: retrieve_input() >>> just means do this when i press the button

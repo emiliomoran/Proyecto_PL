@@ -90,7 +90,6 @@ def mostrar_tokens(cadena):
     while True:
         tok = lexer.token()
         if not tok: break
-        print(tok.type)
         l.append(tok.type)
     return l
     #Formato de la salida: LexRoken(type, value, lineno, lexpos)
