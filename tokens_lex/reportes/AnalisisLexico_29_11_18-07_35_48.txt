@@ -1,0 +1,14 @@
+
+****************************************
+            ANALISIS LEXICO             
+****************************************
+programa 1:
+ELSE
+DPOINT
+NAME
+EQUALS
+NUMBER
+programa 2:
+NAME
+EQUALS
+NUMBER

@@ -7,16 +7,28 @@ from lexico import *
 from sintactico import errors_list as e_l
 import time
 root=Tk()
-root.geometry("1200x800")
+root.geometry("1200x750")
+var = StringVar()
+label1=Label(root,textvariable=var, relief=RAISED )
+var.set("PROGRAMA 1")
+label1.place(x=60,y=40,height=30,width=400)
 text1=Text(root)
 text1.pack(padx=10, side=LEFT )
-text1.place(x=60,y=40, height=300, width=400)
+text1.place(x=60,y=80, height=300, width=400)
+var2 = StringVar()
+label2=Label(root,textvariable=var2, relief=RAISED )
+var2.set("PROGRAMA 2")
+label2.place(x=60,y=400,height=30,width=400)
 text2=Text(root)
 text2.pack(padx=0, side=LEFT)
-text2.place(x=60,y=350, height=300, width=400)
+text2.place(x=60,y=440, height=300, width=400)
+var3 = StringVar()
+label3=Label(root,textvariable=var3, relief=RAISED )
+var3.set("ANALISIS")
+label3.place(x=700,y=40,height=30,width=400)
 resul=Text(root,state='disabled')
 resul.pack(padx=10, side=LEFT)
-resul.place(x=700,y=40, height=610, width=400)
+resul.place(x=700,y=80, height=660, width=400)
 
 def retrieve_input_plagio():
     inputValue1=text1.get("1.0","end-1c")
@@ -96,21 +108,24 @@ def retrieve_input_sintactico():
             archivo.write(e_l[i+len1] + "\n")
     resul.configure(state='disabled')
     archivo.close()
-btnSint=Button(root, height=2, width=14, text="Analisis sintactico", bg="green",
+btnSint=Button(root, text="Analisis sintactico", bg="green",
                     command=lambda: retrieve_input_sintactico())
 #command=lambda: retrieve_input() >>> just means do this when i press the button
 btnSint.pack(side=TOP, pady=100 )
+btnSint.place(x=525,y=100, height=50, width=100)
 
 
-btnLex=Button(root, height=2, width=14, text="Analisis lexico",bg="green",
+btnLex=Button(root, text="Analisis lexico",bg="green",
                     command=lambda: retrieve_input_lexico())
 #command=lambda: retrieve_input() >>> just means do this when i press the button
 btnLex.pack(side=TOP, pady=50 )
+btnLex.place(x=525,y=300, height=50, width=100)
 
-btnPlagio=Button(root, height=2, width=14, text="Plagio",bg="green",
+btnPlagio=Button(root, text="Plagio",bg="green",
                     command=lambda: retrieve_input_plagio())
 #command=lambda: retrieve_input() >>> just means do this when i press the button
 btnPlagio.pack(side=TOP, pady=100)
+btnPlagio.place(x=525,y=500, height=50, width=100)
 
 
 mainloop()
