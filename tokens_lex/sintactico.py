@@ -103,16 +103,14 @@ def p_factor(p):
 		p[0] = (p[1])
 
 def p_cad(p):
-	'''cad : COMILLA NAME COMILLA
-		   | COMILLAD NAME COMILLAD
+	'''cad : COMILLA str COMILLA
+		   | COMILLAD str COMILLAD
 		   | cad LCORCHETE index RCORCHETE'''
-	"""
-	if(len(p)==4):
-		p[0] = (p[2])
-	if(len(p)==5):
-		p[0] = (p[1],p[3])
-	"""
 	p[0] = ('CADENA')
+
+def p_str(p):
+	'''str : NAME
+		   | NAME str'''
 
 def p_index(p):
 	'''index : factor
